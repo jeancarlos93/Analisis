@@ -1,0 +1,108 @@
+line!
+enable
+  configure terminal
+  username cisco privilege 15 password class
+  banner login $Acceso Restringido$
+  line console 0
+  login local
+  loggin synchronous
+  exec-timeout 30
+  exit
+  line vty 0 4
+  login local
+  loggin synchronous 
+  exec-timeout 3 15
+  exit
+  enable secret class
+  no ip domain-lookup
+  service password-encryption
+
+hostname UCR
+
+PAra Swicthes
+configure terminal
+  username cisco privilege 15 password class
+  banner login $Acceso Restringido$
+  line console 0
+  login local
+  loggin synchronous
+  exec-timeout 30
+  exit
+  line vty 5 15
+  login local
+  loggin synchronous 
+  exec-timeout 3 15
+  exit
+  enable secret class
+  no ip domain-lookup
+  service password-encryption
+
+
+  !
+  interface FastEthernet0/0
+  description Enlace hacia LAN_UCR (193.198.225.0/27)
+  ip address 193.198.225.1 255.255.255.224
+  no shutdown
+  exit
+
+  !
+  interface Serial0/0/0
+  description Enlace hacia Router_Adyacente_TEC (193.198.225.64/27)
+  ip address 193.198.225.65 255.255.255.224
+  no shutdown
+  exit
+
+  !
+  router rip
+  version 2
+  no auto-summary
+  network 193.198.225.0
+  network 193.198.225.64
+  exit
+ exit
+write
+
+
+
+router eigrp 77 //sirve para identificar la red
+no auto-summary
+network 203.15.192.128 0.0.0.31
+network 203.15.192.160 0.0.0.3
+exit
+
+
+Protocolo guardado como Ejercicio Distribucion
+--------------------------------------------Redistribucion de los router que se encuentran dentro del mismo--------------------  
+-----------------------------------------Aqui estaban configurados los router rip y ospf dentro del rip---------------------------------------
+
+RouterRIP(config)#router rip 
+RouterRIP(config-router)#redistribute ospf  10 metric 2
+RouterRIP(config-router)#exit
+RouterRIP(config)#exit
+
+RouterRIP#configure terminal 
+RouterRIP(config)#router ospf 10
+RouterRIP(config-router)#redistribute rip subnets 
+RouterRIP(config-router)#exit
+RouterRIP(config)#exit
+
+
+-----------------------Aqui estaban configurados los router eigrp y ospf dentro del eigrp----------------------------------------- 
+
+RouterEIGRP#configure terminal 
+RouterEIGRP(config)#router eigrp
+RouterEIGRP(config-router)#redistribute ospf 10 metric 10000 100 255 1 1500
+RouterEIGRP(config-router)#exit
+
+RouterEIGRP#configure terminal 
+RouterEIGRP(config)#router ospf 10
+RouterEIGRP(config-router)#redistribute eigrp 77 subnets 
+RouterEIGRP(config-router)#exit
+
+
+
+
+  
+
+
+
