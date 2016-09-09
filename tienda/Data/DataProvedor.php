@@ -6,7 +6,7 @@ include_once '../Domain/Proveedor.php';
 function getProveedores() {
     
     $mysqli = getConnection();
-    $sql = "select * from Proveedor;";
+    $sql = "select * from proveedor;";
     $resultado = $mysqli->query($sql);
     $vector = [];
     
