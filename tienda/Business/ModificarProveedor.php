@@ -13,7 +13,7 @@ $codigo = trim($_POST['codigo']);
 $nombre = trim($_POST['nombre']);  //asocia los name de los campos de las interfaces
 $apellido = $_POST['apellido'];
 $correo = $_POST['correo'];
-$direccion = $_POST['direccion'];
+$telefono = $_POST['telefono'];
 $empresa = $_POST['empresa'];
                    
 $proveedor = new Proveedor();
@@ -21,6 +21,6 @@ $proveedor->setCodigo($codigo);
 $proveedor->setNombre($nombre);
 $proveedor->setApellido($apellido);
 $proveedor->setCorreo($correo);
-$proveedor->setDirecion($direccion);
+$proveedor->setTelefono($telefono);
 $proveedor->setEmpresa($empresa);
 modificarProveedor($proveedor);

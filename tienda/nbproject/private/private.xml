@@ -2,19 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/tienda/View/Modificar_Proveedor.php</file>
-            <file>file:/C:/xampp/htdocs/tienda/View/Registrar_Usuarios.php</file>
-            <file>file:/C:/xampp/htdocs/tienda/Business/ModificarProveedor.php</file>
-            <file>file:/C:/xampp/htdocs/tienda/Domain/Proveedor.php</file>
-            <file>file:/C:/xampp/htdocs/tienda/Business/RegistrarProveedor.php</file>
-            <file>file:/C:/xampp/htdocs/tienda/View/Header.php</file>
-            <file>file:/C:/xampp/htdocs/tienda/View/Registrar_Proveedor.php</file>
-            <file>file:/C:/xampp/htdocs/tienda/Data/Data.php</file>
-            <file>file:/C:/xampp/htdocs/tienda/Data/DataProvedor.php</file>
-            <file>file:/C:/xampp/htdocs/tienda/View/Listado_Proveedores.php</file>
-            <file>file:/C:/xampp/htdocs/tienda/Business/IngresarUsuarios.php</file>
-        </group>
         <group name="examen"/>
+        <group>
+            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda/View/Registrar_Usuarios.php</file>
+            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda/Business/ModificarUsuario.php</file>
+            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda/View/Modificar_Usuario.php</file>
+            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda/View/Listado_Usuarios.php</file>
+            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda/Data/DataUsuario.php</file>
+            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda/Domain/Usuario.php</file>
+            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda/Business/IngresarUsuarios.php</file>
+            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda/View/Modificar_Proveedor.php</file>
+        </group>
     </open-files>
 </project-private>

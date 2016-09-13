@@ -26,7 +26,7 @@ if($_POST['contrasenia1Usuario'] == $_POST['contrasenia2Usuario'] ){
         $usuario->setCedula($cedula);
         $usuario->setContrasenia($contrasenia);
         $usuario->setTipoEmpleado($tipoEmpleado);
-        registrarUsuario($usuario);
+        modificarUsuario($usuario);
         
     }
     else {

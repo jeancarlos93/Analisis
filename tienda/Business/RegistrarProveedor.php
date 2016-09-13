@@ -11,8 +11,8 @@ include_once '../Domain/Proveedor.php';
 
 $nombre = trim($_POST['nombre']);  //asocia los name de los campos de las interfaces
 $apellido = $_POST['apellido'];
+$telefono = $_POST['telefono'];
 $correo = $_POST['correo'];
-$direccion = $_POST['direccion'];
 $empresa = $_POST['empresa'];
 
    
@@ -20,7 +20,7 @@ $proveedor = new Proveedor();
 $proveedor->setNombre($nombre);
 $proveedor->setApellido($apellido);
 $proveedor->setCorreo($correo);
-$proveedor->setDirecion($direccion);
+$proveedor->setTelefono($telefono);
 $proveedor->setEmpresa($empresa);
 registrarProveedor($proveedor);
 

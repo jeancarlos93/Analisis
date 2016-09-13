@@ -10,9 +10,11 @@ class Proveedor{
     var $codigo;
     var $nombre;
     var $apellido;
+    var $telefono;
     var $correo;
-    var $direccion;
     var $empresa;
+    var $estado;
+    
     
     function setCodigo($codigo) {
         $this->codigo= $codigo;
@@ -46,12 +48,12 @@ class Proveedor{
         return $this->correo;
     }
     
-    function setDirecion($direcion) {
-        $this->direccion= $direcion;
+    function setTelefono($tel) {
+        $this->telefono= $tel;
     }
     
-    function getDirecion() {
-        return $this->direccion;
+    function getTelefono() {
+        return $this->telefono;
     }
     
     function setEmpresa($empresa) {
@@ -62,8 +64,12 @@ class Proveedor{
         return $this->empresa;
     }
     
+    function setEstado($estado) {
+        $this->estado= $estado;
+    }
     
-    
-    
+    function getEstado() {
+        return $this->estado;
+    }  
 }
 

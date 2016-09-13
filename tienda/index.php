@@ -30,7 +30,7 @@ and open the template in the editor.
     
      <footer>
         <!--<div class='define'>-->
-        <p>Contenido del pie de página</p>
+        <p>Contenido del pie de pÃ¡gina</p>
         </div>            
     </footer>
 </html>
