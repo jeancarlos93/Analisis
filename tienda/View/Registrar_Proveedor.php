@@ -38,7 +38,7 @@
                 <label for="Empresa">Empresa:</label>
                 <input type="text" id="camposTexto" id="name" name="empresa" required/><br>
 		 <br>               
-                 <button class="submit" type="submit"">Guardar</button>
+                 <button class="submit" type="submit" >Registrar</button>
 		 <!--<input id="boton" typ e=button onclick="preguntar()" value="Guardar" />-->
 	    </form>
         </div>

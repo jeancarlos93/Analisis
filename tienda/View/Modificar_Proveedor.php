@@ -1,7 +1,7 @@
 <html>
     <head>
          <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
-          <link href="../css/formularios.css" rel="stylesheet"/>
+         <link href="../css/formularios.css" rel="stylesheet"/>
          <!--para la funcion de #header-->      
          
           <?php
@@ -18,7 +18,7 @@
     
     <body>
         <div id="header"></div>
-        <h1> Registrar Proveedor</h1>
+        <h1> Datos Proveedor</h1>
         
           <?php
           
@@ -28,6 +28,7 @@
             
           ?>
        <?php echo $proveedor->getCodigo() ?>
+        
         <div id="registrar proveedor">
             <form class="form" method="post" action="../Business/ModificarProveedor.php" accept-charset="UTF-8" >
             

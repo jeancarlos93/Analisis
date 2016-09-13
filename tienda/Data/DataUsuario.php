@@ -115,7 +115,7 @@ function modificarUsuario($usuario) {
     }
     
     $conn->close();
-    header("Location: ../index.php");
+    header("Location: ../Business/Listado_Usuarios.php");
 //    devolver a indice
     die();
     

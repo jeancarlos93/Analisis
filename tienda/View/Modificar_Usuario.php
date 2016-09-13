@@ -1,6 +1,7 @@
 <html>
     <head>
          <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
+         <link href="../css/formularios.css" rel="stylesheet"/>
          <!--para la funcion de #header-->      
          
           <?php
@@ -26,44 +27,42 @@
             $usuario = getUsuario($cedulaUsuario);
 
           ?>
-      
+     
         <div id="modificarUsuario">
-            <form class="form" method="post" action="../Business/ModificarUsuario.php" accept-charset="UTF-8" >
+            <section>
+                <form class="form" method="post" action="../Business/ModificarUsuario.php" accept-charset="UTF-8" >
             
                 <label for="nombreUsuario">Nombre:</label>
-                <input title="Es necesario su nombre" type="text" id="name" name="nombreUsuario" value="<?php echo $usuario->getNombre() ?>" required/>
-		<label class="error" for="name" id="name_error">Debe introducir su nombre.</label><br><br>
-                
+                <input title="Es necesario su nombre" type="text" id="name" name="nombreUsuario" value="<?php echo $usuario->getNombre() ?>" onkeyup=" validar_letras(this.value,this.id)" onchange="validar_letras(this.value,this.id)" onkeypress="return soloLetras(event)" required/>
+		<br><br>
                 <label for="apellidoUsuario">Apellido:</label>
-                <input type="text" id="name" name="apellidoUsuario" value="<?php echo $usuario->getApellido() ?>"required/>
-		<label class="error" for="name" id="name_error">Debe introducir su apellido.</label><br><br>
-                
+                <input type="text" id="name" name="apellidoUsuario" value="<?php echo $usuario->getApellido() ?>" onkeyup=" validar_letras(this.value,this.id)" onchange="validar_letras(this.value,this.id)" onkeypress="return soloLetras(event)"  required/>
+		<br><br>
                 <label for="cedulaUsuario">Cedula:</label>
-                <input type="text" id="name" name="cedulaUsuario"  value="<?php echo $usuario->getCedula() ?>" maxlength="9" required/>
-		<label class="error" for="name" id="name_error">Debe introducir su Cedula.</label><br><br>
-                
+                <input type="text" id="name" name="cedulaUsuario"  value="<?php echo $usuario->getCedula() ?>" maxlength="9" onkeyup="validar_cedula(this.value,this.id)" onchange="validar_cedula(this.value,this.id)"  onkeypress="return SoloNumeros(event)" required/>
+		<br><br>
                 <label for="telefonoUsuario">Telefono:</label>
-                <input type="text" id="name" name="telefonoUsuario" value="<?php echo $usuario->getTelefono() ?>" maxlength="8" required/>
-		<label class="error" for="name" id="name_error">Debe introducir su telefono.</label><br><br>  
-                
-            <label for="tipoEmpleado">Tipo de Empleado:</label> <select name="tipoEmpleado" key="tipoEmpleado" class="tipoEmpleado" required >
+                <input type="text" id="name" name="telefonoUsuario" value="<?php echo $usuario->getTelefono() ?>" maxlength="8" onkeyup="validar_numero(this.value,this.id)" onkeypress="return SoloNumeros(event)" onchange="validar_numero(this.value,this.id)" required/>
+		<br><br>
+            <label for="tipoEmpleado">Tipo de Empleado:</label> <select name="tipoEmpleado" key="tipoEmpleado" class="tipoEmpleado" onChange="submit" required >
                              <option value="Empleado">Vendedor</option>
                              <option value="Administrador">Administrador</option>
                             
                 </select ><br/>
-                
+                <br><br>
                 <label for="contrasenia1Usuario">Contrasenia:</label>
                 <input type="text" id="name" name="contrasenia1Usuario" value="<?php echo $usuario->getContrasenia() ?>" required/>
-		<label class="error" for="name" id="name_error">Debe introducir la contraseña.</label><br><br>  
-                
+		<br><br>
                 <label for="contrasenia2Usuario"> Confirmar Contrasenia:</label>
-                <input type="text" id="name" name="contrasenia2Usuario" required/>
-		<label class="error" for="name" id="name_error">Debe confirmar la contraseña.</label><br><br> 
-                
-                <button id="boton" type="submit" class="btn btn-default">Modificar</button>
+                <input type="text" id="name" name="contrasenia2Usuario" onkeyup="validar_password(this.value,this.id)" onchange="validar_password(this.value,this.name)"  required/>
+		<br><br>
+                <button class="submit" type="submit">Modificar</button>
 		
 	    </form>
-        </div>        
+            
+           </section> 
+        </div>    
+          
     </body>
     
     <footer>

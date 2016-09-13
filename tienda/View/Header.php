@@ -67,11 +67,11 @@
             <ul>
                 <li><a class="active" href="#">Menu</a></li>
                 <li><a href="View/Listado_Usuarios.php">Usuarios</a></li>                   
-                <li><a href="/tienda/View/Listado_Proveedores.php">Proveedor</a></li>
-                <li><a href="#">Cliente</a></li>                   
-                <li><a href="#">Factura</a></li> 
+                <li><a href="View/Listado_Proveedores.php">Proveedor</a></li>
+                <li><a href="View/Cliente.php">Cliente</a></li>
+                <li><a href="View/Listar_Productos.php">Productos</a></li> 
                 <li><a href="#">Inventario</a></li> 
-                <li><a href="#">Ingresar Productos</a></li> 
+                <li><a href="#">Factura</a></li>
                 <li><a href="#">Catalogo de Cuentas</a></li>                   
                 <li><a href="#">Iniciar Sesion</a></li>  
             </ul>                         

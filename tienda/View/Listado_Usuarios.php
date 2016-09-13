@@ -3,18 +3,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <script src="../JS/jquery-1.12.2.min.js" type="text/javascript"> </script>
+        <script src="../JS/jquery-migrate-1.2.1.min.js" type="text/javascript"> </script>
+        <script src="../JS/Autocomplete.js" type="text/javascript"> </script>
         
-        <link href="../css/style.css" type="text/css" rel="stylesheet" />
-        <link href="../css/dataTables.css" type="text/css" rel="stylesheet"/>
-        <link href="../css/jquery-ui.css" type="text/css" rel="stylesheet"/>
+        <link href="../css/estiloTablas.css" type="text/css" rel="stylesheet"/>
         
-        <script src="../JS/jquery.js" type="text/javascript"> </script>
-        <script src="../JS/jquery-ui.js" type="text/javascript"> </script>
-        <script src="../JS/datatables.js" type="text/javascript"> </script>
-        <script src="../JS/functions.js" type="text/javascript"> </script>
-        
-      <!--   <script type="text/javaScript" src="JS/funciones.js"></script> -->
-
         <?php
         include_once '../Data/DataUsuario.php';
         include_once '../Domain/Usuario.php';
@@ -30,45 +24,19 @@
     <body>
         <div id="header"></div>
         <div id="contenedor" class="container">
-            <br><br><br><br> 
-            <h1 id="h1">Listado de Usuarios</h1>
+            <center><h1 id="h1">Listado de Usuarios</h1></center>
            
-
              <?php
-             
-             $usuario = getListaUsuarios();
-             
-                
-             //   $cedulaUsuario = $_GET['cedulaUsuario'];
-             //   $elimincion = eliminarUsuario($cedulaUsuario);
-
-            ?>
-            
-            <?php
+                $usuario = getListaUsuarios();
                 echo '<td><a href= "Registrar_Usuarios.php">Nuevo Usuario</a></td>'; 
-            ?>  
-            
-    <!-- Metodo Consultar -->
-    
-    <form>  
-<br><br>
-<div  id="nombreD">
-    <p>Ingrese una palabra clave</p>
-            <label for="nombre">Nombre</label>
-            <input type="text" name="nombreId" id="nombreId"  size="30" width="2"  hspace="10" align="lefth" ><button  type="button" onclick="buscarCliente()">Buscar</button>
-            <br><br>
-            <div id="tabla"> 
-            </div>
-</div></form><br>
-
-    <!-- Fin Metodo Consultar -->
-    
-      <br><br><br><br> 
-
-    <!--    <input type="text" id="kwd_search" value=""/><p><input type="submit" value="Buscar"/></p>  -->
-
+            ?>
+      <br><br>      
       <section>
-            <table id="table"  class ="table table-hover">
+      <label align="right" for="kwd_search">Busqueda:</label> <input type="text" id="kwd_search" value=""/>  
+      
+       <br>
+        <table id="my-table" class ="table table-hover">  
+
                 <thead>
                     <tr id="tr">
                         <th class="text-primary">Cedula</th>
@@ -101,8 +69,9 @@
                     echo '<td><a href= "../Business/eliminarUsuario.php?cedulaUsuario='.$usuario[$i]->getCedula().'">Eliminar</a></td>'; 
                     echo '<td><a href="Modificar_Usuario.php?cedulaUsuario='.$usuario[$i]->getCedula().'">Modificar</a></td>';
                     ?> 
-<?php
-                    echo '</tr>';
+
+                    </tr>;
+            <?php   
                 }                
                 ?>
                 </tbody>

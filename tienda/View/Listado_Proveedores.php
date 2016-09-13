@@ -4,26 +4,9 @@
         <meta charset="UTF-8">
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="../JS/funciones.js"></script>
+        <link href="../css/estiloTablas.css" type="text/css" rel="stylesheet"/>
+        
        
-        <style>
-            table {
-                border-collapse: collapse;
-                width: 100%;
-            }
-
-            th, td {
-                text-align: left;
-                padding: 8px;
-            }
-
-            tr:nth-child(even){
-                background-color: #f2f2f2}
-
-            th {
-                background-color: #DDA0DD;
-                color: black;
-            }
-        </style>
                 
         <?php
         include_once '../Data/DataProvedor.php';
@@ -66,10 +49,10 @@
                 <thead>
                     <tr id="tr">
                         <th class="text-primary">Codigo</th>
-                         <th class="text-primary">Nombre</th>
+                        <th class="text-primary">Nombre</th>
                         <th class="text-primary">Apellido</th>
                         <th class="text-primary">Correo</th>
-                        <th class="text-primary">DirecciÃ³n</th>
+                        <th class="text-primary">Direccion</th>
                         <th class="text-primary">Empresa</th>
                         <th class="text-primary">**</th>
                         <th class="text-primary">**</th>
@@ -101,7 +84,7 @@
         
         <footer>
             <div class='define'>
-                <p>Contenido del pie de pÃ¡gina</p>
+                <p>Contenido del pie de pagina</p>
             </div>            
         </footer>
     </body>
