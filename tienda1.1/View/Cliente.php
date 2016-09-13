@@ -28,11 +28,7 @@
 <a href="Registrar_Cliente.php">Nuevo cliente</a>
 <br><br>
 <div  id="nombreD">
-    <form>
-            <label for="nombre">Ingrese una palabra clave</label>
-            <input type="text" name="nombreId" id="nombreId"  size="30" width="2"  hspace="10" align="lefth">
-            <button  type="button" onclick="buscarCliente()">Buscar</button>
-            <br><br></form></div>
+    </div>
             <div id="tabla"></div>   
         
             
@@ -41,7 +37,10 @@
                 $json = getCliente();
                 ?>
             
-            <table id="tr" class ="table table-hover">
+     <label align="right" for="kwd_search">Busqueda:</label> <input type="text" id="kwd_search" value=""/>  
+      
+       <br><br>
+        <table id="my-table" class ="table table-hover">  
                 <thead>
                    
                     <tr id="tr">
@@ -58,8 +57,12 @@
                 </thead>
                 <tbody id="td">
                 <?php
+                
+                
                 for($i = 0; $i<count($json); $i++){
-           
+                    ?> 
+                        <tr onclick="document.location = '#';">
+                    <?php
                     echo '<td class="text-success">'.$json[$i]->getCodigo().'</td>'; 
                     echo '<td class="text-success">'. $json[$i]->getNombre() .'</td>'; 
                     echo '<td class="text-success">'. $json[$i]->getApellido() .'</td>'; 
@@ -67,8 +70,9 @@
                     echo '<td class="text-success">'. $json[$i]->getTelefono() .'</td>'; 
                     echo "<td>".'<a href= "ModificarCliente.php?codigoCliente='.$json[$i]->getCodigo().'">Modificar</a>'. "</td>";
                     echo "<td>" .'<a href= "../Business/EliminarCliente.php?codigoCliente='.$json[$i]->getCodigo().'">Eliminar</a>'. "</td>";
-                    echo '</tr>';
-                }                
+                     ?>
+                    </tr>
+             <?php    }                
                 ?>
                 </tbody>
             </table>            

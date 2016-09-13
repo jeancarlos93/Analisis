@@ -27,3 +27,22 @@ function validacion() {
          } 
      }            
  }
+ 
+  function buscarCliente(){  
+         var palabraClave = document.getElementById("nombreId").value; 
+        if (window.XMLHttpRequest) {
+        
+            xmlhttp = new XMLHttpRequest();
+        } else {
+         
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("contenedor").innerHTML = xmlhttp.responseText;    
+            }
+        };
+        xmlhttp.open("GET","../Data/DataCliente.php?palabraClave="+palabraClave+"&opcion=0",true);
+         
+        xmlhttp.send();      
+    }

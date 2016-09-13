@@ -5,7 +5,7 @@
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="../JS/funciones.js"></script>
         <link href="../css/estiloTablas.css" type="text/css" rel="stylesheet"/>
-        
+        <script src="../JS/Autocomplete.js" type="text/javascript"> </script>
        
                 
         <?php
@@ -34,18 +34,12 @@
                 echo '<td><a href= "Registrar_Proveedor.php">Nuevo Proveedor</a></td>';                
             ?>  
             <form class="form" method="post" action="../Business/ConsultarProveedor.php" accept-charset="UTF-8" >
-            <center><SELECT NAME="opcionBusqueda"> 
-               <OPTION VALUE="0" selected>Codigo</OPTION>
-               <OPTION VALUE="1">Nombre</OPTION>                
-            </SELECT></center>
-            <label>Buscar por </label><input type="text" name="campo">
-<!--              $opcion = $_POST['opcionBusqueda'];?> -->
             
-            <button class="submit"  type="submit">Buscar</button>
-            </form>
-            
-            
-            <table id="tr" class ="table table-hover">
+                <label align="right" for="kwd_search">Busqueda:</label> <input type="text" id="kwd_search" value=""/>  
+      
+       <br>
+        <table id="my-table" class ="table table-hover">  
+
                 <thead>
                     <tr id="tr">
                         <th class="text-primary">Codigo</th>
@@ -74,9 +68,9 @@
                     echo '<td><a href="../Business/EliminarProveedor.php?codigoProveedor='.$json[$i]->getCodigo().'">Eliminar</a></td>';
                     echo '<td><a href="Modificar_Proveedor.php?codigoProveedor='.$json[$i]->getCodigo().'">Modificar</a></td>';
                     ?> 
-<?php
-                    echo '</tr>';
-                }                
+
+                    </tr>;
+            <?php    }                
                 ?>
                 </tbody>
             </table>            

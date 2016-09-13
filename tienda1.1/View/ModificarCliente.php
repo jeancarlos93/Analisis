@@ -34,6 +34,7 @@
         <div id="registrarCliente">
             <form class="form" method="post" action="../Business/Modificar_Cliente.php" accept-charset="UTF-8" >
              
+		  <input title="Es necesario su nombre" type="hidden" name="codigo" id="name" value="<?php echo $cliente->getCodigo() ?>"/>           
 		                
 		<label for="nombre">Nombre:</label>
                 <input title="Es necesario su nombre" type="text" name="nombre" id="name" value="<?php echo $cliente->getNombre() ?>" required/>
