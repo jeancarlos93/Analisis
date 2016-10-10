@@ -35,7 +35,10 @@ function getObtenerProducto($codigoProducto) {
 
 function getProductos() {
     $mysqli = getConnection();
-    $sql = "select * from Producto where estado = 1;";
+    $sql = "select p.codigo,p.descripcion,marca,categoria, p.precioUnitario,p.precioVenta
+from producto p inner join categoriaProd c on c.id = p.idCategoriaProd
+inner join marcaProd m on m.id=p.idmarcaProd
+where estado = 1;";
     $resultado = $mysqli->query($sql);
     $vector = [];
 
@@ -47,8 +50,8 @@ function getProductos() {
             $productos->setDescripcion($row['descripcion']);
             $productos->setPrecioUnitario($row['precioUnitario']);
             $productos->setPrecioVenta($row['precioVenta']);
-            $productos->setMarca($row['idmarcaProd']);
-            $productos->setCategoria($row['idCategoriaProd']);
+            $productos->setMarca($row['marca']);
+            $productos->setCategoria($row['categoria']);
             
             array_push($vector, $productos);
         }

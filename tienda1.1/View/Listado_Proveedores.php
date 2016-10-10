@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="../JS/funciones.js"></script>
-        <link href="../css/estiloTablas.css" type="text/css" rel="stylesheet"/>
+        <link href="../css/tablas.css" type="text/css" rel="stylesheet"/>
         <script src="../JS/Autocomplete.js" type="text/javascript"> </script>
        
                 
@@ -18,27 +18,32 @@
                 $("#header").load("../View/Header.php"); 
             });
         </script>  
-        
+           
     </head>
     <body>
         <div id="header"></div>
         <div id="contenedor" class="container">
             
-            <center><h1 id="h1">Listado de proveedores</h1></center>
+            <center><h1 class="h1" id="h1">Listado de proveedores</h1></center>
             <?php
                 $json = getProveedores();
             ?>
             
-            
+            <div class="nuevo">
             <?php
                 echo '<td><a href= "Registrar_Proveedor.php">Nuevo Proveedor</a></td>';                
             ?>  
-            <form class="form" method="post" action="../Business/ConsultarProveedor.php" accept-charset="UTF-8" >
+            </div>    
+    <!--   <form class="form" method="post" action="../Business/ConsultarProveedor.php" accept-charset="UTF-8" > -->
             
-                <label align="right" for="kwd_search">Busqueda:</label> <input type="text" id="kwd_search" value=""/>  
-      
+        <div class="busqueda">    
+            <label align="right" for="kwd_search">Busqueda de Proveedores:</label> <input type="text" id="kwd_search" value=""/>  
+        </div>
+                
+        <div class="icono"><img src="../Image/proveedor.png" ></div>
+            
        <br>
-        <table id="my-table" class ="table table-hover">  
+        <table id="my-table" class ="table">  
 
                 <thead>
                     <tr id="tr">
@@ -48,8 +53,8 @@
                         <th class="text-primary">Correo</th>
                         <th class="text-primary">Direccion</th>
                         <th class="text-primary">Empresa</th>
-                        <th class="text-primary">**</th>
-                        <th class="text-primary">**</th>
+                        <th class="text-primary">Eliminar</th>
+                        <th class="text-primary">Modificar</th>
                         <!--<th hidden="id">id</th>-->
                     </tr>
                 </thead>
@@ -65,8 +70,8 @@
                     echo '<td class="text-success">'. $json[$i]->getTelefono() .'</td>'; 
                     echo '<td class="text-success">'. $json[$i]->getCorreo() .'</td>';                    
                     echo '<td class="text-success">'. $json[$i]->getEmpresa() .'</td>'; 
-                    echo '<td><a href="../Business/EliminarProveedor.php?codigoProveedor='.$json[$i]->getCodigo().'">Eliminar</a></td>';
-                    echo '<td><a href="Modificar_Proveedor.php?codigoProveedor='.$json[$i]->getCodigo().'">Modificar</a></td>';
+                    echo '<td><a href="Business/EliminarProveedor.php?codigoProveedor='.$json[$i]->getCodigo().'">'?><img src="../Image/delete.png" width="20px" height="20px"><?php echo'</a></td>'; 
+                    echo '<td><a href="Modificar_Proveedor.php?codigoProveedor='.$json[$i]->getCodigo().'">'?><img src="../Image/editar.png" width="20px" height="20px"><?php echo'</a></td>';
                     ?> 
 
                     </tr>;
@@ -77,9 +82,7 @@
         </div>   
         
         <footer>
-            <div class='define'>
-                <p>Contenido del pie de pagina</p>
-            </div>            
+            
         </footer>
     </body>
 </html>

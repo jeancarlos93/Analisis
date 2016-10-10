@@ -1,42 +1,60 @@
-
 <html>
     <head>
          <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
          <!--<script type="text/javascript" src="../JS/funciones.js"></script>-->
-         <link href="../css/formularios.css" rel="stylesheet"/> 
-         
-         <!--para la funcion de #header-->        
+         <link href="../css/formularios.css" type="text/css" rel="stylesheet"/>
+         <script src="../JS/Validaciones.js" type="text/javascript"></script>
+         <script src="../JS/maskedInput.js" type="text/javascript"></script>
+                
       <script> 
             $(function(){ 
                 $("#header").load("../View/Header.php");
             });
-      </script>      
+      </script> 
+      
+      <script>
+      $(document).ready(function($){
+          
+           $('#telefono').mask("9999 9999",{placeholder: "____-____"});
+      
+          $('#cedula').mask("9 9999 9999",{placeholder: "_-____-____"});
+
+          $('#precioUnitario').mask("99999999",{placeholder: "â‚¡        "});
+          
+          $('#precioVenta').mask("99999999",{placeholder: "â‚¡           "});
+          
+      });
+      
+      </script>
+      
     </head>
     
     <body>                 
 
         <div id="header"></div>
           <br><br><br><br>
-        <h1> Registrar Proveedor</h1>
+    <center><h1 class="tituloRegistros"> Registrar Proveedor</h1></center>
+    
+    <div class="iconoRegistro"><img src="../Image/proveedor.png" ></div>
         
-    <div id="registrar proveedor">
+    <div class="registrar">
             <form class="form" method="post" action="../Business/RegistrarProveedor.php" accept-charset="UTF-8" >
             
                 <label for="nombre">Nombre:</label>
-                <input title="Es necesario su nombre" type="text" id="name" name="nombre" required/><br>
+                <input type="text" id="nombre" name="nombre" onkeypress="return soloLetras(event)" onkeyup=" validar_letras(this.value,this.id)" onchange="validar_letras(this.value,this.id)"  required/><br>
 		<!--<label class="error" for="name" id="name_error">Debe introducir su nombre.</label><br><br>-->
                 <br>              
                 <label for="apellido">Apellido:</label>
-                <input type="text" id="name" name="apellido" required/><br>
+                <input type="text" id="apellido" name="apellido" onkeypress="return soloLetras(event)"onkeyup=" validar_letras(this.value,this.id)" onchange="validar_letras(this.value,this.id)"  required/><br>
 		 <br>               
                 <label for="telefono">Telefono:</label>
-                <input type="tel" id="tel" name="telefono" required/><br>
+                <input type="text" id="telefono" name="telefono" maxlength="8" onkeyup="validar_numero(this.value,this.id)" onkeypress="return SoloNumeros(event)" onchange="validar_numero(this.value,this.id)" required />
 		 <br>            
                 <label for="Correo">Correo:</label>
-		<input type="email" name="correo" placeholder="info@developerji.com" required /><br>
+		<input type="email" id="correo" name="correo" placeholder="info@developerji.com" onkeyup=" validar_correo(this.value,this.id)" onchange="validar_correo(this.value,this.id)"  required /><br>
 		  <br>              
                 <label for="Empresa">Empresa:</label>
-                <input type="text" id="camposTexto" id="name" name="empresa" required/><br>
+                <input type="text" id="camposTexto" id="name" name="empresa" onkeypress="return soloLetras(event)" onkeyup=" validar_letras(this.value,this.id)" onchange="validar_letras(this.value,this.id)"  required/><br>
 		 <br>               
                  <button class="submit" type="submit" >Registrar</button>
 		 <!--<input id="boton" typ e=button onclick="preguntar()" value="Guardar" />-->

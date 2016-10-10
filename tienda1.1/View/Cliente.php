@@ -6,7 +6,7 @@
         <script src="../JS/jquery-migrate-1.2.1.min.js" type="text/javascript"> </script>
         <script src="../JS/Autocomplete.js" type="text/javascript"> </script>
         
-        <link href="../css/estiloTablas.css" type="text/css" rel="stylesheet"/>
+        <link href="../css/tablas.css" type="text/css" rel="stylesheet"/>
         
         <?php
         include_once '../Data/DataCliente.php';
@@ -23,24 +23,26 @@
     <body>
         <div id="header"></div>
         <div id="contenedor" class="container">
-            <center><h1 id="h1">Listado de Clientes</h1></center>
-           
-<a href="Registrar_Cliente.php">Nuevo cliente</a>
-<br><br>
-<div  id="nombreD">
-    </div>
-            <div id="tabla"></div>   
-        
-            
-            <div id="contenedor" class="container">
+            <center><h1 id="h1" class="h1">Listado de Clientes</h1></center>
+       
+        <div id="contenedor" class="container">
             <?php
                 $json = getCliente();
-                ?>
+            ?>
+        <div class="nuevo">
+            <?php
+                echo'<td><a href="Registrar_Cliente.php">Nuevo cliente</a></td>';
+            ?>
+             
+        </div> 
             
-     <label align="right" for="kwd_search">Busqueda:</label> <input type="text" id="kwd_search" value=""/>  
+        <div class="busqueda">    
+            <label align="right" for="kwd_search">Busqueda de Clientes:</label> <input type="text" id="kwd_search" value=""/>   
+        </div>       
       
-       <br><br>
-        <table id="my-table" class ="table table-hover">  
+            <div class="icono"><img src="../Image/clientes.png" ></div>
+            
+        <table id="my-table" class ="table"> 
                 <thead>
                    
                     <tr id="tr">
@@ -50,8 +52,8 @@
                         <th class="text-primary">Apellido</th>
                         <th class="text-primary">Cedula</th>
                         <th class="text-primary">Telefono</th>
-                        <th class="text-primary">Modificar</th>
                         <th class="text-primary">Eliminar</th>
+                        <th class="text-primary">Modificar</th>
                         <!--<th hidden="id">id</th>-->
                     </tr>
                 </thead>
@@ -67,29 +69,20 @@
                     echo '<td class="text-success">'. $json[$i]->getNombre() .'</td>'; 
                     echo '<td class="text-success">'. $json[$i]->getApellido() .'</td>'; 
                     echo '<td class="text-success">'. $json[$i]->getCedula() .'</td>';                 
-                    echo '<td class="text-success">'. $json[$i]->getTelefono() .'</td>'; 
-                    echo "<td>".'<a href= "ModificarCliente.php?codigoCliente='.$json[$i]->getCodigo().'">Modificar</a>'. "</td>";
-                    echo "<td>" .'<a href= "../Business/EliminarCliente.php?codigoCliente='.$json[$i]->getCodigo().'">Eliminar</a>'. "</td>";
-                     ?>
+                    echo '<td class="text-success">'. $json[$i]->getTelefono() .'</td>';
+                    echo '<td><a href= "Business/EliminarCliente.php?codigoCliente='.$json[$i]->getCodigo().'">'?><img src="../Image/delete.png" width="20px" height="20px"><?php echo'</a></td>';
+                    echo '<td><a href= "ModificarCliente.php?codigoCliente='.$json[$i]->getCodigo().'">'?><img src="../Image/editar.png" width="20px" height="20px"><?php echo'</a></td>'; 
+                    ?>
                     </tr>
              <?php    }                
                 ?>
                 </tbody>
             </table>            
         </div>   
-        
-            
-            
-            
             
         <footer>
-            <div class='define'>
-                <p>Contenido del pie de pÃ¡gina</p>
-            </div>  
-           </footer>
-
-
-
+            
+        </footer>
 
 </body>
 </html>

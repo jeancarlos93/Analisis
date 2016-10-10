@@ -1,37 +1,34 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19/09/2016, 02:35:32 AM
+    Author     : Alpizar-Solis
+*/
 
-h1.tituloRegistros{
-    width: 75%;
-    height: 50%;
+
+h1.tituloSesion{
     position: absolute;
-    left:110px;
-    top: 170px;
-}
-
-
-
-div.registrar{
-    position: absolute;
-    left: 380px;
-    top: 240px;
+    left: 530px;
+    top: 290px;
   //  border: 1px solid #000000;
 }
 
-div.iconoRegistro{
-    
+div.inicioSesion{
     position: absolute;
-    height: 70%;
-    width: 70%;
-    top: 340px;
-    left: 820px;
+    left: 400px;
+    top: 380px;
+  //  border: 1px solid #000000;
 }
 
-div.iconoRegistro2{
-    
+div.iconoInicioSesion{
     position: absolute;
-    height: 70%;
-    width: 70%;
-    top: 340px;
-    left: 520px;
+   // height: 70%;
+   // width: 70%;
+    top: 230px;
+    left: 370px;
 }
 
 .form label { width: 90px; margin-top: 1px; display: inline-block; float: left; padding: 1px; } 
@@ -69,10 +66,11 @@ form input:focus:invalid{
     border-color: #b03535; 
 }
 
-button.submit { 
+button.submit1 { 
     position: absolute;
-    left: 180px;
-    top: 280px;
+    left: -100px;
+    top: 90px;
+    width: 140px;
    background-color: #DDA0DD; 
    background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#DA70D6));
    background: -webkit-linear-gradient(top, #DDA0DD, #DA70D6);
@@ -100,57 +98,12 @@ button.submit {
    margin-left: 275px; 
 }
 
-button.submit:hover {
+button.submit1:hover {
  opacity: .85; 
  cursor: pointer;
   }
 
-button.submit:active {
- border: 1px solid #20911e;
- box-shadow: 0 0 10px 5px #356b0b inset;
- -webkit-box-shadow: 0 0 10px 5px #356b0b inset;
- -moz-box-shadow: 0 0 10px 5px #356b0b inset;
- -ms-box-shadow: 0 0 10px 5px #356b0b inset;
- -o-box-shadow: 0 0 10px 5px #356b0b inset;
-} 
-
-button.submit2 { 
-    position: absolute;
-    left: -130px;
-    top: 280px;
-   background-color: #DDA0DD; 
-   background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#DA70D6));
-   background: -webkit-linear-gradient(top, #DDA0DD, #DA70D6);
-   background: -moz-linear-gradient(top, #DDA0DD, #DA70D6);
-   background: -ms-linear-gradient(top, #DDA0DD, #DA70D6); 
-   background: -o-linear-gradient(top, #DDA0DD, #DA70D6); 
-   background: linear-gradient(top, #DDA0DD, #DA70D6);
-   border: 1px solid #DDA0DD;
-   border-bottom: 1px solid #DA70D6;
-   border-radius: 3px; 
-   -webkit-border-radius: 3px;
-   -moz-border-radius: 3px;
-   -ms-border-radius: 3px;
-   -o-border-radius: 3px;
-   box-shadow: inset 0 1px 0 0 #9fd574;
-   -webkit-box-shadow: 0 1px 0 0 #9fd574 inset;
-   -moz-box-shadow: 0 1px 0 0 #9fd574 inset;
-   -ms-box-shadow: 0 1px 0 0 #9fd574 inset;
-   -o-box-shadow: 0 1px 0 0 #9fd574 inset; 
-   color: white; 
-   font-weight: bold;
-   padding: 6px 20px;
-   text-align: center; 
-   text-shadow: 0 -1px 0 #396715; 
-   margin-left: 275px; 
-}
-
-button.submit2:hover {
- opacity: .85; 
- cursor: pointer;
-  }
-
-button.submit2:active {
+button.submit1:active {
  border: 1px solid #20911e;
  box-shadow: 0 0 10px 5px #356b0b inset;
  -webkit-box-shadow: 0 0 10px 5px #356b0b inset;

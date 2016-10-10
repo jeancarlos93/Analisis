@@ -7,8 +7,7 @@
         <script src="../JS/jquery-migrate-1.2.1.min.js" type="text/javascript"> </script>
         <script src="../JS/Autocomplete.js" type="text/javascript"> </script>
         
-        <link href="../css/estiloTablas.css" type="text/css" rel="stylesheet"/>
-        
+        <link href="../css/tablas.css" type="text/css" rel="stylesheet"/>
         <?php
         include_once '../Data/DataUsuario.php';
         include_once '../Domain/Usuario.php';
@@ -18,24 +17,31 @@
             $(function(){  
                 $("#header").load("../View/Header.php"); 
             });
-        </script>         
+        </script>  
+        
+        
+           
         <title></title>
     </head>
     <body>
         <div id="header"></div>
         <div id="contenedor" class="container">
-            <center><h1 id="h1">Listado de Usuarios</h1></center>
+            <center><h1 id="h1" class="h1">Listado de Usuarios</h1></center>
            
+            <div class="nuevo">
              <?php
                 $usuario = getListaUsuarios();
                 echo '<td><a href= "Registrar_Usuarios.php">Nuevo Usuario</a></td>'; 
             ?>
+            </div>
       <br><br>      
-      <section>
-      <label align="right" for="kwd_search">Busqueda:</label> <input type="text" id="kwd_search" value=""/>  
+      <div class="busqueda">
+      <label align="right" for="kwd_search">Busqueda de Usuarios:</label> <input type="text" id="kwd_search" value=""/>  
+      </div>
       
+      <div class="icono"><img src="../Image/usuarios.png" ></div>
        <br>
-        <table id="my-table" class ="table table-hover">  
+        <table id="my-table" class ="table">  
 
                 <thead>
                     <tr id="tr">
@@ -46,8 +52,8 @@
                         <th class="text-primary">Fecha Contratado</th>
                         <th class="text-primary">Tipo Empleado</th>
                         <th class="text-primary">Contraseña</th>
-                        <th class="text-primary">**</th>
-                        <th class="text-primary">**</th>
+                        <th class="text-primary">Eliminar</th>
+                        <th class="text-primary">Modificar</th>
                         <!--<th hidden="id">id</th>-->
                     </tr>
                 </thead>
@@ -66,8 +72,8 @@
                     echo '<td class="text-success">'. $usuario[$i]->getFechaContrato() .'</td>'; 
                     echo '<td class="text-success">'. $usuario[$i]->getTipoEmpleado() .'</td>'; 
                     echo '<td class="text-success">'. $usuario[$i]->getContrasenia() .'</td>'; 
-                    echo '<td><a href= "../Business/eliminarUsuario.php?cedulaUsuario='.$usuario[$i]->getCedula().'">Eliminar</a></td>'; 
-                    echo '<td><a href="Modificar_Usuario.php?cedulaUsuario='.$usuario[$i]->getCedula().'">Modificar</a></td>';
+                    echo '<td><a href= "Business/eliminarUsuario.php?cedulaUsuario='.$usuario[$i]->getCedula().'">'?><img src="../Image/delete.png" width="20px" height="20px"><?php echo'</a></td>'; 
+                    echo '<td><a href="Modificar_Usuario.php?cedulaUsuario='.$usuario[$i]->getCedula().'">'?><img src="../Image/editar.png" width="20px" height="20px"><?php echo'</a></td>';
                     ?> 
 
                     </tr>;
@@ -76,13 +82,10 @@
                 ?>
                 </tbody>
             </table> 
-          </section>
+     
         </div>   
         
-        <footer>
-            <div class='define'>
-                <p>Contenido del pie de página</p>
-            </div>            
+        <footer>            
         </footer>
     </body>
 </html>

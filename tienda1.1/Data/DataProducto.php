@@ -1,14 +1,9 @@
 <?php
 
-include_once '../../Data/Data.php';
-include_once '../../Domain/Producto.php';
-include_once '../../Domain/marcaProducto.php';
-include_once '../../Domain/CategoriaProducto.php';
-
+include_once '../Data/Data.php';
 
 function registrarProducto($producto) {
     $conn = getConnection();
-    $id= $producto->getId();  //solo si no es autoincrement se usa
     $descripcion = $producto->getDescripcion();
     $precioUnitario=$producto->getPrecioUnitario();
     $precioVenta=$producto->getPrecioVenta();
@@ -25,7 +20,7 @@ function registrarProducto($producto) {
     }
 
     $conn->close();
-    header("Location: ../../View/Listar_Productos.php");
+    header("Location: ../View/Listar_Productos.php");
     die();
 
 }
@@ -49,12 +44,12 @@ function modificarProducto($producto) {
     }
 
     $conn->close();
-    //header("Location: ../../View/Listar_Productos.php");
+    header("Location: ../View/Listar_Productos.php");
     die();
 
 }
 
-function eliminarProducto($codigo) {// metodo de eliminar: aun no estaba vel valor a setear en labase de datos pero lo puse a setear el nombre... Cambiar la variable nada más
+function eliminarProducto($codigo) {// metodo de eliminar: aun no estaba vel valor a setear en labase de datos pero lo puse a setear el nombre... Cambiar la variable nada mÃ¡s
     $conn = getConnection();
     $sql = "Update Producto set estado= 0 where codigo='$codigo'";
      if ($conn->query($sql) == TRUE) {
@@ -63,7 +58,7 @@ function eliminarProducto($codigo) {// metodo de eliminar: aun no estaba vel val
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
     $conn->close();
-    header("Location:../../View/Listar_Productos.php");
+    header("Location: ../View/Listar_Productos.php");
     die();
 
 }
@@ -82,7 +77,7 @@ function registrarMarca($marca) {
     }
 
     $conn->close();
-    header("Location: ../../View/Listar_Productos.php");
+    header("Location: ../View/Listar_Productos.php");
     die();
 }
 
@@ -100,8 +95,38 @@ function registrarCategoria($categoria) {
     }
 
     $conn->close();
-    header("Location: ../../View/Listar_Productos.php");
+    header("Location: ../View/Listar_Productos.php");
     die();
+}
+
+function eliminarMarca($idMarca,$marcas) {// metodo de eliminar: aun no estaba vel valor a setear en labase de datos pero lo puse a setear el nombre... Cambiar la variable nada mÃƒÂ¡s
+    
+    $conn = getConnection();
+    $sql = "Update marcaProd set marca='$marcas' where id=$idMarca";
+     if ($conn->query($sql) == TRUE) {
+        echo "GUARDADO ";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }  
+    $conn->close();
+    header("Location: ../Registrar_marca.php");
+    die();
+}
+
+function ModificarCategoria($codigo,$categoria) {// metodo de eliminar: aun no estaba vel valor a setear en labase de datos pero lo puse a setear el nombre... Cambiar la variable nada mÃƒÂ¡s
+    $conn = getConnection();
+    $sql = "Update categoriaProd set categoria='$categoria' where id='$codigo'"; //Update Proveedor set estado=0 where codigo =6;
+   
+    if ($conn->query($sql) == TRUE) {
+        echo "GUARDADO ";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }  
+    $conn->close();
+    header("Location: ../Registrar_Categoria.php");
+    
+    die();
+    
 }
 ?>
 

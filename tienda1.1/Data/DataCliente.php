@@ -58,7 +58,7 @@ function registrarCliente($cliente) {
     }
     
     $conn->close();
-    header("Location: ../index.php");
+    header("Location: ../View/Cliente.php");
 //    devolver a indice
     die();
     
@@ -133,7 +133,7 @@ function modificarCliente($cliente) {
     }
     
     $conn->close();
-    header("Location: ../index.php");
+    header("Location: ../View/Cliente.php");
 //    devolver a indice
     die();    
 }
