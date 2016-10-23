@@ -1,0 +1,102 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18/09/2016, 06:24:37 PM
+    Author     : Alpizar-Solis
+*/
+
+body{
+    background: rgba(250,250,250,1);
+    background: -moz-linear-gradient(left, rgba(250,250,250,1) 0%, rgba(240,240,240,1) 47%, rgba(232,232,232,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(250,250,250,1)), color-stop(47%, rgba(240,240,240,1)), color-stop(100%, rgba(232,232,232,1)));
+    background: -webkit-linear-gradient(left, rgba(250,250,250,1) 0%, rgba(240,240,240,1) 47%, rgba(232,232,232,1) 100%);
+    background: -o-linear-gradient(left, rgba(250,250,250,1) 0%, rgba(240,240,240,1) 47%, rgba(232,232,232,1) 100%);
+    background: -ms-linear-gradient(left, rgba(250,250,250,1) 0%, rgba(240,240,240,1) 47%, rgba(232,232,232,1) 100%);
+    background: linear-gradient(to right, rgba(250,250,250,1) 0%, rgba(240,240,240,1) 47%, rgba(232,232,232,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#e8e8e8', GradientType=1 );
+
+}
+
+div.nuevo{
+    width: 75%;
+    height: 50%;
+    position: absolute;
+    left: 160px;
+    top: 315px; 
+} 
+div.categoria{
+    width: 75%;
+    height: 50%;
+    position: absolute;
+    left: 430px;
+    top: 315px; 
+}
+
+div.marca{
+    width: 75%;
+    height: 50%;
+    position: absolute;
+    left: 275px;
+    top: 315px;
+}
+
+div.busqueda{
+    width: 75%;
+    height: 50%;
+    position: absolute;
+    left: 800px;
+    top: 315px;   
+}
+
+div.selector{
+    width: 75%;
+    height: 50%;
+    position: absolute;
+    left: 500px;
+    top: 250px;   
+}
+    
+div.icono{
+    position: absolute;
+    height: 5%;
+    width: 75%;
+    top: 180px;
+    left: 960px;
+    
+}
+ h1.h1{
+    width: 75%;
+    height: 50%;
+    position: absolute;
+    left:110px;
+    top: 210px;
+                
+}
+        
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+    position: absolute;
+    left: 160px;
+    top: 350px; 
+    border: 1px solid #000000;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2
+}
+
+th {
+    background-color: #DDA0DD;
+    color: black;
+}
+

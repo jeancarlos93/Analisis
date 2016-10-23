@@ -1,10 +1,9 @@
 <?php
-   require_once("../Bussines/sesion.class.php");
-   $sesion = new sesion();
-   $usuario = $sesion->get("usuario");
-   if( $usuario == false )  {
-      header("Location: ../index.php");
-   }  else  {
+ 
+   session_start();
+    
+   $tipo = $_SESSION['tipoEmpleado'];
+   $usser = $_SESSION['usuario'];
 ?>
 <HTML>
    <head>
@@ -107,6 +106,11 @@
                 background-color: #EE82EE;
             }
             
+            section{
+                width: 100%;
+                position: absolute;
+                top: 320px;
+            }
                                     
             footer{
                 width: 100%;
@@ -121,39 +125,85 @@
             
         </style>
    </head>
+   
    <body>
-      
+    <?php
+        
+    if( $tipo == "Empleado" )  {
+                 
+        //     echo "/nBienvenido ".$usser;
+        //    echo "Tipo Usuario ".$tipo;    
+                
+    ?>  
       <header>
             <h1>Sistema de Punto de Venta</h1>
         </header>
-        
+                   
         <nav>                       
             <ul>
-                <li><a href="/Tienda-vachelle/tienda1.1/View/Listado_Usuarios.php">Usuarios</a></li>                   
-                <li><a href="/Tienda-vachelle/tienda1.1/View/Listado_Proveedores.php">Proveedor</a></li>
+                <li class="disabled"><a href="#">Usuarios</a></li>
+                <li class="disabled"><a href="#">Proveedor</a></li>
                 <li><a href="/Tienda-vachelle/tienda1.1/View/Cliente.php">Cliente</a></li>
-                <li><a href="/Tienda-vachelle/tienda1.1/View/Listar_Productos.php">Productos</a></li>  
-                <li><a href="/Tienda-vachelle/tienda1.1/View/Listado_Inventario.php">Inventario</a></li>  
-                <li><a href="#">Apartados</a></li> 
-                <li><a href="#">Cuentas por pagar</a></li> 
+                <li class="disabled"><a href="#">Productos</a></li>
+                <li class="disabled"><a href="#">Inventario</a></li>  
+                <li ><a href="#">Apartados</a></li>
+                <li class="disabled"><a href="#">Cuentas por pagar</a></li>
                 <li><a href="#">Ventas</a></li>
                 <li><a href="#">Compras</a></li>
                 <li><a href="#">Cierre de Caja</a></li>
-                <a href="/Tienda-vachelle/tienda1.1/View/cerrarSesion.php">Cerrar Sesion</a> 
+                <li><a href="/Tienda-vachelle/tienda1.1/View/cerrarSesion.php">Cerrar Sesion</a></li>
+                
             </ul>                         
         </nav>
         
        <section>
-           <h1>Hola:  <?php echo $sesion->get("usuario"); ?> </h1>
+           <h2></h2>
        </section>
         
         <footer>
             Pie de la pagina
         </footer>
+       
+     <?php
+                
+                }else if( $tipo == "Administrador" ){
+    ?>   
+       <header>
+            <h1>Sistema de Punto de Venta</h1>
+        </header>
+                   
+        <nav>                       
+            <ul>
+                <li><a href="/Tienda-vachelle/tienda1.1/View/Listado_Usuarios.php">Usuarios</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.1/View/Listado_Proveedores.php">Proveedor</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.1/View/Cliente.php">Cliente</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.1/View/Listar_Productos.php">Productos</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.1/Business/consultarInventario.php?buscarPor=4">Inventario</a></li>  
+                <li><a href="#">Apartados</a></li>
+                <li><a href="#">Cuentas por pagar</a></li>
+                <li><a href="#">Ventas</a></li>
+                <li><a href="#">Compras</a></li>
+                <li><a href="#">Cierre de Caja</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.1/View/cerrarSesion.php">Cerrar Sesion</a></li>
+                
+            </ul>                         
+        </nav>
+        
+       <section>
+           
+       </section>
+        
+        <footer>
+            Pie de la pagina
+        </footer>
+       
+       
+    <?php
+                
+                }
+    ?>      
    </body>
 </HTML>
-<?php
-   }
-?>
+
 
 

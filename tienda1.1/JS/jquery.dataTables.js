@@ -1,28 +1,3 @@
-/*! DataTables 1.10.12
- * ©2008-2015 SpryMedia Ltd - datatables.net/license
- */
-
-/**
- * @summary     DataTables
- * @description Paginate, search and order HTML tables
- * @version     1.10.12
- * @file        jquery.dataTables.js
- * @author      SpryMedia Ltd (www.sprymedia.co.uk)
- * @contact     www.sprymedia.co.uk/contact
- * @copyright   Copyright 2008-2015 SpryMedia Ltd.
- *
- * This source file is free software, available under the following license:
- *   MIT license - http://datatables.net/license
- *
- * This source file is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
- * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
- *
- * For details please refer to: http://www.datatables.net
- */
-
-/*jslint evil: true, undef: true, browser: true */
-/*globals $,require,jQuery,define,_selector_run,_selector_opts,_selector_first,_selector_row_indexes,_ext,_Api,_api_register,_api_registerPlural,_re_new_lines,_re_html,_re_formatted_numeric,_re_escape_regex,_empty,_intVal,_numToDecimal,_isNumber,_isHtml,_htmlNumeric,_pluck,_pluck_order,_range,_stripHtml,_unique,_fnBuildAjax,_fnAjaxUpdate,_fnAjaxParameters,_fnAjaxUpdateDraw,_fnAjaxDataSrc,_fnAddColumn,_fnColumnOptions,_fnAdjustColumnSizing,_fnVisibleToColumnIndex,_fnColumnIndexToVisible,_fnVisbleColumns,_fnGetColumns,_fnColumnTypes,_fnApplyColumnDefs,_fnHungarianMap,_fnCamelToHungarian,_fnLanguageCompat,_fnBrowserDetect,_fnAddData,_fnAddTr,_fnNodeToDataIndex,_fnNodeToColumnIndex,_fnGetCellData,_fnSetCellData,_fnSplitObjNotation,_fnGetObjectDataFn,_fnSetObjectDataFn,_fnGetDataMaster,_fnClearTable,_fnDeleteIndex,_fnInvalidate,_fnGetRowElements,_fnCreateTr,_fnBuildHead,_fnDrawHead,_fnDraw,_fnReDraw,_fnAddOptionsHtml,_fnDetectHeader,_fnGetUniqueThs,_fnFeatureHtmlFilter,_fnFilterComplete,_fnFilterCustom,_fnFilterColumn,_fnFilter,_fnFilterCreateSearch,_fnEscapeRegex,_fnFilterData,_fnFeatureHtmlInfo,_fnUpdateInfo,_fnInfoMacros,_fnInitialise,_fnInitComplete,_fnLengthChange,_fnFeatureHtmlLength,_fnFeatureHtmlPaginate,_fnPageChange,_fnFeatureHtmlProcessing,_fnProcessingDisplay,_fnFeatureHtmlTable,_fnScrollDraw,_fnApplyToChildren,_fnCalculateColumnWidths,_fnThrottle,_fnConvertToWidth,_fnGetWidestNode,_fnGetMaxLenString,_fnStringToCss,_fnSortFlatten,_fnSort,_fnSortAria,_fnSortListener,_fnSortAttachListener,_fnSortingClasses,_fnSortData,_fnSaveState,_fnLoadState,_fnSettingsFromNode,_fnLog,_fnMap,_fnBindAction,_fnCallbackReg,_fnCallbackFire,_fnLengthOverflow,_fnRenderer,_fnDataSource,_fnRowAttributes*/
 
 (function( factory ) {
 	"use strict";
@@ -37,8 +12,6 @@
 		// CommonJS
 		module.exports = function (root, $) {
 			if ( ! root ) {
-				// CommonJS environments without a window global must pass a
-				// root. This will give an error otherwise
 				root = window;
 			}
 
@@ -59,145 +32,18 @@
 (function( $, window, document, undefined ) {
 	"use strict";
 
-	/**
-	 * DataTables is a plug-in for the jQuery Javascript library. It is a highly
-	 * flexible tool, based upon the foundations of progressive enhancement,
-	 * which will add advanced interaction controls to any HTML table. For a
-	 * full list of features please refer to
-	 * [DataTables.net](href="http://datatables.net).
-	 *
-	 * Note that the `DataTable` object is not a global variable but is aliased
-	 * to `jQuery.fn.DataTable` and `jQuery.fn.dataTable` through which it may
-	 * be  accessed.
-	 *
-	 *  @class
-	 *  @param {object} [init={}] Configuration object for DataTables. Options
-	 *    are defined by {@link DataTable.defaults}
-	 *  @requires jQuery 1.7+
-	 *
-	 *  @example
-	 *    // Basic initialisation
-	 *    $(document).ready( function {
-	 *      $('#example').dataTable();
-	 *    } );
-	 *
-	 *  @example
-	 *    // Initialisation with configuration options - in this case, disable
-	 *    // pagination and sorting.
-	 *    $(document).ready( function {
-	 *      $('#example').dataTable( {
-	 *        "paginate": false,
-	 *        "sort": false
-	 *      } );
-	 *    } );
-	 */
 	var DataTable = function ( options )
 	{
-		/**
-		 * Perform a jQuery selector action on the table's TR elements (from the tbody) and
-		 * return the resulting jQuery object.
-		 *  @param {string|node|jQuery} sSelector jQuery selector or node collection to act on
-		 *  @param {object} [oOpts] Optional parameters for modifying the rows to be included
-		 *  @param {string} [oOpts.filter=none] Select TR elements that meet the current filter
-		 *    criterion ("applied") or all TR elements (i.e. no filter).
-		 *  @param {string} [oOpts.order=current] Order of the TR elements in the processed array.
-		 *    Can be either 'current', whereby the current sorting of the table is used, or
-		 *    'original' whereby the original order the data was read into the table is used.
-		 *  @param {string} [oOpts.page=all] Limit the selection to the currently displayed page
-		 *    ("current") or not ("all"). If 'current' is given, then order is assumed to be
-		 *    'current' and filter is 'applied', regardless of what they might be given as.
-		 *  @returns {object} jQuery object, filtered by the given selector.
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable = $('#example').dataTable();
-		 *
-		 *      // Highlight every second row
-		 *      oTable.$('tr:odd').css('backgroundColor', 'blue');
-		 *    } );
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable = $('#example').dataTable();
-		 *
-		 *      // Filter to rows with 'Webkit' in them, add a background colour and then
-		 *      // remove the filter, thus highlighting the 'Webkit' rows only.
-		 *      oTable.fnFilter('Webkit');
-		 *      oTable.$('tr', {"search": "applied"}).css('backgroundColor', 'blue');
-		 *      oTable.fnFilter('');
-		 *    } );
-		 */
 		this.$ = function ( sSelector, oOpts )
 		{
 			return this.api(true).$( sSelector, oOpts );
 		};
-		
-		
-		/**
-		 * Almost identical to $ in operation, but in this case returns the data for the matched
-		 * rows - as such, the jQuery selector used should match TR row nodes or TD/TH cell nodes
-		 * rather than any descendants, so the data can be obtained for the row/cell. If matching
-		 * rows are found, the data returned is the original data array/object that was used to
-		 * create the row (or a generated array if from a DOM source).
-		 *
-		 * This method is often useful in-combination with $ where both functions are given the
-		 * same parameters and the array indexes will match identically.
-		 *  @param {string|node|jQuery} sSelector jQuery selector or node collection to act on
-		 *  @param {object} [oOpts] Optional parameters for modifying the rows to be included
-		 *  @param {string} [oOpts.filter=none] Select elements that meet the current filter
-		 *    criterion ("applied") or all elements (i.e. no filter).
-		 *  @param {string} [oOpts.order=current] Order of the data in the processed array.
-		 *    Can be either 'current', whereby the current sorting of the table is used, or
-		 *    'original' whereby the original order the data was read into the table is used.
-		 *  @param {string} [oOpts.page=all] Limit the selection to the currently displayed page
-		 *    ("current") or not ("all"). If 'current' is given, then order is assumed to be
-		 *    'current' and filter is 'applied', regardless of what they might be given as.
-		 *  @returns {array} Data for the matched elements. If any elements, as a result of the
-		 *    selector, were not TR, TD or TH elements in the DataTable, they will have a null
-		 *    entry in the array.
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable = $('#example').dataTable();
-		 *
-		 *      // Get the data from the first row in the table
-		 *      var data = oTable._('tr:first');
-		 *
-		 *      // Do something useful with the data
-		 *      alert( "First cell is: "+data[0] );
-		 *    } );
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable = $('#example').dataTable();
-		 *
-		 *      // Filter to 'Webkit' and get all data for
-		 *      oTable.fnFilter('Webkit');
-		 *      var data = oTable._('tr', {"search": "applied"});
-		 *
-		 *      // Do something with the data
-		 *      alert( data.length+" rows matched the search" );
-		 *    } );
-		 */
 		this._ = function ( sSelector, oOpts )
 		{
 			return this.api(true).rows( sSelector, oOpts ).data();
 		};
 		
 		
-		/**
-		 * Create a DataTables Api instance, with the currently selected tables for
-		 * the Api's context.
-		 * @param {boolean} [traditional=false] Set the API instance's context to be
-		 *   only the table referred to by the `DataTable.ext.iApiIndex` option, as was
-		 *   used in the API presented by DataTables 1.9- (i.e. the traditional mode),
-		 *   or if all tables captured in the jQuery object should be used.
-		 * @return {DataTables.Api}
-		 */
 		this.api = function ( traditional )
 		{
 			return traditional ?
@@ -207,45 +53,6 @@
 				new _Api( this );
 		};
 		
-		
-		/**
-		 * Add a single new row or multiple rows of data to the table. Please note
-		 * that this is suitable for client-side processing only - if you are using
-		 * server-side processing (i.e. "bServerSide": true), then to add data, you
-		 * must add it to the data source, i.e. the server-side, through an Ajax call.
-		 *  @param {array|object} data The data to be added to the table. This can be:
-		 *    <ul>
-		 *      <li>1D array of data - add a single row with the data provided</li>
-		 *      <li>2D array of arrays - add multiple rows in a single call</li>
-		 *      <li>object - data object when using <i>mData</i></li>
-		 *      <li>array of objects - multiple data objects when using <i>mData</i></li>
-		 *    </ul>
-		 *  @param {bool} [redraw=true] redraw the table or not
-		 *  @returns {array} An array of integers, representing the list of indexes in
-		 *    <i>aoData</i> ({@link DataTable.models.oSettings}) that have been added to
-		 *    the table.
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    // Global var for counter
-		 *    var giCount = 2;
-		 *
-		 *    $(document).ready(function() {
-		 *      $('#example').dataTable();
-		 *    } );
-		 *
-		 *    function fnClickAddRow() {
-		 *      $('#example').dataTable().fnAddData( [
-		 *        giCount+".1",
-		 *        giCount+".2",
-		 *        giCount+".3",
-		 *        giCount+".4" ]
-		 *      );
-		 *
-		 *      giCount++;
-		 *    }
-		 */
 		this.fnAddData = function( data, redraw )
 		{
 			var api = this.api( true );
@@ -263,27 +70,6 @@
 		};
 		
 		
-		/**
-		 * This function will make DataTables recalculate the column sizes, based on the data
-		 * contained in the table and the sizes applied to the columns (in the DOM, CSS or
-		 * through the sWidth parameter). This can be useful when the width of the table's
-		 * parent element changes (for example a window resize).
-		 *  @param {boolean} [bRedraw=true] Redraw the table or not, you will typically want to
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable = $('#example').dataTable( {
-		 *        "sScrollY": "200px",
-		 *        "bPaginate": false
-		 *      } );
-		 *
-		 *      $(window).bind('resize', function () {
-		 *        oTable.fnAdjustColumnSizing();
-		 *      } );
-		 *    } );
-		 */
 		this.fnAdjustColumnSizing = function ( bRedraw )
 		{
 			var api = this.api( true ).columns.adjust();
@@ -300,20 +86,6 @@
 		};
 		
 		
-		/**
-		 * Quickly and simply clear a table
-		 *  @param {bool} [bRedraw=true] redraw the table or not
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable = $('#example').dataTable();
-		 *
-		 *      // Immediately 'nuke' the current rows (perhaps waiting for an Ajax callback...)
-		 *      oTable.fnClearTable();
-		 *    } );
-		 */
 		this.fnClearTable = function( bRedraw )
 		{
 			var api = this.api( true ).clear();
@@ -324,54 +96,12 @@
 		};
 		
 		
-		/**
-		 * The exact opposite of 'opening' a row, this function will close any rows which
-		 * are currently 'open'.
-		 *  @param {node} nTr the table row to 'close'
-		 *  @returns {int} 0 on success, or 1 if failed (can't find the row)
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable;
-		 *
-		 *      // 'open' an information row when a row is clicked on
-		 *      $('#example tbody tr').click( function () {
-		 *        if ( oTable.fnIsOpen(this) ) {
-		 *          oTable.fnClose( this );
-		 *        } else {
-		 *          oTable.fnOpen( this, "Temporary row opened", "info_row" );
-		 *        }
-		 *      } );
-		 *
-		 *      oTable = $('#example').dataTable();
-		 *    } );
-		 */
 		this.fnClose = function( nTr )
 		{
 			this.api( true ).row( nTr ).child.hide();
 		};
 		
 		
-		/**
-		 * Remove a row for the table
-		 *  @param {mixed} target The index of the row from aoData to be deleted, or
-		 *    the TR element you want to delete
-		 *  @param {function|null} [callBack] Callback function
-		 *  @param {bool} [redraw=true] Redraw the table or not
-		 *  @returns {array} The row that was deleted
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable = $('#example').dataTable();
-		 *
-		 *      // Immediately remove the first row
-		 *      oTable.fnDeleteRow( 0 );
-		 *    } );
-		 */
 		this.fnDeleteRow = function( target, callback, redraw )
 		{
 			var api = this.api( true );
@@ -393,40 +123,11 @@
 		};
 		
 		
-		/**
-		 * Restore the table to it's original state in the DOM by removing all of DataTables
-		 * enhancements, alterations to the DOM structure of the table and event listeners.
-		 *  @param {boolean} [remove=false] Completely remove the table from the DOM
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      // This example is fairly pointless in reality, but shows how fnDestroy can be used
-		 *      var oTable = $('#example').dataTable();
-		 *      oTable.fnDestroy();
-		 *    } );
-		 */
 		this.fnDestroy = function ( remove )
 		{
 			this.api( true ).destroy( remove );
 		};
 		
-		
-		/**
-		 * Redraw the table
-		 *  @param {bool} [complete=true] Re-filter and resort (if enabled) the table before the draw.
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable = $('#example').dataTable();
-		 *
-		 *      // Re-draw the table - you wouldn't want to do it here, but it's an example :-)
-		 *      oTable.fnDraw();
-		 *    } );
-		 */
 		this.fnDraw = function( complete )
 		{
 			// Note that this isn't an exact match to the old call to _fnDraw - it takes
@@ -434,26 +135,6 @@
 			this.api( true ).draw( complete );
 		};
 		
-		
-		/**
-		 * Filter the input based on data
-		 *  @param {string} sInput String to filter the table on
-		 *  @param {int|null} [iColumn] Column to limit filtering to
-		 *  @param {bool} [bRegex=false] Treat as regular expression or not
-		 *  @param {bool} [bSmart=true] Perform smart filtering or not
-		 *  @param {bool} [bShowGlobal=true] Show the input global filter in it's input box(es)
-		 *  @param {bool} [bCaseInsensitive=true] Do case-insensitive matching (true) or not (false)
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable = $('#example').dataTable();
-		 *
-		 *      // Sometime later - filter...
-		 *      oTable.fnFilter( 'test string' );
-		 *    } );
-		 */
 		this.fnFilter = function( sInput, iColumn, bRegex, bSmart, bShowGlobal, bCaseInsensitive )
 		{
 			var api = this.api( true );
@@ -469,43 +150,6 @@
 		};
 		
 		
-		/**
-		 * Get the data for the whole table, an individual row or an individual cell based on the
-		 * provided parameters.
-		 *  @param {int|node} [src] A TR row node, TD/TH cell node or an integer. If given as
-		 *    a TR node then the data source for the whole row will be returned. If given as a
-		 *    TD/TH cell node then iCol will be automatically calculated and the data for the
-		 *    cell returned. If given as an integer, then this is treated as the aoData internal
-		 *    data index for the row (see fnGetPosition) and the data for that row used.
-		 *  @param {int} [col] Optional column index that you want the data of.
-		 *  @returns {array|object|string} If mRow is undefined, then the data for all rows is
-		 *    returned. If mRow is defined, just data for that row, and is iCol is
-		 *    defined, only data for the designated cell is returned.
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    // Row data
-		 *    $(document).ready(function() {
-		 *      oTable = $('#example').dataTable();
-		 *
-		 *      oTable.$('tr').click( function () {
-		 *        var data = oTable.fnGetData( this );
-		 *        // ... do something with the array / object of data for the row
-		 *      } );
-		 *    } );
-		 *
-		 *  @example
-		 *    // Individual cell data
-		 *    $(document).ready(function() {
-		 *      oTable = $('#example').dataTable();
-		 *
-		 *      oTable.$('td').click( function () {
-		 *        var sData = oTable.fnGetData( this );
-		 *        alert( 'The cell clicked on had the value of '+sData );
-		 *      } );
-		 *    } );
-		 */
 		this.fnGetData = function( src, col )
 		{
 			var api = this.api( true );
@@ -522,24 +166,6 @@
 		};
 		
 		
-		/**
-		 * Get an array of the TR nodes that are used in the table's body. Note that you will
-		 * typically want to use the '$' API method in preference to this as it is more
-		 * flexible.
-		 *  @param {int} [iRow] Optional row index for the TR element you want
-		 *  @returns {array|node} If iRow is undefined, returns an array of all TR elements
-		 *    in the table's body, or iRow is defined, just the TR element requested.
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable = $('#example').dataTable();
-		 *
-		 *      // Get the nodes from the table
-		 *      var nNodes = oTable.fnGetNodes( );
-		 *    } );
-		 */
 		this.fnGetNodes = function( iRow )
 		{
 			var api = this.api( true );
@@ -549,35 +175,6 @@
 				api.rows().nodes().flatten().toArray();
 		};
 		
-		
-		/**
-		 * Get the array indexes of a particular cell from it's DOM element
-		 * and column index including hidden columns
-		 *  @param {node} node this can either be a TR, TD or TH in the table's body
-		 *  @returns {int} If nNode is given as a TR, then a single index is returned, or
-		 *    if given as a cell, an array of [row index, column index (visible),
-		 *    column index (all)] is given.
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      $('#example tbody td').click( function () {
-		 *        // Get the position of the current data from the node
-		 *        var aPos = oTable.fnGetPosition( this );
-		 *
-		 *        // Get the data array for this row
-		 *        var aData = oTable.fnGetData( aPos[0] );
-		 *
-		 *        // Update the data array and return the value
-		 *        aData[ aPos[1] ] = 'clicked';
-		 *        this.innerHTML = 'clicked';
-		 *      } );
-		 *
-		 *      // Init DataTables
-		 *      oTable = $('#example').dataTable();
-		 *    } );
-		 */
 		this.fnGetPosition = function( node )
 		{
 			var api = this.api( true );
@@ -599,65 +196,11 @@
 		};
 		
 		
-		/**
-		 * Check to see if a row is 'open' or not.
-		 *  @param {node} nTr the table row to check
-		 *  @returns {boolean} true if the row is currently open, false otherwise
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable;
-		 *
-		 *      // 'open' an information row when a row is clicked on
-		 *      $('#example tbody tr').click( function () {
-		 *        if ( oTable.fnIsOpen(this) ) {
-		 *          oTable.fnClose( this );
-		 *        } else {
-		 *          oTable.fnOpen( this, "Temporary row opened", "info_row" );
-		 *        }
-		 *      } );
-		 *
-		 *      oTable = $('#example').dataTable();
-		 *    } );
-		 */
 		this.fnIsOpen = function( nTr )
 		{
 			return this.api( true ).row( nTr ).child.isShown();
 		};
 		
-		
-		/**
-		 * This function will place a new row directly after a row which is currently
-		 * on display on the page, with the HTML contents that is passed into the
-		 * function. This can be used, for example, to ask for confirmation that a
-		 * particular record should be deleted.
-		 *  @param {node} nTr The table row to 'open'
-		 *  @param {string|node|jQuery} mHtml The HTML to put into the row
-		 *  @param {string} sClass Class to give the new TD cell
-		 *  @returns {node} The row opened. Note that if the table row passed in as the
-		 *    first parameter, is not found in the table, this method will silently
-		 *    return.
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable;
-		 *
-		 *      // 'open' an information row when a row is clicked on
-		 *      $('#example tbody tr').click( function () {
-		 *        if ( oTable.fnIsOpen(this) ) {
-		 *          oTable.fnClose( this );
-		 *        } else {
-		 *          oTable.fnOpen( this, "Temporary row opened", "info_row" );
-		 *        }
-		 *      } );
-		 *
-		 *      oTable = $('#example').dataTable();
-		 *    } );
-		 */
 		this.fnOpen = function( nTr, mHtml, sClass )
 		{
 			return this.api( true )
@@ -668,22 +211,6 @@
 		};
 		
 		
-		/**
-		 * Change the pagination - provides the internal logic for pagination in a simple API
-		 * function. With this function you can have a DataTables table go to the next,
-		 * previous, first or last pages.
-		 *  @param {string|int} mAction Paging action to take: "first", "previous", "next" or "last"
-		 *    or page number to jump to (integer), note that page 0 is the first page.
-		 *  @param {bool} [bRedraw=true] Redraw the table or not
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable = $('#example').dataTable();
-		 *      oTable.fnPageChange( 'next' );
-		 *    } );
-		 */
 		this.fnPageChange = function ( mAction, bRedraw )
 		{
 			var api = this.api( true ).page( mAction );
@@ -694,22 +221,6 @@
 		};
 		
 		
-		/**
-		 * Show a particular column
-		 *  @param {int} iCol The column whose display should be changed
-		 *  @param {bool} bShow Show (true) or hide (false) the column
-		 *  @param {bool} [bRedraw=true] Redraw the table or not
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable = $('#example').dataTable();
-		 *
-		 *      // Hide the second column after initialisation
-		 *      oTable.fnSetColumnVis( 1, false );
-		 *    } );
-		 */
 		this.fnSetColumnVis = function ( iCol, bShow, bRedraw )
 		{
 			var api = this.api( true ).column( iCol ).visible( bShow );
@@ -719,94 +230,22 @@
 			}
 		};
 		
-		
-		/**
-		 * Get the settings for a particular table for external manipulation
-		 *  @returns {object} DataTables settings object. See
-		 *    {@link DataTable.models.oSettings}
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable = $('#example').dataTable();
-		 *      var oSettings = oTable.fnSettings();
-		 *
-		 *      // Show an example parameter from the settings
-		 *      alert( oSettings._iDisplayStart );
-		 *    } );
-		 */
 		this.fnSettings = function()
 		{
 			return _fnSettingsFromNode( this[_ext.iApiIndex] );
 		};
 		
 		
-		/**
-		 * Sort the table by a particular column
-		 *  @param {int} iCol the data index to sort on. Note that this will not match the
-		 *    'display index' if you have hidden data entries
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable = $('#example').dataTable();
-		 *
-		 *      // Sort immediately with columns 0 and 1
-		 *      oTable.fnSort( [ [0,'asc'], [1,'asc'] ] );
-		 *    } );
-		 */
 		this.fnSort = function( aaSort )
 		{
 			this.api( true ).order( aaSort ).draw();
 		};
 		
-		
-		/**
-		 * Attach a sort listener to an element for a given column
-		 *  @param {node} nNode the element to attach the sort listener to
-		 *  @param {int} iColumn the column that a click on this node will sort on
-		 *  @param {function} [fnCallback] callback function when sort is run
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable = $('#example').dataTable();
-		 *
-		 *      // Sort on column 1, when 'sorter' is clicked on
-		 *      oTable.fnSortListener( document.getElementById('sorter'), 1 );
-		 *    } );
-		 */
 		this.fnSortListener = function( nNode, iColumn, fnCallback )
 		{
 			this.api( true ).order.listener( nNode, iColumn, fnCallback );
 		};
 		
-		
-		/**
-		 * Update a table cell or row - this method will accept either a single value to
-		 * update the cell with, an array of values with one element for each column or
-		 * an object in the same format as the original data source. The function is
-		 * self-referencing in order to make the multi column updates easier.
-		 *  @param {object|array|string} mData Data to update the cell/row with
-		 *  @param {node|int} mRow TR element you want to update or the aoData index
-		 *  @param {int} [iColumn] The column to update, give as null or undefined to
-		 *    update a whole row.
-		 *  @param {bool} [bRedraw=true] Redraw the table or not
-		 *  @param {bool} [bAction=true] Perform pre-draw actions or not
-		 *  @returns {int} 0 on success, 1 on error
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable = $('#example').dataTable();
-		 *      oTable.fnUpdate( 'Example update', 0, 0 ); // Single cell
-		 *      oTable.fnUpdate( ['a', 'b', 'c', 'd', 'e'], $('tbody tr')[0] ); // Row
-		 *    } );
-		 */
 		this.fnUpdate = function( mData, mRow, iColumn, bRedraw, bAction )
 		{
 			var api = this.api( true );
@@ -829,23 +268,6 @@
 		};
 		
 		
-		/**
-		 * Provide a common method for plug-ins to check the version of DataTables being used, in order
-		 * to ensure compatibility.
-		 *  @param {string} sVersion Version string to check for, in the format "X.Y.Z". Note that the
-		 *    formats "X" and "X.Y" are also acceptable.
-		 *  @returns {boolean} true if this version of DataTables is greater or equal to the required
-		 *    version, or false if this version of DataTales is not suitable
-		 *  @method
-		 *  @dtopt API
-		 *  @deprecated Since v1.10
-		 *
-		 *  @example
-		 *    $(document).ready(function() {
-		 *      var oTable = $('#example').dataTable();
-		 *      alert( oTable.fnVersionCheck( '1.9.0' ) );
-		 *    } );
-		 */
 		this.fnVersionCheck = _ext.fnVersionCheck;
 		
 
@@ -1580,25 +1002,9 @@
 	};
 	
 	
-	/**
-	 * DataTables utility methods
-	 * 
-	 * This namespace provides helper methods that DataTables uses internally to
-	 * create a DataTable, but which are not exclusively used only for DataTables.
-	 * These methods can be used by extension authors to save the duplication of
-	 * code.
-	 *
-	 *  @namespace
-	 */
+	
 	DataTable.util = {
-		/**
-		 * Throttle the calls to a function. Arguments and context are maintained
-		 * for the throttled function.
-		 *
-		 * @param {function} fn Function to be called
-		 * @param {integer} freq Call frequency in mS
-		 * @return {function} Wrapped function
-		 */
+		
 		throttle: function ( fn, freq ) {
 			var
 				frequency = freq !== undefined ? freq : 200,
@@ -1627,26 +1033,12 @@
 		},
 	
 	
-		/**
-		 * Escape a string such that it can be used in a regular expression
-		 *
-		 *  @param {string} val string to escape
-		 *  @returns {string} escaped string
-		 */
 		escapeRegex: function ( val ) {
 			return val.replace( _re_escape_regex, '\\$1' );
 		}
 	};
 	
 	
-	
-	/**
-	 * Create a mapping object that allows camel case parameters to be looked up
-	 * for their Hungarian counterparts. The mapping is stored in a private
-	 * parameter called `_hungarianMap` which can be accessed on the source object.
-	 *  @param {object} o
-	 *  @memberof DataTable#oApi
-	 */
 	function _fnHungarianMap ( o )
 	{
 		var
@@ -1674,17 +1066,6 @@
 	}
 	
 	
-	/**
-	 * Convert from camel case parameters to Hungarian, based on a Hungarian map
-	 * created by _fnHungarianMap.
-	 *  @param {object} src The model object which holds all parameters that can be
-	 *    mapped.
-	 *  @param {object} user The object to convert from camel case to Hungarian.
-	 *  @param {boolean} force When set to `true`, properties which already have a
-	 *    Hungarian value in the `user` object will be overwritten. Otherwise they
-	 *    won't be.
-	 *  @memberof DataTable#oApi
-	 */
 	function _fnCamelToHungarian ( src, user, force )
 	{
 		if ( ! src._hungarianMap ) {
@@ -1716,14 +1097,6 @@
 		} );
 	}
 	
-	
-	/**
-	 * Language compatibility - when certain options are given, and others aren't, we
-	 * need to duplicate the values over, in order to provide backwards compatibility
-	 * with older language files.
-	 *  @param {object} oSettings dataTables settings object
-	 *  @memberof DataTable#oApi
-	 */
 	function _fnLanguageCompat( lang )
 	{
 		var defaults = DataTable.defaults.oLanguage;
@@ -1756,26 +1129,12 @@
 		}
 	}
 	
-	
-	/**
-	 * Map one parameter onto another
-	 *  @param {object} o Object to map
-	 *  @param {*} knew The new parameter name
-	 *  @param {*} old The old parameter name
-	 */
 	var _fnCompatMap = function ( o, knew, old ) {
 		if ( o[ knew ] !== undefined ) {
 			o[ old ] = o[ knew ];
 		}
 	};
 	
-	
-	/**
-	 * Provide backwards compatibility for the main DT options. Note that the new
-	 * options are mapped onto the old parameters, so this is an external interface
-	 * change only.
-	 *  @param {object} init Object to map
-	 */
 	function _fnCompatOpts ( init )
 	{
 		_fnCompatMap( init, 'ordering',      'bSort' );
@@ -1811,12 +1170,6 @@
 	}
 	
 	
-	/**
-	 * Provide backwards compatibility for column options. Note that the new options
-	 * are mapped onto the old parameters, so this is an external interface change
-	 * only.
-	 *  @param {object} init Object to map
-	 */
 	function _fnCompatCols ( init )
 	{
 		_fnCompatMap( init, 'orderable',     'bSortable' );
@@ -1832,17 +1185,9 @@
 	}
 	
 	
-	/**
-	 * Browser feature detection for capabilities, quirks
-	 *  @param {object} settings dataTables settings object
-	 *  @memberof DataTable#oApi
-	 */
 	function _fnBrowserDetect( settings )
 	{
-		// We don't need to do this every time DataTables is constructed, the values
-		// calculated are specific to the browser and OS configuration which we
-		// don't expect to change between initialisations
-		if ( ! DataTable.__browser ) {
+            if ( ! DataTable.__browser ) {
 			var browser = {};
 			DataTable.__browser = browser;
 	
@@ -1878,31 +1223,10 @@
 			var outer = n.children();
 			var inner = outer.children();
 	
-			// Numbers below, in order, are:
-			// inner.offsetWidth, inner.clientWidth, outer.offsetWidth, outer.clientWidth
-			//
-			// IE6 XP:                           100 100 100  83
-			// IE7 Vista:                        100 100 100  83
-			// IE 8+ Windows:                     83  83 100  83
-			// Evergreen Windows:                 83  83 100  83
-			// Evergreen Mac with scrollbars:     85  85 100  85
-			// Evergreen Mac without scrollbars: 100 100 100 100
-	
-			// Get scrollbar width
 			browser.barWidth = outer[0].offsetWidth - outer[0].clientWidth;
-	
-			// IE6/7 will oversize a width 100% element inside a scrolling element, to
-			// include the width of the scrollbar, while other browsers ensure the inner
-			// element is contained without forcing scrolling
-			browser.bScrollOversize = inner[0].offsetWidth === 100 && outer[0].clientWidth !== 100;
-	
-			// In rtl text layout, some browsers (most, but not all) will place the
-			// scrollbar on the left, rather than the right.
+                        browser.bScrollOversize = inner[0].offsetWidth === 100 && outer[0].clientWidth !== 100;
 			browser.bScrollbarLeft = Math.round( inner.offset().left ) !== 1;
-	
-			// IE8- don't provide height and width for getBoundingClientRect
 			browser.bBounding = n[0].getBoundingClientRect().width ? true : false;
-	
 			n.remove();
 		}
 	
@@ -1910,13 +1234,6 @@
 		settings.oScroll.iBarWidth = DataTable.__browser.barWidth;
 	}
 	
-	
-	/**
-	 * Array.prototype reduce[Right] method, used for browsers which don't support
-	 * JS 1.6. Done this way to reduce code size, since we iterate either way
-	 *  @param {object} settings dataTables settings object
-	 *  @memberof DataTable#oApi
-	 */
 	function _fnReduce ( that, fn, init, start, end, inc )
 	{
 		var
@@ -1945,12 +1262,6 @@
 		return value;
 	}
 	
-	/**
-	 * Add a column to the list used for the table with default values
-	 *  @param {object} oSettings dataTables settings object
-	 *  @param {node} nTh The th element for this column
-	 *  @memberof DataTable#oApi
-	 */
 	function _fnAddColumn( oSettings, nTh )
 	{
 		// Add column to aoColumns array
@@ -1964,33 +1275,17 @@
 			idx: iCol
 		} );
 		oSettings.aoColumns.push( oCol );
-	
-		// Add search object for column specific search. Note that the `searchCols[ iCol ]`
-		// passed into extend can be undefined. This allows the user to give a default
-		// with only some of the parameters defined, and also not give a default
 		var searchCols = oSettings.aoPreSearchCols;
 		searchCols[ iCol ] = $.extend( {}, DataTable.models.oSearch, searchCols[ iCol ] );
-	
-		// Use the default column options function to initialise classes etc
 		_fnColumnOptions( oSettings, iCol, $(nTh).data() );
 	}
 	
-	
-	/**
-	 * Apply options for a column
-	 *  @param {object} oSettings dataTables settings object
-	 *  @param {int} iCol column index to consider
-	 *  @param {object} oOptions object with sType, bVisible and bSearchable etc
-	 *  @memberof DataTable#oApi
-	 */
 	function _fnColumnOptions( oSettings, iCol, oOptions )
 	{
 		var oCol = oSettings.aoColumns[ iCol ];
 		var oClasses = oSettings.oClasses;
 		var th = $(oCol.nTh);
 	
-		// Try to get width information from the DOM. We can't get it from CSS
-		// as we'd need to parse the CSS stylesheet. `width` option can override
 		if ( ! oCol.sWidthOrig ) {
 			// Width attribute
 			oCol.sWidthOrig = th.attr('width') || null;
@@ -2022,8 +1317,6 @@
 				oCol._sManualType = oOptions.sType;
 			}
 	
-			// `class` is a reserved word in Javascript, so we need to provide
-			// the ability to use a valid name for the camel case input
 			if ( oOptions.className && ! oOptions.sClass )
 			{
 				oOptions.sClass = oOptions.className;
@@ -2245,11 +1538,6 @@
 	
 						detectedType = types[j]( cache[k], settings );
 	
-						// If null, then this type can't apply to this column, so
-						// rather than testing all cells, break out. There is an
-						// exception for the last type which is `html`. We need to
-						// scan all rows since it is possible to mix string and HTML
-						// types
 						if ( ! detectedType && j !== types.length-1 ) {
 							break;
 						}
@@ -2277,18 +1565,7 @@
 		}
 	}
 	
-	
-	/**
-	 * Take the column definitions and static columns arrays and calculate how
-	 * they relate to column indexes. The callback function will then apply the
-	 * definition found for a column to a suitable configuration object.
-	 *  @param {object} oSettings dataTables settings object
-	 *  @param {array} aoColDefs The aoColumnDefs array that is to be applied
-	 *  @param {array} aoCols The aoColumns array that defines columns individually
-	 *  @param {function} fn Callback function - takes two parameters, the calculated
-	 *    column index and the definition for that column.
-	 *  @memberof DataTable#oApi
-	 */
+
 	function _fnApplyColumnDefs( oSettings, aoColDefs, aoCols, fn )
 	{
 		var i, iLen, j, jLen, k, kLen, def;
@@ -2356,19 +1633,6 @@
 		}
 	}
 	
-	/**
-	 * Add a data array to the table, creating DOM node etc. This is the parallel to
-	 * _fnGatherData, but for adding rows from a Javascript source, rather than a
-	 * DOM source.
-	 *  @param {object} oSettings dataTables settings object
-	 *  @param {array} aData data array to be added
-	 *  @param {node} [nTr] TR element to add to the table - optional. If not given,
-	 *    DataTables will create a row automatically
-	 *  @param {array} [anTds] Array of TD|TH elements for the row - must be given
-	 *    if nTr is.
-	 *  @returns {int} >=0 if successful (index of new aoData entry), -1 if failed
-	 *  @memberof DataTable#oApi
-	 */
 	function _fnAddData ( oSettings, aDataIn, nTr, anTds )
 	{
 		/* Create the object for storing information about this new row */
@@ -2408,17 +1672,6 @@
 		return iRow;
 	}
 	
-	
-	/**
-	 * Add one or more TR elements to the table. Generally we'd expect to
-	 * use this for reading data from a DOM sourced table, but it could be
-	 * used for an TR element. Note that if a TR is given, it is used (i.e.
-	 * it is not cloned).
-	 *  @param {object} settings dataTables settings object
-	 *  @param {array|node|jQuery} trs The TR element(s) to add to the table
-	 *  @returns {array} Array of indexes for the added rows
-	 *  @memberof DataTable#oApi
-	 */
 	function _fnAddTr( settings, trs )
 	{
 		var row;
@@ -2435,42 +1688,16 @@
 	}
 	
 	
-	/**
-	 * Take a TR element and convert it to an index in aoData
-	 *  @param {object} oSettings dataTables settings object
-	 *  @param {node} n the TR element to find
-	 *  @returns {int} index if the node is found, null if not
-	 *  @memberof DataTable#oApi
-	 */
 	function _fnNodeToDataIndex( oSettings, n )
 	{
 		return (n._DT_RowIndex!==undefined) ? n._DT_RowIndex : null;
 	}
 	
-	
-	/**
-	 * Take a TD element and convert it into a column data index (not the visible index)
-	 *  @param {object} oSettings dataTables settings object
-	 *  @param {int} iRow The row number the TD/TH can be found in
-	 *  @param {node} n The TD/TH element to find
-	 *  @returns {int} index if the node is found, -1 if not
-	 *  @memberof DataTable#oApi
-	 */
 	function _fnNodeToColumnIndex( oSettings, iRow, n )
 	{
 		return $.inArray( n, oSettings.aoData[ iRow ].anCells );
 	}
 	
-	
-	/**
-	 * Get the data for a given cell from the internal cache, taking into account data mapping
-	 *  @param {object} settings dataTables settings object
-	 *  @param {int} rowIdx aoData row id
-	 *  @param {int} colIdx Column index
-	 *  @param {string} type data get type ('display', 'type' 'filter' 'sort')
-	 *  @returns {*} Cell data
-	 *  @memberof DataTable#oApi
-	 */
 	function _fnGetCellData( settings, rowIdx, colIdx, type )
 	{
 		var draw           = settings.iDraw;
@@ -2510,15 +1737,6 @@
 		return cellData;
 	}
 	
-	
-	/**
-	 * Set the value for a specific cell, into the internal data cache
-	 *  @param {object} settings dataTables settings object
-	 *  @param {int} rowIdx aoData row id
-	 *  @param {int} colIdx Column index
-	 *  @param {*} val Value to set
-	 *  @memberof DataTable#oApi
-	 */
 	function _fnSetCellData( settings, rowIdx, colIdx, val )
 	{
 		var col     = settings.aoColumns[colIdx];
@@ -2536,11 +1754,6 @@
 	var __reArray = /\[.*?\]$/;
 	var __reFn = /\(\)$/;
 	
-	/**
-	 * Split string on periods, taking into account escaped periods
-	 * @param  {string} str String to split
-	 * @return {array} Split string
-	 */
 	function _fnSplitObjNotation( str )
 	{
 		return $.map( str.match(/(\\.|[^\.])+/g) || [''], function ( s ) {
@@ -2549,13 +1762,6 @@
 	}
 	
 	
-	/**
-	 * Return a function that can be used to get data from a source object, taking
-	 * into account the ability to use nested objects as a source
-	 *  @param {string|int|function} mSource The data source for the object
-	 *  @returns {function} Data get function
-	 *  @memberof DataTable#oApi
-	 */
 	function _fnGetObjectDataFn( mSource )
 	{
 		if ( $.isPlainObject( mSource ) )
@@ -2591,12 +1797,7 @@
 		else if ( typeof mSource === 'string' && (mSource.indexOf('.') !== -1 ||
 			      mSource.indexOf('[') !== -1 || mSource.indexOf('(') !== -1) )
 		{
-			/* If there is a . in the source string then the data source is in a
-			 * nested object so we loop over the data for each level to get the next
-			 * level down. On each loop we test for undefined, and if found immediately
-			 * return. This allows entire objects to be missing and sDefaultContent to
-			 * be used if defined, rather than throwing an error
-			 */
+			
 			var fetchData = function (data, type, src) {
 				var arrayNotation, funcNotation, out, innerSrc;
 	
@@ -2674,22 +1875,11 @@
 	}
 	
 	
-	/**
-	 * Return a function that can be used to set data from a source object, taking
-	 * into account the ability to use nested objects as a source
-	 *  @param {string|int|function} mSource The data source for the object
-	 *  @returns {function} Data set function
-	 *  @memberof DataTable#oApi
-	 */
 	function _fnSetObjectDataFn( mSource )
 	{
 		if ( $.isPlainObject( mSource ) )
 		{
-			/* Unlike get, only the underscore (global) option is used for for
-			 * setting data since we don't know the type here. This is why an object
-			 * option is not documented for `mData` (which is read/write), but it is
-			 * for `mRender` which is read only.
-			 */
+			
 			return _fnSetObjectDataFn( mSource._ );
 		}
 		else if ( mSource === null )
@@ -2850,22 +2040,7 @@
 	}
 	
 	
-	/**
-	 * Mark cached data as invalid such that a re-read of the data will occur when
-	 * the cached data is next requested. Also update from the data source object.
-	 *
-	 * @param {object} settings DataTables settings object
-	 * @param {int}    rowIdx   Row index to invalidate
-	 * @param {string} [src]    Source to invalidate from: undefined, 'auto', 'dom'
-	 *     or 'data'
-	 * @param {int}    [colIdx] Column index to invalidate. If undefined the whole
-	 *     row will be invalidated
-	 * @memberof DataTable#oApi
-	 *
-	 * @todo For the modularisation of v1.11 this will need to become a callback, so
-	 *   the sort and filter methods can subscribe to it. That will required
-	 *   initialisation options for sorting, which is why it is not already baked in
-	 */
+	
 	function _fnInvalidate( settings, rowIdx, src, colIdx )
 	{
 		var row = settings.aoData[ rowIdx ];
@@ -3130,13 +2305,6 @@
 	}
 	
 	
-	/**
-	 * Add attributes to a row based on the special `DT_*` parameters in a data
-	 * source object.
-	 *  @param {object} settings DataTables settings object
-	 *  @param {object} DataTables row object for the row to be modified
-	 *  @memberof DataTable#oApi
-	 */
 	function _fnRowAttributes( settings, row )
 	{
 		var tr = row.nTr;
@@ -3249,20 +2417,6 @@
 		}
 	}
 	
-	
-	/**
-	 * Draw the header (or footer) element based on the column visibility states. The
-	 * methodology here is to use the layout array from _fnDetectHeader, modified for
-	 * the instantaneous column visibility, to construct the new layout. The grid is
-	 * traversed over cell at a time in a rows x columns grid fashion, although each
-	 * cell insert can cover multiple elements in the grid - which is tracks using the
-	 * aApplied array. Cell inserts in the grid will only occur where there isn't
-	 * already a cell in that position.
-	 *  @param {object} oSettings dataTables settings object
-	 *  @param array {objects} aoSource Layout array from _fnDetectHeader
-	 *  @param {boolean} [bIncludeHidden=false] If true then include the hidden columns in the calc,
-	 *  @memberof DataTable#oApi
-	 */
 	function _fnDrawHead( oSettings, aoSource, bIncludeHidden )
 	{
 		var i, iLen, j, jLen, k, kLen, n, nLocalTr;

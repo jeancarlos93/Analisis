@@ -1,4 +1,10 @@
-
+<?php
+ 
+   session_start();
+    
+   $tipo = $_SESSION['tipoEmpleado'];
+   $usser = $_SESSION['usuario'];
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -70,8 +76,18 @@
                     echo '<td class="text-success">'. $json[$i]->getApellido() .'</td>'; 
                     echo '<td class="text-success">'. $json[$i]->getCedula() .'</td>';                 
                     echo '<td class="text-success">'. $json[$i]->getTelefono() .'</td>';
-                    echo '<td><a href= "Business/EliminarCliente.php?codigoCliente='.$json[$i]->getCodigo().'">'?><img src="../Image/delete.png" width="20px" height="20px"><?php echo'</a></td>';
-                    echo '<td><a href= "ModificarCliente.php?codigoCliente='.$json[$i]->getCodigo().'">'?><img src="../Image/editar.png" width="20px" height="20px"><?php echo'</a></td>'; 
+                    if($tipo == "Empleado" )  {
+                       echo '<td><a href= "#">'?><img src="../Image/delete.png" width="20px" height="20px"><?php echo'</a></td>';
+                         
+                    }
+                    if($tipo == "Admnistrador" )  {
+                        echo '<td><a href= "Business/EliminarCliente.php?codigoCliente='.$json[$i]->getCodigo().'">'?><img src="../Image/delete.png" width="20px" height="20px"><?php echo'</a></td>';
+                        
+                    }
+                    if( $tipo == "Empleado" || $tipo == "Administrador")  {
+                        echo '<td><a href= "ModificarCliente.php?codigoCliente='.$json[$i]->getCodigo().'">'?><img src="../Image/editar.png" width="20px" height="20px"><?php echo'</a></td>';
+                    }
+                    
                     ?>
                     </tr>
              <?php    }                

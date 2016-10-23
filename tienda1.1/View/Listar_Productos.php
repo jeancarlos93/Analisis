@@ -2,13 +2,13 @@
     <head>
         <meta charset="UTF-8">
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <link href="../css/tablas.css" type="text/css" rel="stylesheet"/>
+       <!--   <link href="../css/tablas.css" type="text/css" rel="stylesheet"/> -->
         <script src="../JS/Autocomplete.js" type="text/javascript"> </script>
         
         <script type="text/javascript" language="javascript" src="../JS/jquery.js"></script>
      
         <script type="text/javascript" language="javascript" src="../JS/jquery.dataTables.js"></script>
-        <link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css" media="screen" />
+          <link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css" media="screen" />
 
         <?php
         include_once '../Data/DataCargarListas.php';
@@ -138,9 +138,9 @@
  
         }, {
  
-            targets: [3 ],
+            targets: [1 ],
  
-            orderData: [ 3, 0 ]
+            orderData: [ 1, 0 ]
  
         } ]
  

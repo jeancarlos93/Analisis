@@ -1,7 +1,7 @@
 <?php
 
 include_once '../Data/Data.php';
-include_once '../Domain/Proveedor.php';
+include_once '../Domain/Usuario.php';
 
 function getListaUsuarios() {
     

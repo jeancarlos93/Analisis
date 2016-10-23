@@ -1,35 +1,48 @@
 <?php
 include_once '../Data/Data.php';
+include_once '../Domain/Usuario.php';
 
-function validarUsuarios($usuario, $contrasenia) {
+function validarUsuarios($nombreUsuario, $contrasenia) {
     
+    $usuario = new Usuario();
     $mysqli = getConnection();
-    $sql = "select * from vendedor where estado=1 and nombre='$usuario';";
-    $usser = $mysqli->query($sql);
+    $sql = "select * from vendedor where estado=1 and nombre='$nombreUsuario';";
+    $resultado = $mysqli->query($sql);
+   // $conn->query($sql) == TRUE)
     
-    if ($usser->num_rows > 0) {
-        $sql = "select * from vendedor where estado=1 and nombre='$usuario' and contrasena='$contrasenia';";
-        $clave = $mysqli->query($sql);
+    if ($resultado->num_rows > 0)  {
+        $clave = "select * from vendedor where estado=1 and nombre='$nombreUsuario' and contrasena='$contrasenia';";
+        $resultado2 = $mysqli->query($clave);
     
-        if ($clave->num_rows > 0) {
-            return true;
-           // session_start(); 
-            //Guardamos dos variables de sesión que nos auxiliará para saber si se está o no "logueado" un usuario 
-         //   $_SESSION["autentica"] = "SIP"; 
-          //  $_SESSION["usuarioactual"] = mysql_result($myclave,0,0); 
-            //nombre del usuario logueado. 
-            //Direccionamos a nuestra página principal del sistema. 
-          //  header ("Location: ../View/Header.php");
+        if ($resultado2->num_rows > 0) {
+           // return true;
+            while ($row = $resultado2->fetch_assoc()) {  
+                $usuario->setNombre($row['nombre']);
+                $usuario->setApellido($row['apellido']);
+                $usuario->setTipoEmpleado($row['tipoEmpleado']);
+         //   $vector = $usuario;
+          //  array_push($vector, $proveedor);
+        }
+        
+            $nombre = $usuario->getNombre();
+            $apellido= $usuario->getApellido();
+            $tipoEmpleado = $usuario->getTipoEmpleado();
+            session_start(); 
+            
+            $_SESSION['usuario'] = $nombre; 
+            $_SESSION['tipoEmpleado'] = $tipoEmpleado; 
+            
+            header ("Location: ../View/Header.php");
             
         }
         else{
-            echo"<script>alert('La contrase\u00f1a del usuario no es correcta.'); window.location.href=\"index.php\"</script>";
-            return false;
+            echo"<script>alert('La contrase\u00f1a del usuario no es correcta.'); window.location.href=\"/Tienda-vachelle/tienda1.1/index.php\"</script>";
+          //  return false;
         }
     }
     else{
-        echo"<script>alert('El usuario no existe.'); window.location.href=\"index.php\"</script>"; 
-        return false;
+        echo"<script>alert('El usuario no existe.'); window.location.href=\"/Tienda-vachelle/tienda1.1/index.php\"</script>"; 
+       // return false;
     }
    $mysqli->close(); 
 }

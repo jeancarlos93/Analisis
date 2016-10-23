@@ -3,16 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="examen"/>
-        <group>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.1/View/Header.php</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.1/Data/DataUsuario.php</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.1/Business/Login.php</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.1/Domain/sesion.class</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.1/Data/DataLogin.php</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.1/View/cerrarSesion.php</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.1/View/InicioSesion.php</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.1/index.php</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.1/Domain/sesion.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
