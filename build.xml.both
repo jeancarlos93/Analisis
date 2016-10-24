@@ -65,7 +65,7 @@
            <arg value="--exclude" />
            <arg path="${basedir}/tests" />
            <arg value="--log-csv" />
-           <arg value="${basedir}/build/logs/phploc.csv" />
+           <arg value="${basedir}/build/logs/phploc.phar" />
            <arg path="${basedir}" />
        </exec>
    </target>
