@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!--<?xml version="1.0" encoding="UTF-8"?>
 <project name="tienda1.3" default="full-build">
-<!--  By default, we assume all tools to be on the $PATH  -->
+  By default, we assume all tools to be on the $PATH  
 <property name="pdepend" value="pdepend"/>
 <property name="phpcpd" value="phpcpd"/>
 <property name="phpcs" value="phpcs"/>
@@ -27,7 +27,7 @@
  <property name="phploc"  value="${basedir}/vendor/bin/phploc"/>
  <property name="phpmd"   value="${basedir}/vendor/bin/phpmd"/>
  <property name="phpunit" value="${basedir}/vendor/bin/phpunit"/> 
--->
+
 <target name="full-build" depends="prepare,phpunit,phpdox,-check-failure" description="Performs static analysis, runs the tests, and generates project documentation"/>
 <!--
 ,static-analysis
@@ -36,7 +36,7 @@
 <target name="static-analysis" depends="lint,phploc-ci,pdepend,phpmd-ci,phpcs-ci,phpcpd-ci" description="Performs static analysis"/>
 
  Adjust the threadCount attribute's value to the number of CPUs 
--->
+
 <target name="static-analysis-parallel" description="Performs static analysis (executing the tools in parallel)">
 <parallel threadCount="2">
 <sequential>
