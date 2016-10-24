@@ -145,7 +145,7 @@
    <!-- Inline bash script to run TestSuite.php and pipe its results to xmllint -->
    <!-- XML Lint then outputs the results to simpletest-results.xml -->
    <target name="simpletest" description="Run SimpleTest unit tests">
-       <exec dir="${basedir}" executable="bash" failonerror="true">
+       <exec dir="${basedir}" executable="cmd" failonerror="true">
            <arg value="-c"/>
            <arg line='"php tests/simpletest/TestSuite.php | xmllint --format -o build/logs/simpletest-results.xml -"' />
        </exec>
