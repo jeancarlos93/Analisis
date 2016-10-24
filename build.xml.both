@@ -60,7 +60,7 @@
    </target>
 
    <target name="phploc" description="Measure project size using PHPLOC">
-       <exec executable="c:\phploc">
+       <exec executable="C:\Users\Yoselin\.jenkins\workspace\pruebaUnitTest\phploc">
            <!-- exclude tests directory -->
            <arg value="--exclude" />
            <arg path="${basedir}/tests" />
