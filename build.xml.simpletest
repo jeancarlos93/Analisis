@@ -2,11 +2,11 @@
 
 <project name="tienda" default="build">
     
-    <!-- intended to be ran before upload to the CI server -->
+    <!-- intended to be ran before upload to the CI server prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdoc,,phpcb-->
     <target name="pre-upload" depends="phpcs, phpmd" />
     
    <target name="build"
-       depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdoc,simpletest,phpcb"/>
+       depends="simpletest"/>
 
     <target name="build-parallel"
         depends="prepare,lint,tools-parallel,simpletest,phpcb"/>
