@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<project name="MyApplication" default="build">
+  <property name="package" value="MyApplication" override="true" />
+  <target name="clean">
+    <delete dir="build/reports"/>
+  </target>
+  <target name="prepare">
+    <mkdir dir="build/reports/logs"/>
+  </target>
+
+  <target name="phpunit">
+    <phpunit printsummary="true" haltonfailure="true" pharlocation="phars">
+      <formatter todir="build/reports/logs" type="xml"/>
+      <batchtest>
+        <fileset dir="">
+          <include name="tienda1.3/PruebaUnitaria.php"/>
+        </fileset>
+      </batchtest>
+      <formatter type="xml" todir="build/reports" outfile="logfile.xml"/>
+   </phpunit>
+   <phpunitreport infile="build/reports/logfile.xml"
+                  todir="build/reports"/>
+  </target>
+
+  <target name="build" depends="clean,prepare,phpunit"/>
+</project>
