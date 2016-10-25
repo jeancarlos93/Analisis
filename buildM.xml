@@ -8,15 +8,17 @@
   </target>
 
   <target name="phpunit">
-  <exec dir="C:/xampp/php/tests" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
+  <exec dir="C:/xampp/php" executable="phpunit.bat" failonerror="true" description="Run unit tests with PHPUnit">
   <env key="APPLICATION_ENV" value="testing"/>
   <arg line="--verbose --stderr" />   
   </exec>
  </target>
   
+  
+  
   <!--
   <target name="phpunit">
-    
+    <exec dir="${basedir}" executable="cmd" failonerror="true">
     <phpunit pharlocation="php\bin" printsummary="true" haltonfailure="true" >
       <formatter todir="build/reports/logs" type="xml"/>
       <batchtest>
