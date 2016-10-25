@@ -17,17 +17,10 @@
     <phpunit printsummary="true" haltonfailure="true" >
       <arg path="tienda1.3/PruebaUnitaria.php" />
       <formatter todir="build/reports/logs" type="xml"/>
-      <batchtest>
-        <fileset dir=".">
-          <include name="tienda1.3/PruebaUnitaria.php"/>
-        </fileset>
-      </batchtest>
+      
       <formatter type="xml" todir="build/reports" outfile="logfile.xml"/>
    </phpunit>
-   <phpunitreport infile="build/reports/logfile.xml"
-                  styledir="/usr/share/php/data/phing/etc"
-                  format="frames"
-                  todir="build/reports"/>
+   
   </target>
   <target name="build" depends="clean,prepare,phpunits"/>
 </project>
