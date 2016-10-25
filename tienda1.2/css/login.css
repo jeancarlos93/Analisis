@@ -13,20 +13,16 @@ h1.tituloSesion{
     position: absolute;
     left: 530px;
     top: 290px;
-  //  border: 1px solid #000000;
 }
 
 div.inicioSesion{
     position: absolute;
     left: 400px;
     top: 380px;
-  //  border: 1px solid #000000;
 }
 
 div.iconoInicioSesion{
     position: absolute;
-   // height: 70%;
-   // width: 70%;
     top: 230px;
     left: 370px;
 }

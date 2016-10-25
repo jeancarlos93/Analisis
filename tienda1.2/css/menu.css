@@ -22,16 +22,12 @@
                 width: 100%;
                 position: absolute;
                 height: 185px;
-             //   background: url('../Image/titulo.gif');
                 background: -moz-radial-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%);/* For Firefox 3.6 to 15 */
                 background: -webkit-linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%); /* For Safari 5.1 to 6.0 */
                 background: -o-linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%); /* For Opera 11.1 to 12.0 */
                 background: linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%);
                 border: 1px solid #000000;
                 margin: auto;
-              //  margin-top: 10px;
-              //  margin-bottom: 15px;
-              //  padding: 20px;
                 text-align: center;
             }
             
@@ -61,10 +57,7 @@
                 
             nav ul {
                 list-style-type: none;
-              //  position: absolute;
-              // float: left;
                 margin: 0px;
-              //  margin-left: 150px;
                 padding: 0;
                 overflow: hidden;
                 background-color: #333;

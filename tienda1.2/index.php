@@ -40,9 +40,6 @@ and open the template in the editor.
                 background: linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%);
                 border: 1px solid #000000;
                 margin: auto;
-              //  margin-top: 10px;
-              //  margin-bottom: 15px;
-              //  padding: 20px;
                 text-align: center;
             }
             
@@ -135,7 +132,7 @@ and open the template in the editor.
                 <li><a href="#">Ventas</a></li>
                 <li><a href="#">Compras</a></li>
                 <li><a href="#">Cierre de Caja</a></li>
-                <li><a href="/Tienda-vachelle/tienda1.2/View/InicioSesion.php">Iniciar Sesion</a></li> 
+                <li><a href="/tienda1.2/View/InicioSesion.php">Iniciar Sesion</a></li> 
             </ul>                         
         </nav>
         
