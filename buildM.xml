@@ -15,7 +15,7 @@
     <phpunit printsummary="true" haltonfailure="true" >
       <formatter todir="build/reports" type="xml"/>
       <batchtest>
-        <fileset dir="">
+        <fileset dir=".">
           <include name="tienda1.3/PruebaUnitaria.php"/>
         </fileset>
       </batchtest>
