@@ -135,7 +135,7 @@ and open the template in the editor.
                 <li><a href="/tienda1.2/View/InicioSesion.php">Iniciar Sesion</a></li> 
             </ul>                         
         </nav>
-        
+       </body>  
         
         <footer>
             Pie de la pagina
