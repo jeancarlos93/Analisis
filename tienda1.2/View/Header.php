@@ -143,7 +143,7 @@
             <ul>
                 <li class="disabled"><a href="#">Usuarios</a></li>
                 <li class="disabled"><a href="#">Proveedor</a></li>
-                <li><a href="/tienda1.2/View/Cliente.php">Cliente</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.2/View/Cliente.php">Cliente</a></li>
                 <li class="disabled"><a href="#">Productos</a></li>
                 <li class="disabled"><a href="#">Inventario</a></li>  
                 <li ><a href="#">Apartados</a></li>
@@ -151,7 +151,7 @@
                 <li><a href="#">Ventas</a></li>
                 <li><a href="#">Compras</a></li>
                 <li><a href="#">Cierre de Caja</a></li>
-                <li><a href="/tienda1.2/View/cerrarSesion.php">Cerrar Sesion</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.2/View/cerrarSesion.php">Cerrar Sesion</a></li>
                 
             </ul>                         
         </nav>
@@ -174,17 +174,17 @@
                    
         <nav>                       
             <ul>
-                <li><a href="/tienda1.2/View/Listado_Usuarios.php">Usuarios</a></li>
-                <li><a href="/tienda1.2/View/Listado_Proveedores.php">Proveedor</a></li>
-                <li><a href="/tienda1.2/View/Cliente.php">Cliente</a></li>
-                <li><a href="/tienda1.2/View/Listar_Productos.php">Productos</a></li>
-                <li><a href="/tienda1.2/Business/consultarInventario.php?buscarPor=4">Inventario</a></li>  
+                <li><a href="/Tienda-vachelle/tienda1.2/View/Listado_Usuarios.php">Usuarios</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.2/View/Listado_Proveedores.php">Proveedor</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.2/View/Cliente.php">Cliente</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.2/View/Listar_Productos.php">Productos</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.2/Business/consultarInventario.php?buscarPor=4">Inventario</a></li>  
                 <li><a href="#">Apartados</a></li>
                 <li><a href="#">Cuentas por pagar</a></li>
                 <li><a href="#">Ventas</a></li>
                 <li><a href="#">Compras</a></li>
                 <li><a href="#">Cierre de Caja</a></li>
-                <li><a href="/tienda1.2/View/cerrarSesion.php">Cerrar Sesion</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.2/View/cerrarSesion.php">Cerrar Sesion</a></li>
                 
             </ul>                         
         </nav>
