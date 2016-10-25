@@ -8,6 +8,14 @@
   </target>
 
   <target name="phpunit">
+  <exec dir="${basedir}/tests" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
+  <env key="APPLICATION_ENV" value="testing"/>
+  <arg line="--verbose --stderr" />   
+  </exec>
+ </target>
+  
+  <!--
+  <target name="phpunit">
     
     <phpunit pharlocation="php\bin" printsummary="true" haltonfailure="true" >
       <formatter todir="build/reports/logs" type="xml"/>
@@ -21,6 +29,6 @@
    <phpunitreport infile="build/reports/logfile.xml"
                   todir="build/reports"/>
   </target>
-
+-->
   <target name="build" depends="clean,prepare,phpunit"/>
 </project>
