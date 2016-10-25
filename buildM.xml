@@ -7,7 +7,8 @@
     <mkdir dir="build/reports/logs"/>
   </target> 
   
-  <!-- <exec dir="C:/xampp/php" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit"> <exec dir="C:/xampp/php" executable="cmd" failonerror="true">-->
+  <!-- <exec dir="C:/xampp/php" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit"> <exec dir="C:/xampp/php" executable="cmd" failonerror="true"> 
+-->
   <target name="phpunit">
     
     <phpunit dir="C:/xampp/php" printsummary="true" haltonfailure="true" >
