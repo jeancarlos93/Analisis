@@ -13,6 +13,7 @@
 -->
   <target name="phpunits">
     <exec dir="C:/xampp/php" executable="phpunit.bat" failonerror="true" description="Run unit tests with PHPUnit"> </exec>
+    <exec dir="C:/xampp/php" executable="pear.bat" failonerror="true" description="Run pear"> </exec>
     <phpunit printsummary="true" haltonfailure="true" >
       <formatter todir="build/reports/logs" type="xml"/>
       <batchtest>
