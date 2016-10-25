@@ -5,8 +5,8 @@
     <!-- intended to be ran before upload to the CI server prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdoc,,phpcb-->
     <target name="pre-upload" depends="phpcs, phpmd" />
     
-   <target name="build"
-       depends="simpletest"/>
+   <!-- <target name="build" depends="simpletest"/> -->
+   <target name="build" depends="pruebasUnit"/>
 
     <target name="build-parallel"
         depends="prepare,lint,tools-parallel,simpletest,phpcb"/>
@@ -151,6 +151,18 @@
        </exec>
    </target>
     
+   <target name="pruebasUnit" description="Ejecuta las pruebas unit para jenkins">
+      <junit haltonfailure="false" printsummary="true">
+      <classpath refid="Classpath"></classpath>
+      <batchtest haltonfailure="false" fork="true"todir="reports">
+        <fileset dir="bin">
+            <exclude name="TestRunner.*"/>
+            <exclude name="TestRunner.*"/>
+       </fileset>
+       </batchtest>
+       <formatter type="xml"/>
+      </junit>
+   </target>
 
    <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
        <exec executable="phpcb">
