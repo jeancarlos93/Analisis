@@ -154,7 +154,7 @@
    <target name="pruebasUnit" description="Ejecuta las pruebas unit para jenkins">
       <junit haltonfailure="false" printsummary="true">
       <classpath refid="Classpath"></classpath>
-      <batchtest haltonfailure="false" fork="true"todir="reports">
+      <batchtest haltonfailure="false" fork="true" todir="reports">
         <fileset dir="bin">
             <exclude name="TestRunner.*"/>
             <exclude name="TestRunner.*"/>
