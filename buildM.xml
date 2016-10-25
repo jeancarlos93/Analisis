@@ -13,10 +13,10 @@
   <target name="phpunits">
     <exec dir="C:/xampp/php" executable="phpunit.bat" failonerror="true" description="Run unit tests with PHPUnit"> </exec>
     <phpunit printsummary="true" haltonfailure="true" >
-      <formatter todir="build/reports" type="xml"/>
+      <formatter todir="build/reports/logs" type="xml"/>
       <batchtest>
         <fileset dir=".">
-          <include name="tienda1.3/PruebaUnitaria.php"/>
+          <include name="TddTests.class.php"/>
         </fileset>
       </batchtest>
       <formatter type="xml" todir="build/reports" outfile="logfile.xml"/>
