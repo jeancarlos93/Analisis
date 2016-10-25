@@ -9,7 +9,7 @@
 
   <target name="phpunit">
     
-    <phpunit printsummary="true" haltonfailure="true">
+    <phpunit pharlocation="php\bin" printsummary="true" haltonfailure="true" >
       <formatter todir="build/reports/logs" type="xml"/>
       <batchtest>
         <fileset dir="">
