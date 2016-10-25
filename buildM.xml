@@ -23,5 +23,5 @@
    <phpunitreport infile="build/reports/logfile.xml"
                   todir="build/reports"/>
   </target>
-  <target name="build" depends="clean,prepare,phpunit"/>
+  <target name="build" depends="clean,prepare,phpunits"/>
 </project>
