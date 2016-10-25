@@ -8,7 +8,7 @@
   </target>
 
   <target name="phpunit">
-  <exec dir="${basedir}/tests" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
+  <exec dir="C:/xampp/php/tests" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
   <env key="APPLICATION_ENV" value="testing"/>
   <arg line="--verbose --stderr" />   
   </exec>
