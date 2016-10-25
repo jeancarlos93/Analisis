@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <project name="MyApplication" default="build">
-  <property name="package" value="MyApplication" override="true" />
   <target name="clean">
     <delete dir="build/reports"/>
   </target>
