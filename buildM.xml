@@ -18,7 +18,7 @@
       <formatter todir="build/reports/logs" type="xml"/>
       <batchtest>
         <fileset dir=".">
-          <include name="TddTests.class.php"/>
+          <include name="tienda1.3/PruebaUnitaria.php"/>
         </fileset>
       </batchtest>
       <formatter type="xml" todir="build/reports" outfile="logfile.xml"/>
