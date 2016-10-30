@@ -16,15 +16,7 @@ and open the template in the editor.
 
             body{
                 width: 100%;
-               background: rgba(250,250,250,1);
-                background: -moz-linear-gradient(left, rgba(250,250,250,1) 0%, rgba(240,240,240,1) 47%, rgba(232,232,232,1) 100%);
-                background: -webkit-gradient(left top, right top, color-stop(0%, rgba(250,250,250,1)), color-stop(47%, rgba(240,240,240,1)), color-stop(100%, rgba(232,232,232,1)));
-                background: -webkit-linear-gradient(left, rgba(250,250,250,1) 0%, rgba(240,240,240,1) 47%, rgba(232,232,232,1) 100%);
-                background: -o-linear-gradient(left, rgba(250,250,250,1) 0%, rgba(240,240,240,1) 47%, rgba(232,232,232,1) 100%);
-                background: -ms-linear-gradient(left, rgba(250,250,250,1) 0%, rgba(240,240,240,1) 47%, rgba(232,232,232,1) 100%);
-                background: linear-gradient(to right, rgba(250,250,250,1) 0%, rgba(240,240,240,1) 47%, rgba(232,232,232,1) 100%);
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#e8e8e8', GradientType=1 );
-
+                background: black;
             }
             
             header{
