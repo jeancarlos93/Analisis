@@ -18,7 +18,7 @@ and open the template in the editor.
                 width: 100%;
                 background: black;
             }
-            
+             
             header{
                 
                 width: 100%;
