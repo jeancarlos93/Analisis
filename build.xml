@@ -84,7 +84,7 @@
   <property name="pdepend.done" value="true"/>
  </target>
 
-
+<!--
  <target name="phpunit"
          unless="phpunit.done"
          depends="prepare"
@@ -96,7 +96,7 @@
 
   <property name="phpunit.done" value="true"/>
  </target>
-
+-->
  <target name="phpunit-no-coverage"
          unless="phpunit.done"
          depends="prepare"
@@ -119,4 +119,12 @@
    </condition>
   </fail>
  </target>
+ 
+ <target name="phpunit"> 
+  <exec executable="cmd"> 
+   <arg value="/c"/> 
+   <arg value="phpunit.bat"/>
+   <arg value="--configuration"/>
+   <arg path="${basedir}/build/phpunit.xml"/>
+   </exec> </target> 
 </project>
