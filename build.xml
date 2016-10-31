@@ -113,12 +113,11 @@
  
  <target name="phpunit"> 
   <exec executable="cmd" resultproperty="result.phpunit">
-   command="phpunit --log-junit 'reports/unitreport.xml'
    <arg value="/c"/> 
    <arg value="C:\\xampp\\PHP\\phpunit.bat"/>
    <arg value="--configuration"/>
    <arg path="${basedir}/build/phpunit.xml"/>
-   
+   <arg value="phpunit --log-junit 'reports/unitreport.xml"/>
    </exec>
  
  </target> 
