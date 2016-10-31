@@ -28,7 +28,7 @@
  <property name="phpunit" value="${basedir}/vendor/bin/phpunit"/> -->
 
  <target name="build"
-         depends="prepare,phpunit,phpdox,-check-failure"
+         depends="prepare,phpunit,-check-failure"
          description="Performs static analysis, runs the tests, and generates project documentation"/>
 
  <target name="full-build-parallel"
