@@ -117,7 +117,7 @@
    <arg value="C:\\xampp\\PHP\\phpunit.bat"/>
    <arg value="--configuration"/>
    <arg path="${basedir}/build/phpunit.xml"/>
-   <arg value="phpunit --log-junit 'Reports/Reports.xml"/>
+   <arg value="phpunit --coverage-xml ./Reports C:\Users\Yoselin\.jenkins\workspace\comp1\comp1\vendor\src"/>
    </exec>
  
  </target> 
