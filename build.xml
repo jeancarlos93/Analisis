@@ -28,7 +28,7 @@
  <property name="phpunit" value="${basedir}/vendor/bin/phpunit"/> -->
 
  <target name="build"
-         depends="prepare,phpunit,-check-failure"
+         depends="prepare,phpunit"
          description="Performs static analysis, runs the tests, and generates project documentation"/>
 
  
@@ -109,16 +109,6 @@
   </exec>
 
   <property name="phpunit.done" value="true"/>
- </target>
-
- <target name="-check-failure">
-  <fail message="PHPUnit did not finish successfully">
-   <condition>
-    <not>
-     <equals arg1="${result.phpunit}" arg2="0"/>
-    </not>
-   </condition>
-  </fail>
  </target>
  
  <target name="phpunit"> 
