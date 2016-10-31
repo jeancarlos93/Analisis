@@ -17,6 +17,8 @@ and open the template in the editor.
             body{
                 width: 100%;
                 background: black;
+                
+                background: white;
             }
              
             header{
