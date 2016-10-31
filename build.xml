@@ -117,7 +117,7 @@
    <arg value="C:\\xampp\\PHP\\phpunit.bat"/>
    <arg value="--configuration"/>
    <arg path="${basedir}/build/phpunit.xml"/>
-   <arg value="phpunit --coverage-xml ./Reports comp1/vendor/src"/>
+   <arg value="phpunit --coverage-clover ./Reports comp1/vendor/src"/>
    </exec>
  
  </target> 
