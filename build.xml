@@ -122,7 +122,7 @@
  <target name="phpunit"> 
   <exec executable="cmd"> 
    <arg value="/c"/> 
-   <arg value="phpunit.bat"/>
+   <arg value="phpunit.exe"/>
    <arg value="--configuration"/>
    <arg path="${basedir}/build/phpunit.xml"/>
    </exec> </target> 
