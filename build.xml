@@ -31,6 +31,8 @@
          depends="prepare,phpunit,-check-failure"
          description="Performs static analysis, runs the tests, and generates project documentation"/>
 
+ 
+     
  <!-- Adjust the threadCount attribute's value to the number of CPUs -->
  <target name="static-analysis-parallel"
          description="Performs static analysis (executing the tools in parallel)">
@@ -122,8 +124,21 @@
  <target name="phpunit"> 
   <exec executable="cmd"> 
    <arg value="/c"/> 
-   <arg value="phpunit"/>
+   <arg value="C:\\xampp\\PHP\\phpunit.bat"/>
    <arg value="--configuration"/>
    <arg path="${basedir}/build/phpunit.xml"/>
    </exec> </target> 
+ 
+ <target name="phpunit3" 
+         unless="phpunit.done" 
+         depends="prepare" 
+         description="Run unit tests with PHPUnit">
+    <exec executable="${phpunit}" failonerror="true"  dir="${basedir}/comp1/vendor/src/" resultproperty="result.phpunit">
+ <arg line="UserTest ${basedir}/classes/tests/userTest.php" />
+     <arg value="--configuration"/>
+        <arg path="${basedir}/comp1/vendor/src/UnitTest.xml"/>
+      </exec>
+
+    <property name="phpunit.done" value="true"/>
+</target>
 </project>
