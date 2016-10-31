@@ -106,7 +106,7 @@
    <arg value="C:\\xampp\\PHP\\phpunit.bat"/>
    <arg value="--configuration"/>
   
-   <arg line="--coverage-clover ${basedir}/Reports/Reports.xml --coverage-html ${basedir}/Reports/ ."/>
+   <arg line="phpunit --coverage-clover ${basedir}/Reports/Reports.xml --coverage-html ${basedir}/Reports/ ."/>
    </exec>
  
  </target> 
