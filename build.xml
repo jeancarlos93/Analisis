@@ -117,8 +117,9 @@
    <arg value="C:\\xampp\\PHP\\phpunit.bat"/>
    <arg value="--configuration"/>
    <arg path="${basedir}/build/phpunit.xml"/>
+   <formatter type="xml" todir="Reports" outfile="logfile.xml"/>
    </exec>
- <formatter type="xml" todir="Reports"/>
+ 
  </target> 
  
  <target name="phpunit3" 
