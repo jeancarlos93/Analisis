@@ -31,14 +31,6 @@
          depends="prepare,phpunit,-check-failure"
          description="Performs static analysis, runs the tests, and generates project documentation"/>
 
- <target name="full-build-parallel"
-         depends="prepare,static-analysis-parallel,phpunit,phpdox,-check-failure"
-         description="Performs static analysis (executing the tools in parallel), runs the tests, and generates project documentation"/>
-
- <target name="quick-build"
-         depends="prepare,lint,phpunit-no-coverage"
-         description="Performs a lint check and runs the tests (without generating code coverage reports)"/>
-
  <!-- Adjust the threadCount attribute's value to the number of CPUs -->
  <target name="static-analysis-parallel"
          description="Performs static analysis (executing the tools in parallel)">
