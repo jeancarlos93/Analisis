@@ -1,13 +1,126 @@
-<?xml version="1.0"?>
-<project name="Phing Build Tests" default="build" basedir=".">
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="comp1" default="build">
+ <!-- By default, we assume all tools to be on the $PATH -->
+ <property name="pdepend" value="pdepend"/>
+ <property name="phpcpd"  value="phpcpd"/>
+ <property name="phpcs"   value="phpcs"/>
+ <property name="phpdox"  value="phpdox"/>
+ <property name="phploc"  value="phploc"/>
+ <property name="phpmd"   value="phpmd"/>
+ <property name="phpunit" value="phpunit"/>
 
-	        <target name="build">
-                      command="phpunit --log-junit 'tests/reports.xml'
-                       --coverage-html 'tests'
-                       --coverage-clover 'tests/coverage.xml'
-                       test/"
-                    />
-	        </target>
-	       
-	            
-	</project>
+ <!-- Use this when the tools are managed by Composer in ${basedir}/vendor/bin
+ <property name="pdepend" value="${basedir}/vendor/bin/pdepend"/>
+ <property name="phpcpd"  value="${basedir}/vendor/bin/phpcpd"/>
+ <property name="phpcs"   value="${basedir}/vendor/bin/phpcs"/>
+ <property name="phpdox"  value="${basedir}/vendor/bin/phpdox"/>
+ <property name="phploc"  value="${basedir}/vendor/bin/phploc"/>
+ <property name="phpmd"   value="${basedir}/vendor/bin/phpmd"/>
+ <property name="phpunit" value="${basedir}/vendor/bin/phpunit"/> -->
+
+ <target name="build"
+         depends="prepare,phpunit"
+         description="Performs static analysis, runs the tests, and generates project documentation"/>
+ 
+ <!-- Adjust the threadCount attribute's value to the number of CPUs -->
+ <target name="static-analysis-parallel"
+         description="Performs static analysis (executing the tools in parallel)">
+  <parallel threadCount="2">
+   <sequential>
+    <antcall target="pdepend"/>
+    <antcall target="phpmd-ci"/>
+   </sequential>
+   <antcall target="lint"/>
+   <antcall target="phpcpd-ci"/>
+   <antcall target="phpcs-ci"/>
+   <antcall target="phploc-ci"/>
+  </parallel>
+ </target>
+
+ <target name="clean"
+         unless="clean.done"
+         description="Cleanup build artifacts">
+  <delete dir="${basedir}/build/api"/>
+  <delete dir="${basedir}/build/coverage"/>
+  <delete dir="${basedir}/build/logs"/>
+  <delete dir="${basedir}/build/pdepend"/>
+  <delete dir="${basedir}/build/phpdox"/>
+  <property name="clean.done" value="true"/>
+ </target>
+
+ <target name="prepare"
+         unless="prepare.done"
+         depends="clean"
+         description="Prepare for build">
+  <mkdir dir="${basedir}/build/api"/>
+  <mkdir dir="${basedir}/build/coverage"/>
+  <mkdir dir="${basedir}/build/logs"/>
+  <mkdir dir="${basedir}/build/pdepend"/>
+  <mkdir dir="${basedir}/build/phpdox"/>
+  <property name="prepare.done" value="true"/>
+ </target>
+
+
+ <target name="pdepend"
+         unless="pdepend.done"
+         depends="prepare"
+         description="Calculate software metrics using PHP_Depend and log result in XML format. Intended for usage within a continuous integration environment.">
+  <exec executable="${pdepend}" taskname="pdepend">
+   <arg value="--jdepend-xml=${basedir}/build/logs/jdepend.xml" />
+   <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg" />
+   <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg" />
+   <arg path="${basedir}/src" />
+  </exec>
+
+  <property name="pdepend.done" value="true"/>
+ </target>
+
+<!-- <target name="phpunit"
+         unless="phpunit.done"
+         depends="prepare"
+         description="Run unit tests with PHPUnit">
+  <exec executable="${phpunit}" resultproperty="result.phpunit" taskname="phpunit">
+   <arg value="configuration"/>
+   <arg path="${basedir}/build/phpunit.xml"/>
+  </exec>
+
+  <property name="phpunit.done" value="true"/>
+ </target> -->
+ 
+ <target name="phpunit-no-coverage"
+         unless="phpunit.done"
+         depends="prepare"
+         description="Run unit tests with PHPUnit (without generating code coverage reports)">
+  <exec executable="${phpunit}" failonerror="true" taskname="phpunit">
+   <arg value="--configuration"/>
+   <arg path="${basedir}/build/phpunit.xml"/>
+   <arg value="--no-coverage"/>
+  </exec>
+
+  <property name="phpunit.done" value="true"/>
+ </target>
+ 
+ <target name="phpunit"> 
+  <exec executable="cmd" resultproperty="result.phpunit">
+   <arg value="/c"/> 
+   <arg value="C:\\xampp\\PHP\\phpunit.bat"/>
+   <arg value="--configuration"/>
+  <arg path="${basedir}/build/phpunit.xml"/>
+   
+   </exec>
+ 
+ </target> 
+ 
+ <target name="phpunit3" 
+         unless="phpunit.done" 
+         depends="prepare" 
+         description="Run unit tests with PHPUnit">
+    <exec executable="${phpunit}" failonerror="true"  dir="${basedir}/comp1/vendor/src/" resultproperty="result.phpunit">
+ <arg line="UserTest ${basedir}/classes/tests/userTest.php" />
+     <arg value="--configuration"/>
+        <arg path="${basedir}/comp1/vendor/src/UnitTest.xml"/>
+      </exec>
+
+    <property name="phpunit.done" value="true"/>
+</target>
+</project>
