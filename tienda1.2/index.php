@@ -131,7 +131,7 @@ and open the template in the editor.
                 <li><a href="#">Ventas</a></li>
                 <li><a href="#">Compras</a></li>
                 <li><a href="#">Cierre de Caja</a></li>
-                <li><a href="tienda1.2/View/InicioSesion.php">Iniciar Sesion</a></li> 
+                <li><a href="/View/InicioSesion.php">Iniciar Sesion</a></li> 
             </ul>                         
         </nav>
        </body>  
