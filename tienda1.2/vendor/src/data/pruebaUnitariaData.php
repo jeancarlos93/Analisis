@@ -1,16 +1,16 @@
 <?php
 
-include 'Data/Data.php';
+//include 'Data/Data.php';
 
 function registrarProducto($producto) {
-    $conn = getConnection();
-    $descripcion = $producto->getDescripcion();
-    $precioUnitario=$producto->getPrecioUnitario();
-    $precioVenta=$producto->getPrecioVenta();
-    $marca = $producto->getMarca();
-    $categoria = $producto->getCategoria();
+  //  $conn = getConnection();
+    //$descripcion = $producto->getDescripcion();
+    //$precioUnitario=$producto->getPrecioUnitario();
+    //$precioVenta=$producto->getPrecioVenta();
+    //$marca = $producto->getMarca();
+    //$categoria = $producto->getCategoria();
 
-    $insert = true;
+   // $insert = true;
     
    // $sql = "insert into producto (descripcion,precioUnitario,precioVenta,idmarcaProd,idCategoriaProd,estado) VALUES('".$descripcion."',".$precioUnitario.",".$precioVenta.",".$marca.",".$categoria.",1);";
          
@@ -20,6 +20,6 @@ function registrarProducto($producto) {
       //   return  false;
     //}
 
-    $conn->close();
+   // $conn->close();
 }
 
