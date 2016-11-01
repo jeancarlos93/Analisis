@@ -1,25 +1,25 @@
 <?php
 
-//include 'Data/Data.php';
+include 'Data.php';
 
 function registrarProducto($producto) {
-  //  $conn = getConnection();
-    //$descripcion = $producto->getDescripcion();
-    //$precioUnitario=$producto->getPrecioUnitario();
-    //$precioVenta=$producto->getPrecioVenta();
-    //$marca = $producto->getMarca();
-    //$categoria = $producto->getCategoria();
+    $conn = getConnection();
+    $descripcion = $producto->getDescripcion();
+    $precioUnitario=$producto->getPrecioUnitario();
+    $precioVenta=$producto->getPrecioVenta();
+    $marca = $producto->getMarca();
+    $categoria = $producto->getCategoria();
 
    // $insert = true;
     
-   // $sql = "insert into producto (descripcion,precioUnitario,precioVenta,idmarcaProd,idCategoriaProd,estado) VALUES('".$descripcion."',".$precioUnitario.",".$precioVenta.",".$marca.",".$categoria.",1);";
+    $sql = "insert into producto (descripcion,precioUnitario,precioVenta,idmarcaProd,idCategoriaProd,estado) VALUES('".$descripcion."',".$precioUnitario.",".$precioVenta.",".$marca.",".$categoria.",1);";
          
-   // if ($conn->query($sql) == TRUE) {
+    if ($conn->query($sql) == TRUE) {
         return true;
-    //} else {  
-      //   return  false;
-    //}
+    } else {  
+         return  false;
+    }
 
-   // $conn->close();
+    $conn->close();
 }
 
