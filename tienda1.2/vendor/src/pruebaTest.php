@@ -9,7 +9,7 @@ function testPruebaUnitaria(){
 
 $producto = new Producto();
 
-$producto->setDescripcion('Pantalon mezclilla niño');
+$producto->setDescripcion('Pantaloneta deportiva');
 $producto->setPrecioUnitario(10000);
 $producto->setPrecioVenta(15000);
 $producto->setMarca(1);
