@@ -7,7 +7,6 @@
         <script src="../JS/maskedInput.js" type="text/javascript"></script>
          <!--para la funcion de #header-->      
          
-         <script src="../JS/mensajes.js" type="text/javascript"></script>
         <link rel="stylesheet" href="alertify.min.css" />
         <link rel="stylesheet" href="themes/default.min.css" />
         <script src="../JS/mensajes.js" type="text/javascript"></script>
@@ -52,15 +51,12 @@
           
             $codigo = $_GET['codigoProveedor'];
             $proveedor = getObtenerProveedor($codigo);
-            
-            
           ?>
        <?php echo $proveedor->getCodigo() ?>
     <div class="iconoRegistro"><img src="../Image/proveedor.png" ></div>
     
         <div class="registrar">
-            <form class="form" method="post" action="../Business/ModificarProveedor.php" accept-charset="UTF-8" >
-            
+            <form class="form" method="post" action="../Business/ModificarProveedor.php" accept-charset="UTF-8" >            
                 
                 <input title="Es necesario su nombre" type="hidden" name="codigo" id="name" value="<?php echo $proveedor->getCodigo() ?>" required/>
 		                

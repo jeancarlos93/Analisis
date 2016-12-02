@@ -9,8 +9,7 @@
         <script src="../JS/mensajes.js" type="text/javascript"></script>
         
         <link rel="stylesheet" href="alertify.min.css" />
-       
-        <!--<link rel="stylesheet" href="themes/default.min.css" />-->
+        <link rel="stylesheet" href="themes/default.min.css" />
         <script src="../JS/mensajes.js" type="text/javascript"></script>
         <script type="text/javascript" src="../JS/alertify.js"></script>
         <link rel="stylesheet" href="../css/alertify.core.css" />

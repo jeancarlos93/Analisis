@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="../JS/funciones.js"></script>
-     <!--   <link href="../css/tablas.css" type="text/css" rel="stylesheet"/>-->
         <script src="../JS/Autocomplete.js" type="text/javascript"> </script>
        
          <script type="text/javascript" language="javascript" src="../JS/jquery.dataTables.js"></script>
@@ -37,15 +36,13 @@
                 echo '<td><a href= "Registrar_Proveedor.php">Nuevo Proveedor</a></td>';                
             ?>  
             </div>    
-    <!--   <form class="form" method="post" action="../Business/ConsultarProveedor.php" accept-charset="UTF-8" > -->
             
         <div class="busqueda">    
             <label align="right" for="kwd_search">Busqueda de Proveedores:</label> <input type="text" id="kwd_search" value=""/>  
         </div>
                 
         <div class="icono"><img src="../Image/proveedor.png" ></div>
-            
-       <br>
+
           <table id="Jtabla" cellpadding="0" cellspacing="0" border="0" class="display" >
                 <thead>
                     <tr id="tr">

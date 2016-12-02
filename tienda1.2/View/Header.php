@@ -6,18 +6,11 @@
    $usser = $_SESSION['usuario'];
 ?>
 
-
-
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--<link  rel="stylesheet"  type="text/css"  href="css/menu.css" >-->
-        <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">--> 
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>-->
-        <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->      
-        <!--<link  rel="stylesheet" href="css/menu.css">--> 
-        
+
         <style>
             *{
                 margin: 0px;
@@ -85,6 +78,20 @@
                 overflow: hidden;
                 background-color: #333;
             }
+            nav li ul {
+                display:none;
+                position:absolute;
+                min-width:140px;      
+            }
+            
+            nav li ul li {
+                position:relative;
+                right:-2px;
+                top:0px;}
+
+            nav li:hover > ul {
+                display:block;
+            }
 
             li {
                 float: left;
@@ -129,16 +136,11 @@
     <body>
     <?php
         
-    if( $tipo == "Empleado" )  {
-                 
-        //     echo "/nBienvenido ".$usser;
-        //    echo "Tipo Usuario ".$tipo;    
-                
+    if( $tipo == "Empleado" )  {            
     ?>  
       <header>
             <h1>Sistema de Punto de Venta</h1>
-        </header>
-                    
+        </header>                  
         <nav>                       
             <ul>
                 <li class="disabled"><a href="#">Usuarios</a></li>
@@ -146,27 +148,17 @@
                 <li><a href="/tienda1.2/View/Cliente.php">Cliente</a></li>
                 <li class="disabled"><a href="#">Productos</a></li>
                 <li class="disabled"><a href="#">Inventario</a></li>  
-                <li ><a href="#">Apartados</a></li>
-                <li class="disabled"><a href="#">Cuentas por pagar</a></li>
-                <li><a href="#">Ventas</a></li>
-                <li><a href="#">Compras</a></li>
+                <li ><a href="/Tienda-vachelle/tienda1.2/View/Listado_Apartados.php?">Apartados</a></li>
+                <li class="disabled"><a href="/Tienda-vachelle/tienda1.2/View/Listado_CuentasXPagar.php?">CuentaXPagar</a></li>      
+                <li><a href="#">Ventas</a></li> 
                 <li><a href="#">Cierre de Caja</a></li>
-                <li><a href="/tienda1.2/View/cerrarSesion.php">Cerrar Sesion</a></li>
-                
+                <li><a href="/tienda1.2/View/cerrarSesion.php">Cerrar Sesion</a></li>                
             </ul>                         
         </nav>
-        
-       <section>
-           <h2></h2>
-       </section>
-        
-        <footer>
-            Pie de la pagina
-        </footer>
-       
+   
      <?php
                 
-                }else if( $tipo == "Administrador" ){
+     }else if( $tipo == "Administrador" ){
     ?>   
        <header>
             <h1>Sistema de Punto de Venta</h1>
@@ -174,34 +166,25 @@
                    
         <nav>                       
             <ul>
-                <li><a href="/tienda1.2/View/Listado_Usuarios.php">Usuarios</a></li>
-                <li><a href="/tienda1.2/View/Listado_Proveedores.php">Proveedor</a></li>
-                <li><a href="/tienda1.2/View/Cliente.php">Cliente</a></li>
-                <li><a href="/tienda1.2/View/Listar_Productos.php">Productos</a></li>
-                <li><a href="/tienda1.2/Business/consultarInventario.php?buscarPor=4">Inventario</a></li>  
-                <li><a href="#">Apartados</a></li>
-                <li><a href="#">Cuentas por pagar</a></li>
-                <li><a href="#">Ventas</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.2/View/Listado_Usuarios.php">Usuarios</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.2/View/Listado_Proveedores.php">Proveedor</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.2/View/Cliente.php">Cliente</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.2/View/Listar_Productos.php">Productos</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.2/Business/consultarInventario.php?buscarPor=4">Inventario</a></li>                 
+                <li ><a href="/Tienda-vachelle/tienda1.2/View/Listado_Apartados.php?">Apartados</a></li>
+                <li class="disabled"><a href="/Tienda-vachelle/tienda1.2/View/Listado_CuentasXPagar.php">CuentaXPagar</a></li>
+                 <li><a href="#">Ventas</a></li>
                 <li><a href="#">Compras</a></li>
                 <li><a href="#">Cierre de Caja</a></li>
-                <li><a href="/tienda1.2/View/cerrarSesion.php">Cerrar Sesion</a></li>
-                
+                <li><a href="/Tienda-vachelle/tienda1.2/View/cerrarSesion.php">Cerrar Sesion</a></li>    
             </ul>                         
         </nav>
-        
-       <section>
-           
-       </section>
-        
-        <footer>
-            Pie de la pagina
-        </footer>
-       
-       
-    <?php
-                
-                }
+    <?php                
+     }
     ?>      
-   </body>
+    </body>
+     <footer>
+            Tienda Valleche     telefono: 2710 5048    correo: vallege@tiendavallege.com
+    </footer>
 </html>
 

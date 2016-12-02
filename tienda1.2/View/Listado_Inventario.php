@@ -44,32 +44,25 @@
                         <option value="3">En inventario</option> 
                         <option value="4"selected >Todo</option>
                     </select>
-                <button class="submit"  type="submit">Buscar</button>
-                
+                <button class="submit"  type="submit">Buscar</button>               
                 </div> 
             </form>
-            <br>
-            
-            <br>
+
             <div class="busqueda">
             <label align="right" for="kwd_search">Busqueda:</label> <input type="text" id="kwd_search" value=""/>  
             </div> 
-            <br><br>
-              <table id="Jtabla" cellpadding="0" cellspacing="0" border="0" class="display" >
+              <table id="Jtabla" cellpadding="0" cellspacing="0" border="0" class="display">
                 <thead>
-                    <tr id="tr">
-                        
+                    <tr id="tr"> 
                         <th class="text-primary">Descripción</th>
                         <th class="text-primary">Marca</th>
-                        <th class="text-primary">Precio</th>
-                        
+                        <th class="text-primary">Precio</th>  
                         <th class="text-primary">Cantidad</th>
                         <th class="text-primary">Categoría</th>
                         <th class="text-primary">Talla</th>
                         <th class="text-primary">Color</th>
                         <th class="text-primary">Tipo</th>
-                        <th class="text-primary">Total</th>
-                        <!--<th hidden="id">id</th>-->
+                        <th class="text-primary">Total</th>                      
                     </tr>
                 </thead>
                 <tbody id="td">
@@ -128,14 +121,12 @@
     } );
  
 });
- 
-    
+   
     </script>
-        
-        <footer>
+    </body>
+      <footer>
             <div class='define'>
                 <p>Contenido del pie de página</p>
             </div>            
         </footer>
-    </body>
 </html>
