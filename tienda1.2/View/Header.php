@@ -43,12 +43,24 @@
                 width: 100%;
                 position: absolute;
                 height: 165px;
-                background: -moz-repeating-radial-gradient( #DC143C 0%, #FF69B4 50%,#C71585 80%);/* For Firefox 3.6 to 15 */
+               /* background: -moz-repeating-radial-gradient( #DC143C 0%, #FF69B4 50%,#C71585 80%);
                 background: -o-repeating-radial-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%);
-                background: -webkit-linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%); /* For Safari 5.1 to 6.0 */
-                background: -o-linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%); /* For Opera 11.1 to 12.0 */
-                background: linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%);
-                border: 1px solid #000000;
+                background: -webkit-linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%); 
+                background: -o-linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%); 
+                background: linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%);*/
+               
+               background: rgba(255,93,177,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(255,93,177,1) 0%, rgba(239,1,124,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,93,177,1)), color-stop(100%, rgba(239,1,124,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,93,177,1) 0%, rgba(239,1,124,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(255,93,177,1) 0%, rgba(239,1,124,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(255,93,177,1) 0%, rgba(239,1,124,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(255,93,177,1) 0%, rgba(239,1,124,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5db1', endColorstr='#ef017c', GradientType=1 );
+
+                text-shadow: 0 1px 0 #fff;
+    border-radius: 4px;
+             /*  border: 1px solid #000000; */
                 margin: auto;
                 text-align: center;
             }
@@ -148,7 +160,7 @@
                 <li class="disabled"><a href="#">Inventario</a></li>  
                 <li ><a href="#">Apartados</a></li>
                 <li class="disabled"><a href="#">Cuentas por pagar</a></li>
-                <li><a href="#">Ventas</a></li>
+                <li><a href="">Ventas</a></li>
                 <li><a href="#">Compras</a></li>
                 <li><a href="#">Cierre de Caja</a></li>
                 <li><a href="/Tienda-vachelle/tienda1.2/View/cerrarSesion.php">Cerrar Sesion</a></li>
@@ -181,7 +193,7 @@
                 <li><a href="/Tienda-vachelle/tienda1.2/Business/consultarInventario.php?buscarPor=4">Inventario</a></li>  
                 <li><a href="#">Apartados</a></li>
                 <li><a href="#">Cuentas por pagar</a></li>
-                <li><a href="#">Ventas</a></li>
+                <li><a href="/Tienda-vachelle/tienda1.2/View/FacturaVenta.php">Ventas</a></li>
                 <li><a href="#">Compras</a></li>
                 <li><a href="#">Cierre de Caja</a></li>
                 <li><a href="/Tienda-vachelle/tienda1.2/View/cerrarSesion.php">Cerrar Sesion</a></li>

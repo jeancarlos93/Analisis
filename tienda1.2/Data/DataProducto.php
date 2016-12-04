@@ -63,8 +63,5 @@ function eliminarProducto($codigo) {// metodo de eliminar: aun no estaba vel val
 
 }
 
-
-
-
 ?>
 

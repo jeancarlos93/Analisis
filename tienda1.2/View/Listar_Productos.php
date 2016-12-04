@@ -24,8 +24,7 @@
         
         <script type="text/javascript" src="JS/funciones.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/mootools/1.6.0/mootools.min.js"></script>
-        <script src="js/jquery-1.9.1.min.js"></script>
-        
+        <script src="js/jquery-1.9.1.min.js"></script>  
         
      <!--   <style>
             div.categoria{
@@ -35,7 +34,6 @@
                 left: 290px;
                 top: 340px; 
             }
-
             div.marca{
                 width: 75%;
                 height: 50%;

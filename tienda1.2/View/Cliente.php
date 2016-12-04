@@ -34,19 +34,26 @@
     </head>
     <body>
         <div id="header"></div>
+        <br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/><br/>
         <div id="contenedor" class="container">
             <center><h1 id="h1" class="h1">Listado de Clientes</h1></center>
-       
-        <div id="contenedor" class="container">
-            <?php
-                $json = getCliente();
-            ?>
-        <div class="nuevo">
+            
+       <div class="nuevos">
             <?php
                 echo'<td><a href="Registrar_Cliente.php">Nuevo cliente</a></td>';
             ?>
              
         </div> 
+            
+        <div id="contenedor" class="container">
+            
+        
+            <?php
+                $json = getCliente();
+            ?>
             
         <div class="busqueda">    
             <label align="right" for="kwd_search">Busqueda de Clientes:</label> <input type="text" id="kwd_search" value=""/>   

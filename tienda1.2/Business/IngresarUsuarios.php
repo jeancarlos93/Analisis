@@ -18,9 +18,7 @@ if($_POST['contrasenia1Usuario'] == $_POST['contrasenia2Usuario'] ){
         $cedula = $_POST['cedulaUsuario'];
         $tipoEmpleado = $_POST['tipoEmpleado'];
         $contrasenia = $_POST['contrasenia1Usuario'];
-    
-       // sleep(5); 
-        
+ 
         $usuario = new Usuario();
         $usuario->setNombre($nombre);
         $usuario->setApellido($apellido);

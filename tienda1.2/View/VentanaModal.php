@@ -48,8 +48,8 @@
                 </div>
                 <?php
                         
-                        echo '              <td><a href="Registrar_Categoria.php?">Nueva</a></td>';
-                        ?>
+//                        echo '              <td><a href="Registrar_Categoria.php?">Nueva</a></td>';
+//                        ?>
             </div>
         </div>
     </body>

@@ -1,4 +1,3 @@
-
 <html>
     <head>
         <script src="../JS/mensajes.js" type="text/javascript"></script>
@@ -14,6 +13,9 @@
         <script type="text/javascript" src="../JS/alertify.js"></script>
         <link rel="stylesheet" href="../css/alertify.core.css" />
         <link rel="stylesheet" href="../css/alertify.default.css" />
+        
+        
+        
       <script> 
             $(function(){ 
                 $("#header").load("../View/Header.php");
@@ -29,21 +31,17 @@
 
       });
       
-      
       $(function () {
                 $("#header").load("../View/Header.php");
                 $("#vmodal").load("../View/VentanaModal.php");
                 $("#vmodalMarca").load("../View/VeMod_InsertarMarca.php");
-                });
-                
+                });     
             function abrirVentana() {
                 $("#vmodal").load($(".ventanamodal").slideDown("slow"));
             }
-
             function cerrarVentana() {
                 $(".ventanamodal").slideUp("slow");
             }
-            
             
             function abrirVentanaMarca() {
                 $("#vmodalMarca").load($(".ventanamodalMarca").slideDown("slow"));
@@ -55,7 +53,7 @@
             
         </script> 
       
-      </script>
+      
          
          
            

@@ -39,20 +39,21 @@ inner join colorProd cp on cp.id=i.idColor
 where tipo = 'Salida';";
         $tituloConsulta="Salida";
     } else {
-        $sql = "select inventario.codProducto,p.precioVenta,p.descripcion,(cantidadEntrada - cantidadSalida) as cantidad,cp.color,tp.talla,categoria,marca,p.precioVenta*(cantidadEntrada - cantidadSalida) as total
+        $sql = "select inventario.codProducto,p.precioVenta,p.descripcion,(cantidadEntrada - cantidadSalida) as cantidad,
+cp.color,tp.talla,categoria,marca,p.precioVenta*(cantidadEntrada - cantidadSalida) as total
 from inventario
 join(select codProducto,sum(cantidad) as cantidadEntrada,
 idTalla,idColor
  from inventario
- where tipo='entrada'
- group by codProducto,cantidad,idTalla,idColor) entradas on entradas.codProducto = inventario.codProducto 
+ where tipo='entrada' 
+ group by codProducto,idTalla,idColor) entradas on entradas.codProducto = inventario.codProducto 
 												and entradas.idTalla = inventario.idTalla 
                                                 and entradas.idColor = inventario.idColor
 join(select codProducto,sum(cantidad) as cantidadSalida,
 idTalla,idColor
  from inventario
- where tipo='Salida'
- group by codProducto,cantidad,idTalla,idColor) salidas on salidas.codProducto = inventario.codProducto 
+ where tipo='salida'
+ group by codProducto,idTalla,idColor) salidas on salidas.codProducto = inventario.codProducto 
 												and salidas.idTalla = inventario.idTalla 
                                                 and salidas.idColor = inventario.idColor
 join colorProd cp on cp.id = inventario.idColor 
@@ -85,12 +86,13 @@ where (cantidadEntrada - cantidadSalida)>0
             $Inventario->setTipo($row['tipo']);
             $Inventario->setTotal($row['total']);
             array_push($vector, $Inventario);
+           
         }
     } else {
         echo "0 resultados";
     }
     $mysqli->close();
-    $argumento = urlencode(serialize($vector));
+    $argumento = serialize($vector);
 
     header("Location:../View/Listado_Inventario.php?resultado=$argumento&opcion=$tituloConsulta");
 }

@@ -8,6 +8,7 @@
     background-image: url(../Image/Fondo_negro_transparente.png); 
     display: none;
 }
+
 .ventanamodalMarca {
 
     background-color: #EFEFEF;
@@ -17,6 +18,16 @@
     background-color: transparent;
     background-image: url(../Image/Fondo_negro_transparente.png); 
     display: none;
+}
+
+.ventanamodalProductos {
+    display: none;
+    background-color: #EFEFEF;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: transparent;
+    background-image: url(../Image/Fondo_negro_transparente.png); 
 }
 
 .form {
