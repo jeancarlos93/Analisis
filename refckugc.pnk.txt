@@ -1,0 +1,54 @@
+﻿#Merge remote-tracking branch 'origin/master'
+
+ # Conflicts:
+ #	tienda1.2/View/Cliente.php
+ #	tienda1.2/View/Header.php
+ #	tienda1.2/View/Listar_Productos.php
+ #	tienda1.2/nbproject/private/private.xml
+ 
+ # It looks like you may be committing a merge.
+ # If this is not correct, please remove the file
+ #	.git/MERGE_HEAD
+ # and try again.
+
+
+ # Please enter the commit message for your changes. Lines starting
+ # with ' ' will be ignored, and an empty message aborts the commit.
+ # On branch master
+ # Your branch and 'origin/master' have diverged,
+ # and have 2 and 10 different commits each, respectively.
+ #   (use "git pull" to merge the remote branch into yours)
+ 
+ # All conflicts fixed but you are still merging.
+ 
+  # Changes to be committed:
+ 	new file:   Prueba
+ 	new file:   hola.txt
+ 	new file:   tienda1.2/Business/Abonos.php
+ 	new file:   tienda1.2/Business/ModificarAbono.php
+ 	new file:   tienda1.2/Business/RegistrarAbono.php
+ 	new file:   tienda1.2/Data/DataAbono.php
+ 	new file:   tienda1.2/Data/DataApartado.php
+ 	new file:   tienda1.2/Data/DataCuentaXPagar.php
+ 	modified:   tienda1.2/Data/DataLogin.php
+ 	new file:   tienda1.2/Domain/Abono.php
+ 	new file:   tienda1.2/Domain/Apartados.php
+ 	new file:   tienda1.2/Domain/CuentaXPagar.php
+ 	new file:   tienda1.2/JS/CalculosAbono.js
+ 	modified:   tienda1.2/View/Cliente.php
+ 	modified:   tienda1.2/View/Header.php
+ 	new file:   tienda1.2/View/Listado_Abonos.php
+ 	new file:   tienda1.2/View/Listado_Apartados.php
+ 	new file:   tienda1.2/View/Listado_CuentasXPagar.php
+ 	modified:   tienda1.2/View/Listado_Inventario.php
+ 	modified:   tienda1.2/View/Listado_Proveedores.php
+ 	modified:   tienda1.2/View/Listado_Usuarios.php
+ 	modified:   tienda1.2/View/Listar_Productos.php
+ 	new file:   tienda1.2/View/Modificar_Abono.php
+ 	modified:   tienda1.2/View/Modificar_Proveedor.php
+ 	new file:   tienda1.2/View/Registrar_Abono.php
+ 	modified:   tienda1.2/css/login.css
+ 	renamed:    tienda1.2/View/InicioSesion.php -> tienda1.2/index.php
+ 	modified:   tienda1.2/nbproject/private/private.xml
+ 
+

@@ -18,7 +18,14 @@
             }
 
             body{
+                
+                font: 10pt Verdana, Geneva, Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                margin: 0 0 0 0px;
+                
+                background-color: #ebebeb;
                 width: 100%;
+                
                 background: rgba(250,250,250,1);
                 background: -moz-linear-gradient(left, rgba(250,250,250,1) 0%, rgba(240,240,240,1) 47%, rgba(232,232,232,1) 100%);
                 background: -webkit-gradient(left top, right top, color-stop(0%, rgba(250,250,250,1)), color-stop(47%, rgba(240,240,240,1)), color-stop(100%, rgba(232,232,232,1)));
@@ -28,7 +35,8 @@
                 background: linear-gradient(to right, rgba(250,250,250,1) 0%, rgba(240,240,240,1) 47%, rgba(232,232,232,1) 100%);
                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#e8e8e8', GradientType=1 );
 
-                 
+                
+  
             }
             
             header{
@@ -134,7 +142,7 @@
             footer{
                 width: 100%;
                 position: absolute;
-                top: 620px;
+                top: 95%;
                 background: -moz-radial-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%);/* For Firefox 3.6 to 15 */
                 background: -webkit-linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%); /* For Safari 5.1 to 6.0 */
                 background: -o-linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%); /* For Opera 11.1 to 12.0 */
@@ -160,16 +168,13 @@
                 <li><a href="/tienda1.2/View/Cliente.php">Cliente</a></li>
                 <li class="disabled"><a href="#">Productos</a></li>
                 <li class="disabled"><a href="#">Inventario</a></li>  
-<<<<<<< HEAD
+
                 <li ><a href="#">Apartados</a></li>
-                <li class="disabled"><a href="#">Cuentas por pagar</a></li>
+                <li class="disabled"><a href="/Tienda-vachelle/tienda1.2/View/Listado_CuentasXPagar.php?">CuentaXPagar</a></li>      
                 <li><a href="">Ventas</a></li>
                 <li><a href="#">Compras</a></li>
-=======
-                <li ><a href="/Tienda-vachelle/tienda1.2/View/Listado_Apartados.php?">Apartados</a></li>
-                <li class="disabled"><a href="/Tienda-vachelle/tienda1.2/View/Listado_CuentasXPagar.php?">CuentaXPagar</a></li>      
+                <li ><a href="/Tienda-vachelle/tienda1.2/View/Listado_Apartados.php?">Apartados</a></li> 
                 <li><a href="#">Ventas</a></li> 
->>>>>>> origin/master
                 <li><a href="#">Cierre de Caja</a></li>
                 <li><a href="/tienda1.2/View/cerrarSesion.php">Cerrar Sesion</a></li>                
             </ul>                         
@@ -189,17 +194,10 @@
                 <li><a href="/Tienda-vachelle/tienda1.2/View/Listado_Proveedores.php">Proveedor</a></li>
                 <li><a href="/Tienda-vachelle/tienda1.2/View/Cliente.php">Cliente</a></li>
                 <li><a href="/Tienda-vachelle/tienda1.2/View/Listar_Productos.php">Productos</a></li>
-<<<<<<< HEAD
                 <li><a href="/Tienda-vachelle/tienda1.2/Business/consultarInventario.php?buscarPor=4">Inventario</a></li>  
-                <li><a href="#">Apartados</a></li>
-                <li><a href="#">Cuentas por pagar</a></li>
-                <li><a href="/Tienda-vachelle/tienda1.2/View/FacturaVenta.php">Ventas</a></li>
-=======
-                <li><a href="/Tienda-vachelle/tienda1.2/Business/consultarInventario.php?buscarPor=4">Inventario</a></li>                 
                 <li ><a href="/Tienda-vachelle/tienda1.2/View/Listado_Apartados.php?">Apartados</a></li>
                 <li class="disabled"><a href="/Tienda-vachelle/tienda1.2/View/Listado_CuentasXPagar.php">CuentaXPagar</a></li>
-                 <li><a href="#">Ventas</a></li>
->>>>>>> origin/master
+                <li><a href="/Tienda-vachelle/tienda1.2/View/FacturaVenta.php">Ventas</a></li>
                 <li><a href="#">Compras</a></li>
                 <li><a href="#">Cierre de Caja</a></li>
                 <li><a href="/Tienda-vachelle/tienda1.2/View/cerrarSesion.php">Cerrar Sesion</a></li>    
@@ -210,7 +208,7 @@
     ?>      
     </body>
      <footer>
-            Tienda Valleche     telefono: 2710 5048    correo: vallege@tiendavallege.com
+            Tienda Valleche     teléfono: 2710 5048    correo: vallege@tiendavallege.com
     </footer>
 </html>
 

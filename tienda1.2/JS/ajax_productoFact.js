@@ -10,7 +10,7 @@ function lista_Clientes(valor) {
         var valores = eval(resp);
         html = "<table class='opcioncat'><thead><tr><th>#</th><th>Cédula</th><th>Nombre</th><th>Apellido</th><th>Selec</th></tr></thead><tbody>";
         for (i = 0; i < valores.length; i++) {
-            html += "<tr><td>" + (i + 1) + "</td><td>" + valores[i].cedula + "</td><td>" + valores[i].nombre + "</td><td>" + valores[i].apellido + "</td><td> <div onclick=\"colocar(" + valores[i].cedula + ",'" + valores[i].nombre + "','" + valores[i].apellido + "')\";>Agregar</div></td></tr>";
+            html += "<tr><td>" + (i + 1) + "</td><td>" + valores[i].cedula + "</td><td>" + valores[i].nombre + "</td><td>" + valores[i].apellido + "</td><td> <div onclick=\"colocar('" + valores[i].cedula + "','" + valores[i].nombre + "','" + valores[i].apellido + "')\";>Agregar</div></td></tr>";
         }
         html += "</tbody></table>";
         $("#vlistaClientes").html(html);

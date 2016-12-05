@@ -31,22 +31,19 @@
     </head>
     <body>
         <div id="header"></div>
-        <br/><br/><br/><br/><br/><br/>
-            <br/><br/><br/><br/><br/><br/>
-            <br/><br/><br/><br/><br/><br/>
-            <br/><br/><br/><br/><br/><br/>
+        
         <div id="contenedor" class="container">
             <center><h1 id="h1" class="h1">Listado de Clientes</h1></center>
-<<<<<<< HEAD
+
             
        <div class="nuevos">
-=======
+
        
             <?php
                 $json = getCliente();
             ?>
         <div class="nuevo">
->>>>>>> origin/master
+
             <?php
                 echo'<td><a href="Registrar_Cliente.php">Nuevo cliente</a></td>';
             ?>

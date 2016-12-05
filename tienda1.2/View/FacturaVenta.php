@@ -60,7 +60,7 @@ $vendedor = $_SESSION['usuario'];
         <style>
 
             BODY {
-                font: 12pt Verdana, Geneva, Arial, Helvetica, sans-serif;
+                font: 10pt Verdana, Geneva, Arial, Helvetica, sans-serif;
                 font-weight: bold;
                 margin: 0 0 0 0px;
                 text-align: center;
