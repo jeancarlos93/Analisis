@@ -8,13 +8,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <script src="../JS/jquery-1.12.2.min.js" type="text/javascript"> </script>
-        <script src="../JS/jquery-migrate-1.2.1.min.js" type="text/javascript"> </script>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="../JS/funciones.js"></script>
         <script src="../JS/Autocomplete.js" type="text/javascript"> </script>
-        
-     <!--   <link href="../css/tablas.css" type="text/css" rel="stylesheet"/>-->
-        
-        
+       
          <script type="text/javascript" language="javascript" src="../JS/jquery.dataTables.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css" media="screen" />
 
@@ -40,8 +37,16 @@
             <br/><br/><br/><br/><br/><br/>
         <div id="contenedor" class="container">
             <center><h1 id="h1" class="h1">Listado de Clientes</h1></center>
+<<<<<<< HEAD
             
        <div class="nuevos">
+=======
+       
+            <?php
+                $json = getCliente();
+            ?>
+        <div class="nuevo">
+>>>>>>> origin/master
             <?php
                 echo'<td><a href="Registrar_Cliente.php">Nuevo cliente</a></td>';
             ?>
@@ -59,11 +64,10 @@
             <label align="right" for="kwd_search">Busqueda de Clientes:</label> <input type="text" id="kwd_search" value=""/>   
         </div>       
       
-            <div class="icono"><img src="../Image/clientes.png" ></div>
-            
+        <div class="icono"><img src="../Image/clientes.png" ></div>
+        <br>
           <table id="Jtabla" cellpadding="0" cellspacing="0" border="0" class="display" >
-                <thead>
-                   
+                <thead>                  
                     <tr id="tr">
                         
                         <th class="text-primary">Nombre</th>
@@ -72,12 +76,10 @@
                         <th class="text-primary">Telefono</th>
                         <th class="text-primary">Eliminar</th>
                         <th class="text-primary">Modificar</th>
-                        <!--<th hidden="id">id</th>-->
                     </tr>
                 </thead>
                 <tbody id="td">
-                <?php
-                
+                <?php                
                 
                 for($i = 0; $i<count($json); $i++){
                     ?> 
@@ -88,27 +90,15 @@
                     echo '<td class="text-success">'. $json[$i]->getApellido() .'</td>'; 
                     echo '<td class="text-success">'. $json[$i]->getCedula() .'</td>';                 
                     echo '<td class="text-success">'. $json[$i]->getTelefono() .'</td>';
-                   
-                    if($tipo == "Empleado" )  {
-                       echo '<td><a href= "#">'?><img src="../Image/delete.png" width="20px" height="20px"><?php echo'</a></td>';
-                         
+                    echo '<td><a href= "Business/EliminarCliente.php?codigoCliente='.$json[$i]->getCodigo().'">'?><img src="../Image/delete.png" width="20px" height="20px"><?php echo'</a></td>';
+                    echo '<td><a href= "ModificarCliente.php?codigoCliente='.$json[$i]->getCodigo().'">'?><img src="../Image/editar.png" width="20px" height="20px"><?php echo'</a></td>';
                     }
-                    if($tipo == "Admnistrador" )  {
-                        echo '<td><a href= "Business/EliminarCliente.php?codigoCliente='.$json[$i]->getCodigo().'">'?><img src="../Image/delete.png" width="20px" height="20px"><?php echo'</a></td>';
-                        
-                    }
-                    if( $tipo == "Empleado" || $tipo == "Administrador")  {
-                        echo '<td><a href= "ModificarCliente.php?codigoCliente='.$json[$i]->getCodigo().'">'?><img src="../Image/editar.png" width="20px" height="20px"><?php echo'</a></td>';
-                    }
-                    
-                    
                     ?>
                     </tr>
-             <?php    }                
-                ?>
+          
                 </tbody>
             </table>            
-        </div>   
+        </div> 
             
               <script>
    
@@ -142,10 +132,9 @@
  
     
     </script>
-            
-        <footer>
-            
-        </footer>
-
 </body>
+<footer>
+            
+</footer>
+
 </html>

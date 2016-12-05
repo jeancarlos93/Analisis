@@ -12,19 +12,19 @@ and open the template in the editor.
 h1.tituloSesion{
     position: absolute;
     left: 530px;
-    top: 290px;
+    top: 200px;
 }
 
 div.inicioSesion{
     position: absolute;
     left: 400px;
-    top: 380px;
+    top: 300px;
 }
 
 div.iconoInicioSesion{
     position: absolute;
-    top: 230px;
-    left: 370px;
+    top: 170px;
+    left: 350px;
 }
 
 .form label { width: 90px; margin-top: 1px; display: inline-block; float: left; padding: 1px; } 

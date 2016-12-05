@@ -11,7 +11,7 @@
 
         <?php
         include_once '../Data/DataCargarListas.php';
-         include_once '../Data/Data.php';
+        include_once '../Data/Data.php';
         include_once '../Domain/Producto.php';
         require_once '../libs/Zebra_Pagination.php';
         ?>
@@ -24,6 +24,7 @@
         
         <script type="text/javascript" src="JS/funciones.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/mootools/1.6.0/mootools.min.js"></script>
+<<<<<<< HEAD
         <script src="js/jquery-1.9.1.min.js"></script>  
         
      <!--   <style>
@@ -43,13 +44,13 @@
             }
         </style> -->
         
+=======
+        <script src="js/jquery-1.9.1.min.js"></script>
+   
+>>>>>>> origin/master
     </head>
     <body>
-         <?php
-            echo '<td><a href="Registrar_marca.php?">Agregar Nueva Marca</a></td>                       ';
-            echo '              <td><a href="Registrar_Categoria.php?">Agregar Nueva Categoria</a></td>';
-            
-            ?>
+        
         <div id="header"></div>
         <div id="contenedor" class="container">
             <center><h1 id="h1" class="h1">Listado de Productos</h1></center>
@@ -59,7 +60,9 @@
 
             <div class="nuevo">
             <?php
-            echo '<td><a href= "Registrar_Producto.php">Nuevo Producto</a></td>';
+            echo '<td><a href="Registrar_Producto.php">Nuevo Producto</a></td>';
+             echo '<td><a href="Registrar_marca.php?">Agregar Nueva Marca</a></td>                       ';
+            echo '              <td><a href="Registrar_Categoria.php?">Agregar Nueva Categoria</a></td>';
             ?>   
             </div>
            
@@ -67,7 +70,7 @@
                 <label align="right" for="kwd_search">Busqueda de productos:</label> <input type="text" id="kwd_search" value=""/>   
         </div>
             
-            <div class="icono"><img src="Image/productos.png" ></div>    
+            <div class="icono"><img src="../Image/productos.png" ></div>    
             
         <table id="Jtabla" cellpadding="0" cellspacing="0" border="0" class="display" >
                 <thead>
@@ -146,8 +149,7 @@
     function notificarInsertado() {
             alert("Categoría insertada");
         }
-    </script>
-    <script>
+ 
         function alerta() {  
             alertify.alert("<b>Mensaje</b> Se insertó con éxito", function () {      
             });
@@ -169,7 +171,8 @@
 }
         
     </script>
-        <footer>           
-        </footer>
     </body>
+    <footer> 
+        
+    </footer>
 </html>

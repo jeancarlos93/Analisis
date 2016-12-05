@@ -38,12 +38,12 @@ function validarUsuarios($nombreUsuario, $contrasenia) {
             
         }
         else{
-            echo"<script>alert('La contrase\u00f1a del usuario no es correcta.'); window.location.href=\"/tienda1.2/index.php\"</script>";
+            echo"<script>alert('La contrase\u00f1a del usuario no es correcta.'); window.location.href=\"/index.php\"</script>";
           //  return false;
         }
     }
     else{
-        echo"<script>alert('El usuario no existe.'); window.location.href=\"/tienda1.2/index.php\"</script>"; 
+        echo"<script>alert('El usuario no existe.'); window.location.href=\"/index.php\"</script>"; 
        // return false;
     }
    $mysqli->close(); 
