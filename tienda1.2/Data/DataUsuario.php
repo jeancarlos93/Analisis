@@ -135,6 +135,9 @@ function eliminarUsuario($cedulaUsuario) {
     header("Location: ../view/Listado_Usuarios.php");
 //    devolver a indice
     die();
+    
+    
+    
 }
 
 

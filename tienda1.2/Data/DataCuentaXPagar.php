@@ -18,13 +18,12 @@ $name = "";
     $mysqli = getConnection();
     $sql = "select f.numFactura,v.nombre as ven,p.nombre,f.total,f.fecha 
         from proveedor p inner join facturaCompra f inner join vendedor v
-        where f.codProveed = p.codigo and f.cedVendedor= v.cedula;";
+        where f.codProveed = p.codigo and f.cedVendedor= v.cedula and f.estado=1;";
 
     $resultado = $mysqli->query($sql);
     $vector = [];
 
     if ($resultado->num_rows > 0) {
-        // output data of each row
         while ($row = $resultado->fetch_assoc()) {
           $cuentaxpagar = new CuentaXPagar();
           $cuentaxpagar->setFactura($row['numFactura']);
@@ -38,8 +37,6 @@ $name = "";
     } else {
         echo "0 results";
     }
-
     $mysqli->close();
-    return $vector;
-    
-    }
+    return $vector;    
+}

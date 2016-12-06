@@ -6,8 +6,10 @@
         <script type="text/javascript" src="../JS/funciones.js"></script>
         <script src="../JS/Autocomplete.js" type="text/javascript"> </script>       
         <script type="text/javascript" language="javascript" src="../JS/jquery.dataTables.js"></script>
+        
         <link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css" media="screen" />
-
+        <link href="../css/tablas.css" type="text/css" rel="stylesheet"/>
+        
         <?php
         include_once '../Data/DataApartado.php';
         include_once '../Domain/Apartados.php';
@@ -28,11 +30,7 @@
             <?php
                 $json = getApartados();
             ?>
-      
-        <div class="busqueda">    
-            <label align="right" for="kwd_search">Busqueda de apartado:</label> <input type="text" id="kwd_search" value=""/>  
-        </div>
-                
+            
         <div class="icono"><img src="../Image/proveedor.png" ></div>
             
        <br>

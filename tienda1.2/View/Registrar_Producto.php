@@ -1,3 +1,4 @@
+
 <html>
     <head>
         <script src="../JS/mensajes.js" type="text/javascript"></script>
@@ -13,9 +14,6 @@
         <script type="text/javascript" src="../JS/alertify.js"></script>
         <link rel="stylesheet" href="../css/alertify.core.css" />
         <link rel="stylesheet" href="../css/alertify.default.css" />
-        
-        
-        
       <script> 
             $(function(){ 
                 $("#header").load("../View/Header.php");
@@ -31,29 +29,7 @@
 
       });
       
-      $(function () {
-                $("#header").load("../View/Header.php");
-                $("#vmodal").load("../View/VentanaModal.php");
-                $("#vmodalMarca").load("../View/VeMod_InsertarMarca.php");
-                });     
-            function abrirVentana() {
-                $("#vmodal").load($(".ventanamodal").slideDown("slow"));
-            }
-            function cerrarVentana() {
-                $(".ventanamodal").slideUp("slow");
-            }
-            
-            function abrirVentanaMarca() {
-                $("#vmodalMarca").load($(".ventanamodalMarca").slideDown("slow"));
-            }
-
-            function cerrarVentanaMarca() {
-                $(".ventanamodalMarca").slideUp("slow");
-            } 
-            
-        </script> 
-      
-      
+      </script>
          
          
            
@@ -90,25 +66,48 @@
 		<br><br>
                 <label for="PrecioVenta" >Precio de venta:</label>
                 <input type="text" id="precioVenta" name="precioVenta" onkeyup="validar_cedula(this.value,this.id)"  onkeypress="return SoloNumeros(event)" required/>
-		
-                <br><br>
+		<br><br>
                 <label for="Categoría">Categoría:</label>
-            <input type="text" id="trr" name="trr" readonly="readonly" required /> <a href="#" onclick="javascript:abrirVentana();">Seleccionar Categoría</a>
-            <input type="hidden" id="idtrr" name="idtrr" required/> 
-            
+                <select name="categoria">
+                <?php for($i = 0; $i<count($categoria); $i++){
+                          echo '<option value="'. $categoria[$i]->getId().'">'. $categoria[$i]->getCategoria() .'</option>'; 
+                          } ?>
+                </select>
+                <?php
+                   // echo '<td><a href="Registrar_Categoria.php?">Nueva</a></td>';
+                ?>
                 <br><br>
-                <input type="text" id="marcaSelec" name="marcaSelec" readonly="readonly" required=""/> <a href="#"  onclick="javascript:abrirVentanaMarca();">Seleccionar Marca</a>
-            <input type="hidden" id="idmarcaSelec" name="idmarcaSelec" required/> 
                 
+                <label for="Marcas">Marca:</label>
+                <select name="marcas">
+                <?php for($i = 0; $i<count($marcas); $i++){
+                          echo '<option value="'. $marcas[$i]->getId().'">'. $marcas[$i]->getMarca() .'</option>'; 
+                          }?>
+                </select>
+                <?php
+                   // echo '<td><a href="Registrar_marca.php?">Nueva</a></td>';            
+                ?>
                 <br><br>
-               <button class="submit" type="submit" onclick="return notificarInsertado()" >Registrar</button>
-		
-	    </form>    
+                <button class="submit" type="submit" onclick="return notificarInsertado()">Registrar</button>
+              		
+	    </form>
             
-        </div> 
-
-    <div id="vmodal"></div> 
-    <div id="vmodalMarca"></div>
+            <script>
+//    onclick="return notificarInsertado()"    
+    function notificarInsertado() {
+            alert("Producto insertado");
+        }
+    </script>
+    <script>
+        function alerta() {
+            
+            alertify.alert("<b>Mensaje</b> Se insertó con éxito", function () {
+                
+            });
+        }
+    </script>
+            
+        </div>        
     </body>
-    <link href="../css/ventanaModal.css" rel="stylesheet" type="text/css"/>
+    
 </html>

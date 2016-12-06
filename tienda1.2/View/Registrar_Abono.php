@@ -23,6 +23,11 @@
             });
       </script> 
       
+      <?php
+        include_once '../Data/DataAbono.php';
+        include_once '../Domain/Abono.php';
+        ?>        
+      
       <script>
       $(document).ready(function($){
           
@@ -49,6 +54,7 @@
      <?php
         $codigoFactura = $_GET['codigo'];
         $tipoFactura = $_GET['tipoFactura'];
+        $saldoAPagar= getTotalApagar($codigoFactura);
     ?>
     
     <div class="iconoRegistro"><img src="../Image/proveedor.png" ></div>
@@ -63,7 +69,7 @@
                 <input type="text" id="tipo" name="tipo" required/><br>                       
 		 <br>            
                 <label for="Correo">Saldo Inicial:</label>
-                <input type="text" id="saldoInicial" name="SaldoInicial" required /><br>
+                <input type="text" id="saldoInicial" name="SaldoInicial" value="<?php echo $saldoAPagar->getSaldoInicial()?>" required/><br>
 		  <br> 
                   
                   <label for="telefono">Abono:</label>

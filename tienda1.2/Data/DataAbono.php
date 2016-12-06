@@ -16,7 +16,7 @@ $name = "";
 function getAbonos($codigoFactura) {
 
     $mysqli = getConnection();
-    $sql = "select codigo,montoAbonado,saldoInicial,(saldoInicial-montoAbonado) as saldoFinal,fechaSalida from abono where numFactCompra= $codigoFactura;";
+    $sql = "select codigo,montoAbonado,saldoInicial,(saldoInicial-montoAbonado) as saldoFinal,fechaSalida from abono where estado=1 and numFactCompra= $codigoFactura;";
     $resultado = $mysqli->query($sql);
     $vector = []; 
 
@@ -85,23 +85,21 @@ function getAbonos($codigoFactura) {
     }  
     $conn->close();
        header("Location: ../View/Listado_Abonos.php?codigo=$factCompra");
-//    devolver a indice
-    die();
-      
+    die();      
 }
    
  function registrarAbonoVenta($abono) { ///aqui va el sql de abono venta
         
     $conn = getConnection();
     $factCompra = $abono->getFacturaCompra();
-    $factVenta = $abono->getFacturaVenta();
+//    $factVenta = $abono->getFacturaVenta();
     $tipo= $abono->getTipo();
     $montoAbonado= $abono->getAbono();
     $saldoInicial = $abono->getSaldoInicial();
     $saldoFinal= $abono->getSaldoFinal();
     $fecha = $abono->getFecha();
     
-    $sql= "call registrarAbono ('".$factCompra."','".$tipo."','".$montoAbonado."','".$saldoInicial."','".$saldoFinal."','".$fecha."');";
+    $sql= "call registrarAbonos ('".$factCompra."','".$tipo."','".$montoAbonado."','".$saldoInicial."','".$saldoFinal."','".$fecha."');";
     
     if ($conn->query($sql) == TRUE) {
         echo "GUARDADO ";
@@ -110,7 +108,6 @@ function getAbonos($codigoFactura) {
     }  
     $conn->close();
        header("Location: ../View/Listado_Abonos.php?codigo=$factCompra");
-//    devolver a indice
     die();
       
 }
@@ -139,5 +136,21 @@ function modificarAbono($abono) {
     header("Location: ../View/Listado_Abonos.php");
 //    devolver a indice
     die();
+    
+}
+
+function getTotalApagar($codigoFactura){    
+    
+    $mysqli = getConnection();
+    $sql = "SELECT saldoInicial-sum(montoAbonado)as total FROM abono WHERE numFactCompra = $codigoFactura;";
+    $resultado = $mysqli->query($sql);
+    
+    if ($resultado->num_rows > 0) {
+        $row = $resultado->fetch_assoc(); 
+        $abono = new Abono();
+        $abono->setSaldoInicial($row['total']);         
+        }   
+    $mysqli->close();
+    return $abono;   
     
 }

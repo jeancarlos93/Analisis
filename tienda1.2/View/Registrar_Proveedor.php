@@ -57,11 +57,11 @@
                 <input type="text" id="apellido" name="apellido" onkeypress="return soloLetras(event)"onkeyup=" validar_letras(this.value,this.id)" onchange="validar_letras(this.value,this.id)"  required/><br>
 		 <br>               
                 <label for="telefono">Telefono:</label>
-                <input type="text" id="telefono" name="telefono" maxlength="8" required />
-		 <br>            
+                <input type="text" id="telefono" name="telefono" maxlength="8" required /><br>  
+		<br>            
                 <label for="Correo">Correo:</label>
 		<input type="email" id="correo" name="correo" placeholder="info@developerji.com" onkeyup=" validar_correo(this.value,this.id)" onchange="validar_correo(this.value,this.id)"  required /><br>
-		  <br>              
+		 <br>              
                 <label for="Empresa">Empresa:</label>
                 <input type="text" id="camposTexto" id="name" name="empresa" onkeypress="return soloLetras(event)" onkeyup=" validar_letras(this.value,this.id)" onchange="validar_letras(this.value,this.id)"  required/><br>
 		 <br>               

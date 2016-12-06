@@ -8,7 +8,7 @@
        
          <script type="text/javascript" language="javascript" src="../JS/jquery.dataTables.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css" media="screen" />
-
+         <link href="../css/tablas.css" type="text/css" rel="stylesheet"/>
         
         <?php
         include_once '../Data/DataProvedor.php';
@@ -36,14 +36,14 @@
                 echo '<td><a href= "Registrar_Proveedor.php">Nuevo Proveedor</a></td>';                
             ?>  
             </div>    
-            
+<!--            
         <div class="busqueda">    
             <label align="right" for="kwd_search">Busqueda de Proveedores:</label> <input type="text" id="kwd_search" value=""/>  
-        </div>
+        </div>-->
                 
         <div class="icono"><img src="../Image/proveedor.png" ></div>
-
-          <table id="Jtabla" cellpadding="0" cellspacing="0" border="0" class="display" >
+        <br>
+          <table id="Jtabla" class ="table" cellpadding="0" cellspacing="0" border="0">
                 <thead>
                     <tr id="tr">
                         <th class="text-primary">Nombre</th>

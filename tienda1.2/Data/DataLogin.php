@@ -20,7 +20,6 @@ function validarUsuarios($nombreUsuario, $contrasenia) {
                 $usuario->setNombre($row['nombre']);
                 $usuario->setApellido($row['apellido']);
                 $usuario->setTipoEmpleado($row['tipoEmpleado']);
-                $usuario->setCedula($row['cedula']);
          //   $vector = $usuario;
           //  array_push($vector, $proveedor);
         }
@@ -28,12 +27,11 @@ function validarUsuarios($nombreUsuario, $contrasenia) {
             $nombre = $usuario->getNombre();
             $apellido= $usuario->getApellido();
             $tipoEmpleado = $usuario->getTipoEmpleado();
-            $cedula = $usuario->getCedula();
             session_start(); 
             
             $_SESSION['usuario'] = $nombre; 
             $_SESSION['tipoEmpleado'] = $tipoEmpleado; 
-            $_SESSION['cedUsuario'] =  $cedula;
+            
             header ("Location: ../View/Header.php");
             
         }

@@ -8,19 +8,19 @@
         ?>
 <html>
     <head>
-        <script src="../JS/mensajes.js" type="text/javascript"></script>
-         <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
-         <link href="../css/formularios.css" type="text/css" rel="stylesheet"/>
-         <script src="../JS/jquery-migrate-1.2.1.min.js" type="text/javascript"> </script>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>   
+        <script src="../JS/mensajes.js" type="text/javascript"></script>               
+        <script src="../JS/jquery-migrate-1.2.1.min.js" type="text/javascript"> </script>
         <script src="../JS/Autocomplete.js" type="text/javascript"> </script>
-        <link href="../css/tablas.css" type="text/css" rel="stylesheet"/>
         <script src="../JS/maskedInput.js" type="text/javascript"></script>
+        <script type="text/javascript" src="../JS/alertify.js"></script>       
+        <script type="text/javascript" language="javascript" src="../JS/jquery.dataTables.js"></script>
         
-        <script src="../JS/mensajes.js" type="text/javascript"></script>
+        <link href="../css/formularios.css" type="text/css" rel="stylesheet"/>
+        <link href="../css/tablas.css" type="text/css" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css" media="screen" />      
         <link rel="stylesheet" href="alertify.min.css" />
-        <link rel="stylesheet" href="themes/default.min.css" />
-        <script src="../JS/mensajes.js" type="text/javascript"></script>
-        <script type="text/javascript" src="../JS/alertify.js"></script>
+        <link rel="stylesheet" href="themes/default.min.css" /> 
         <link rel="stylesheet" href="../css/alertify.core.css" />
         <link rel="stylesheet" href="../css/alertify.default.css" />
         
@@ -31,11 +31,9 @@
       </script>      
     </head>
     
-    
     <body>
         
         <div id="header"></div>
-          <br><br><br><br>
     <center><h1 class="tituloRegistros"> Registrar Categorias de Productos</h1></center>
         <?php
             $marcas = getObtenerMarcas();  
@@ -54,16 +52,9 @@
         </div>   
         
         <div id="header"></div>
-        <div id="contenedor" class="container">
-          
-          
-      <br><br> 
-      <div class="busqueda">
-      <label align="right" for="kwd_search">Busqueda de CategorÃ­as:</label> <input type="text" id="kwd_search" value=""/>  
-      </div>
-      
+        <div id="contenedor" class="container"> 
        <br>
-        <table id="my-table" class ="table">  
+        <table id="Jtabla" class ="table" cellpadding="0" cellspacing="0" border="0">  
 
                 <thead>
                     <tr id="tr">
@@ -91,18 +82,46 @@
             </table> 
         </div>
         
-        <script>
+   <script>
     //onclick="return notificarInsertado()"    
     function notificarInsertado() {
             alert("Categoría insertada");
         }
-    </script>
-    <script>
-        function alerta() {  
+    function alerta() {  
             alertify.alert("<b>Mensaje</b> Se insertó con éxito", function () {      
             });
         }
-    </script>   
+   
+     $(document).ready(function(){
+ 
+    $('#Jtabla').DataTable({
+ 
+       columnDefs: [ {
+ 
+            targets: [ 0 ],
+ 
+            orderData: [ 0, 1 ]
+ 
+        }, {
+ 
+            targets: [ 1 ],
+ 
+            orderData: [ 1, 0 ]
+ 
+        }, {
+ 
+            targets: [1 ],
+ 
+            orderData: [ 1, 0 ]
+ 
+        } ]
+ 
+    } );
+ 
+});
+ 
+    
+    </script>
     </body>
     
 </html>

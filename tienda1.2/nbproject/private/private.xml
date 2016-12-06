@@ -4,21 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="examen"/>
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/Data/DataInventario.php</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/Data/DataFacturaVenta.php</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/JS/ajax_productoFact.js</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/View/FacturaVenta.php</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/Data/DataCliente.php</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/View/VMlClienteFactura.php</file>
-=======
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/Domain/Abono.php</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/View/Modificar_Abono.php</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/Data/DataAbono.php</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/Business/RegistrarAbono.php</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/View/Registrar_Abono.php</file>
-            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/JS/CalculosAbono.js</file>
->>>>>>> origin/master
+            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/View/Listado_CuentasXPagar.php</file>
+            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/View/Registrar_Proveedor.php</file>
+            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/View/Registrar_Producto.php</file>
+            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/View/Listado_Apartados.php</file>
+            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/View/Listado_Abonos.php</file>
+            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/View/Header.php</file>
+            <file>file:/C:/xampp/htdocs/Tienda-vachelle/tienda1.2/View/Listado_Inventario.php</file>
         </group>
     </open-files>
 </project-private>

@@ -2,12 +2,11 @@
     <head>
         <meta charset="UTF-8">
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-       
         <script src="../JS/Autocomplete.js" type="text/javascript"></script>
 
          <script type="text/javascript" language="javascript" src="../JS/jquery.dataTables.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css" media="screen" />
-
+        <link href="../css/tablas.css" type="text/css" rel="stylesheet"/>
         
         <?php
         include_once '../Data/DataInventario.php';
@@ -47,10 +46,11 @@
                 <button class="submit"  type="submit">Buscar</button>               
                 </div> 
             </form>
-
+<!--
             <div class="busqueda">
             <label align="right" for="kwd_search">Busqueda:</label> <input type="text" id="kwd_search" value=""/>  
-            </div> 
+            </div> -->
+            <br>
               <table id="Jtabla" cellpadding="0" cellspacing="0" border="0" class="display">
                 <thead>
                     <tr id="tr"> 

@@ -20,13 +20,13 @@ body{
 
 }
 
-div.nuevo{
+/*div.nuevo{
     width: 75%;
     height: 50%;
     position: absolute;
     left: 160px;
     top: 315px; 
-} 
+} */
 div.categoria{
     width: 75%;
     height: 50%;
@@ -87,8 +87,8 @@ table {
 }
 
 th, td {
-    text-align: left;
-    padding: 8px;
+    text-align:center;
+    padding: 0px;
 }
 
 tr:nth-child(even){

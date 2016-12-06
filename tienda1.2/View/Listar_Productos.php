@@ -4,17 +4,17 @@
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
       <!--   <link href="../css/tablas.css" type="text/css" rel="stylesheet"/> -->
         <script src="../JS/Autocomplete.js" type="text/javascript"></script>
-        <script src="../JS/mensajes.js" type="text/javascript"></script>
-        
+        <script src="../JS/mensajes.js" type="text/javascript"></script> 
         <script type="text/javascript" language="javascript" src="../JS/jquery.dataTables.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css" media="screen" />
-
-        <?php
+        <link href="../css/tablas.css" type="text/css" rel="stylesheet"/>
+       
+      <?php
         include_once '../Data/DataCargarListas.php';
         include_once '../Data/Data.php';
         include_once '../Domain/Producto.php';
         require_once '../libs/Zebra_Pagination.php';
-        ?>
+      ?>
         <script>
             $(function () {
                 $("#header").load("Header.php");
@@ -24,7 +24,6 @@
         
         <script type="text/javascript" src="JS/funciones.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/mootools/1.6.0/mootools.min.js"></script>
-
         <script src="js/jquery-1.9.1.min.js"></script>
    
     </head>
@@ -44,13 +43,9 @@
             echo '              <td><a href="Registrar_Categoria.php?">Agregar Nueva Categoria</a></td>';
             ?>   
             </div>
-           
-        <div class="busqueda">    
-                <label align="right" for="kwd_search">Busqueda de productos:</label> <input type="text" id="kwd_search" value=""/>   
-        </div>
-            
+                   
             <div class="icono"><img src="../Image/productos.png" ></div>    
-            
+            <br>  
         <table id="Jtabla" cellpadding="0" cellspacing="0" border="0" class="display" >
                 <thead>
                     <tr id="tr">

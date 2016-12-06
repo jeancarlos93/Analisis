@@ -4,10 +4,11 @@
         <meta charset="UTF-8">
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="../JS/funciones.js"></script>
-        <script src="../JS/Autocomplete.js" type="text/javascript"> </script>
-       
-         <script type="text/javascript" language="javascript" src="../JS/jquery.dataTables.js"></script>
+        <script src="../JS/Autocomplete.js" type="text/javascript"> </script>      
+        <script type="text/javascript" language="javascript" src="../JS/jquery.dataTables.js"></script>
+        
         <link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css" media="screen" />
+        <link href="../css/tablas.css" type="text/css" rel="stylesheet"/>
 
         <?php
         include_once '../Data/DataAbono.php';
@@ -29,17 +30,13 @@
                 $clave = $_GET['clave'];
                 $codigoFactura = $_GET['codigo'];
                 $json = getAbonos($codigoFactura);
+                
             ?>
          <div class="nuevo">
             <?php                 
                 echo '<td><a href="../Business/Abonos.php?clave='.$clave.'&codigoFactura='.$codigoFactura.'">Nuevo Abono</a></td>';
             ?>  
-            </div>        
-        
-        <div class="busqueda">    
-            <label align="right" for="kwd_search">Busqueda de abonos:</label> <input type="text" id="kwd_search"/>  
-        </div>
-                
+            </div>                 
         <div class="icono"><img src="../Image/proveedor.png" ></div>
             
        <br>

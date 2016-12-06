@@ -18,14 +18,7 @@
             }
 
             body{
-                
-                font: 10pt Verdana, Geneva, Arial, Helvetica, sans-serif;
-                font-weight: bold;
-                margin: 0 0 0 0px;
-                
-                background-color: #ebebeb;
                 width: 100%;
-                
                 background: rgba(250,250,250,1);
                 background: -moz-linear-gradient(left, rgba(250,250,250,1) 0%, rgba(240,240,240,1) 47%, rgba(232,232,232,1) 100%);
                 background: -webkit-gradient(left top, right top, color-stop(0%, rgba(250,250,250,1)), color-stop(47%, rgba(240,240,240,1)), color-stop(100%, rgba(232,232,232,1)));
@@ -35,8 +28,7 @@
                 background: linear-gradient(to right, rgba(250,250,250,1) 0%, rgba(240,240,240,1) 47%, rgba(232,232,232,1) 100%);
                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#e8e8e8', GradientType=1 );
 
-                
-  
+                 
             }
             
             header{
@@ -44,24 +36,12 @@
                 width: 100%;
                 position: absolute;
                 height: 165px;
-               /* background: -moz-repeating-radial-gradient( #DC143C 0%, #FF69B4 50%,#C71585 80%);
+                background: -moz-repeating-radial-gradient( #DC143C 0%, #FF69B4 50%,#C71585 80%);/* For Firefox 3.6 to 15 */
                 background: -o-repeating-radial-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%);
-                background: -webkit-linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%); 
-                background: -o-linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%); 
-                background: linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%);*/
-               
-               background: rgba(255,93,177,1);
-    background: -moz-radial-gradient(center, ellipse cover, rgba(255,93,177,1) 0%, rgba(239,1,124,1) 100%);
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,93,177,1)), color-stop(100%, rgba(239,1,124,1)));
-    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,93,177,1) 0%, rgba(239,1,124,1) 100%);
-    background: -o-radial-gradient(center, ellipse cover, rgba(255,93,177,1) 0%, rgba(239,1,124,1) 100%);
-    background: -ms-radial-gradient(center, ellipse cover, rgba(255,93,177,1) 0%, rgba(239,1,124,1) 100%);
-    background: radial-gradient(ellipse at center, rgba(255,93,177,1) 0%, rgba(239,1,124,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5db1', endColorstr='#ef017c', GradientType=1 );
-
-                text-shadow: 0 1px 0 #fff;
-    border-radius: 4px;
-             /*  border: 1px solid #000000; */
+                background: -webkit-linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%); /* For Safari 5.1 to 6.0 */
+                background: -o-linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%); /* For Opera 11.1 to 12.0 */
+                background: linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%);
+                border: 1px solid #000000;
                 margin: auto;
                 text-align: center;
             }
@@ -142,7 +122,7 @@
             footer{
                 width: 100%;
                 position: absolute;
-                top: 95%;
+                top: 620px;
                 background: -moz-radial-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%);/* For Firefox 3.6 to 15 */
                 background: -webkit-linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%); /* For Safari 5.1 to 6.0 */
                 background: -o-linear-gradient(left bottom, circle farthest-side, #DC143C 0%, #FF69B4 50%,#C71585 80%); /* For Opera 11.1 to 12.0 */
@@ -168,12 +148,8 @@
                 <li><a href="/tienda1.2/View/Cliente.php">Cliente</a></li>
                 <li class="disabled"><a href="#">Productos</a></li>
                 <li class="disabled"><a href="#">Inventario</a></li>  
-
-                <li ><a href="#">Apartados</a></li>
+                <li ><a href="/Tienda-vachelle/tienda1.2/View/Listado_Apartados.php?">Apartados</a></li>
                 <li class="disabled"><a href="/Tienda-vachelle/tienda1.2/View/Listado_CuentasXPagar.php?">CuentaXPagar</a></li>      
-                <li><a href="">Ventas</a></li>
-                <li><a href="#">Compras</a></li>
-                <li ><a href="/Tienda-vachelle/tienda1.2/View/Listado_Apartados.php?">Apartados</a></li> 
                 <li><a href="#">Ventas</a></li> 
                 <li><a href="#">Cierre de Caja</a></li>
                 <li><a href="/tienda1.2/View/cerrarSesion.php">Cerrar Sesion</a></li>                
@@ -194,10 +170,10 @@
                 <li><a href="/Tienda-vachelle/tienda1.2/View/Listado_Proveedores.php">Proveedor</a></li>
                 <li><a href="/Tienda-vachelle/tienda1.2/View/Cliente.php">Cliente</a></li>
                 <li><a href="/Tienda-vachelle/tienda1.2/View/Listar_Productos.php">Productos</a></li>
-                <li><a href="/Tienda-vachelle/tienda1.2/Business/consultarInventario.php?buscarPor=4">Inventario</a></li>  
+                <li><a href="/Tienda-vachelle/tienda1.2/Business/consultarInventario.php?buscarPor=4">Inventario</a></li>                 
                 <li ><a href="/Tienda-vachelle/tienda1.2/View/Listado_Apartados.php?">Apartados</a></li>
                 <li class="disabled"><a href="/Tienda-vachelle/tienda1.2/View/Listado_CuentasXPagar.php">CuentaXPagar</a></li>
-                <li><a href="/Tienda-vachelle/tienda1.2/View/FacturaVenta.php">Ventas</a></li>
+                 <li><a href="#">Ventas</a></li>
                 <li><a href="#">Compras</a></li>
                 <li><a href="#">Cierre de Caja</a></li>
                 <li><a href="/Tienda-vachelle/tienda1.2/View/cerrarSesion.php">Cerrar Sesion</a></li>    
@@ -208,7 +184,7 @@
     ?>      
     </body>
      <footer>
-            Tienda Valleche     teléfono: 2710 5048    correo: vallege@tiendavallege.com
+            Tienda Valleche     telefono: 2710 5048    correo: vallege@tiendavallege.com
     </footer>
 </html>
 
