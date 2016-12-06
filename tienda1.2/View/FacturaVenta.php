@@ -46,13 +46,7 @@ $vendedor = $_SESSION['usuario'];
             $(document).ready(deshabilitarCampoTotalFinal());
             function deshabilitarCampoTotalFinal() {
                 alert('hola'+document.getElementById('tipoFac').value);
-               // var selectTipoFactura = document.getElementById("tipoFac").value;
-                //var pagoFinal = document.getElementById('pagoFinal');
-                //if (selectTipoFactura === 'debito') {
-                 //   pagoFinal.readOnly = true;
-                //} else {
-                 //   pagoFinal.readOnly = false;
-                //}
+               
 
             }
         </script>
@@ -201,7 +195,6 @@ $vendedor = $_SESSION['usuario'];
                 border-color: #b03535;
             }
 
-
         </style>
 
         <?php
@@ -224,7 +217,7 @@ $vendedor = $_SESSION['usuario'];
                 <div id="cabecera0"></div>
                 <div id="cabecera1">
                     Datos Factura:<br>
-                    <label for="numFact">Numero factura:</label>
+                    <label for="numFact">Número factura:</label>
                     <input type="text" id="numFact" value="<?php echo $numeroFactura; ?>" name="numFact" readonly="" required/>
 
                     <label for="Vendedor">Vendedor:</label>
@@ -254,8 +247,6 @@ $vendedor = $_SESSION['usuario'];
                     <input type="hidden" id="clicedula" name="idCliente" required/>
 
                 </div>
-
-
 
                 <div id="cuerpo">
                     <div id="principal">
@@ -298,9 +289,7 @@ $vendedor = $_SESSION['usuario'];
                     </div>
 
 
-
                     <div id="lateral">
-
 
                         <div><label for="subtotal">Subtotal:</label></div>
                         <div>₡ <input value="0" type="text" id="subt" name="subt" style="padding: .2em; " readonly="" required/></div>

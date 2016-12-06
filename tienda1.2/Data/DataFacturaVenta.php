@@ -90,7 +90,6 @@ inner join marcaProd m on m.id=p.idmarcaProd where estado = 1 and p.codigo like 
    
    echo $argumento = json_encode($vector);
     return $argumento; 
-    
 }
 
 
